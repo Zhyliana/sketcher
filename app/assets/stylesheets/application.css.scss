@@ -15,7 +15,32 @@
  */
 @import "bootstrap";
 
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+
 @font-face {
   font-family: 'glyphicon';
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
+}
+
+.my-nav {
+  background-color: #05565E;
+  border-radius: 0px;
+}
+
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+  color: #FFFFFF;
+  font-size: 24px;
+}
+
+
+.my-nav button {  
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  color: #777;
+	font-size: 13px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-weight: 600;
 }

@@ -5,11 +5,6 @@
   margin-left: 20%;
 }
 
-/*.glyphicon {
-   top: 50%;
-   vertical-align: middle;
-}*/
-
 #my-canvas{
   border-radius: 15px;
   background-color: #FFFFFF;
@@ -62,16 +57,10 @@
   text-align: center;
 }
 
-.brush:focus, .brush:hover, .brush:active {
+.tools button:focus, .tools button:hover, .tools  button:active {
   outline: none;
   border: 2px solid #a9a9a9;
 }
-
-
-.paint:hover {
-  border: 2px solid #a9a9a9;
-}
-
 
 #black {
   background-color: black;
@@ -103,14 +92,14 @@
   background-color: white;
 }
 
-#sm{
+#sm {
   height: 30px;
   width: 30px;
   font-size: 15px;
   border-radius: 15px;
 }
 
-#med{
+#med {
   height: 40px;
   width: 40px;
   font-size: 20px;
