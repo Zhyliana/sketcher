@@ -54,7 +54,7 @@ $(function(){
   });
   
   $("#my-canvas").mousemove(function(event){
-    if (drawing == true) {
+    if (drawing === true) {
       ctx.lineTo(event.pageX - canvasOffset.left, event.pageY - canvasOffset.top);
       ctx.stroke();
     }
