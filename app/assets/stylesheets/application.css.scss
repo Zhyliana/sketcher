@@ -34,13 +34,12 @@
   font-size: 24px;
 }
 
-
-.my-nav button {  
-  border-radius: 15px;
-  background-color: #FFFFFF;
-  color: #777;
-	font-size: 13px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	font-weight: 600;
+.navbar-btn {
+  border-radius: 10px;
+  color: #999999;
+  top: 5px;
+  background-color: #ECECEC;
+  border: none;
+  margin: 7px 15px;
+  padding: 5px 10px;
 }
