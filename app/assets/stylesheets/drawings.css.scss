@@ -3,50 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #my-canvas{
-  border: solid; 
-  float: left;
   border-radius: 15px;
-  border-width: 7px;
+  width: 600px;
+  height: 600px; 
   background-color: #FFFFFF;
-  border-color: #a9a9a9;
-  margin: 15px;
-  position: relative;
+  border: 7px solid #a9a9a9;
+  margin: 10px auto;
+  display: block;
 }
 
-.brush {
+#brush-area, #pallette-area {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 75px;
+}
+
+.brush, .paint {
   height: 30px;
   width: 30px;
-  border: solid;
-  margin: 5px;
-  float: left;
-  z-index: 1000;
-  border-radius: 20px;
+  border: 2px solid #FFFFFF;
   margin: 10px;
-}
-.paint {
-  height: 35px;
-  width: 35px;
-  border: solid;
-  margin: 5px;
   float: left;
-  z-index: 1000;
-  border-radius: 20px;
-  margin: 10px;
+  border-radius: 5px;
 }
 
 .paint:hover {
   border-color: #a9a9a9;
-  border-width: 4px;
-  border-radius: 20px;
-}
-
-#brush-area, #pallette-area {
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-#pallette-area{
-  position: relative;
+  border-width: 2px;
 }
 
 #black {
@@ -59,7 +43,8 @@
 
 #orange {
   background-color: orange;
-} 
+}
+
 #yellow {
   background-color: yellow;
 }
@@ -68,15 +53,12 @@
 }
 #blue {
   background-color: blue;
-}  
+} 
+ 
 #purple {
   background-color: purple;
 }
+
 #white {
   background-color: white;
-}
-
-#sm {
-  height: 15px;
-  width: 15px;
 }
