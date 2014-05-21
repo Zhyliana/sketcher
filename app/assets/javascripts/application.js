@@ -24,6 +24,7 @@
 //= require_tree .
 //= require serialize_json
 //= require fabric
+//= require bootstrap
 
 
 $(function(){
