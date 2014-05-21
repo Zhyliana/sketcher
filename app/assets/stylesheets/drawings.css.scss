@@ -44,6 +44,12 @@
   float: left;
 }
 
+.brush {
+  background-color: #DB8C10;
+  border: none;
+  color: #FFFFFF;
+}
+
 .paint:hover {
   border-color: #a9a9a9;
   border-width: 2px;
@@ -77,4 +83,22 @@
 
 #white {
   background-color: white;
+}
+
+#sm{
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+}
+
+#med{
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+#lrg{
+  height: 45px;
+  width: 45px;
+  border-radius: 25px;
 }
