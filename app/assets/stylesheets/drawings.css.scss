@@ -1,3 +1,77 @@
 // Place all the styles related to the Drawings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#my-canvas{
+  border: solid; 
+  float: left;
+  border-radius: 15px;
+  border-width: 7px;
+  background-color: #FFFFFF;
+  border-color: #a9a9a9;
+  margin: 15px;
+}
+
+.brush {
+  height: 30px;
+  width: 30px;
+  border: solid;
+  margin: 5px;
+  float: left;
+  z-index: 1000;
+  border-radius: 20px;
+  margin: 10px;
+}
+.paint {
+  height: 35px;
+  width: 35px;
+  border: solid;
+  margin: 5px;
+  float: left;
+  z-index: 1000;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.paint:hover {
+  border-color: #a9a9a9;
+  border-width: 3px;
+  border-radius: 20px;
+}
+
+#brush-area, #pallette-area {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#pallette-area{
+  
+}
+
+#black {
+  background-color: black;
+}
+
+#red {
+  background-color: red;
+}
+
+#orange {
+  background-color: orange;
+} 
+#yellow {
+  background-color: yellow;
+}
+#green {
+  background-color: green;
+}
+#blue {
+  background-color: blue;
+}  
+#purple {
+  background-color: purple;
+}
+#white {
+  background-color: white;
+}

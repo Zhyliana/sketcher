@@ -4,11 +4,10 @@ window.FP = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new FP.Routers.Router({
+    new FP.Routers.AppRouter({
       $rootEl: $("#content")
     });
     Backbone.history.start();
-    alert('Hello from Backbone!');
   }
 };
 
