@@ -4,6 +4,7 @@ gem 'jquery-ui-rails'
 gem 'ejs'
 gem 'serialize_json-rails', '~> 0.0.1'
 gem 'fabric-rails'
+gem 'devise'
 
 gem 'pg'
 gem 'pry-rails'
