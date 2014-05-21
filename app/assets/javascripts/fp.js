@@ -7,7 +7,7 @@ window.FP = {
     new FP.Routers.Router({
       $rootEl: $("#content")
     });
-    BAckbone.history.start();
+    Backbone.history.start();
     alert('Hello from Backbone!');
   }
 };
