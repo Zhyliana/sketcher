@@ -1,6 +1,10 @@
 // Place all the styles related to the Drawings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.drawing-area {
+  margin-left: 20%;
+  display: block;
+}
 
 #my-canvas{
   border-radius: 15px;
@@ -8,16 +12,23 @@
   height: 600px; 
   background-color: #FFFFFF;
   border: 7px solid #a9a9a9;
-  margin: 10px auto;
-  display: block;
+  float: left;
+  position: relative;
+  
 }
 
-#brush-area, #pallette-area {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 75px;
+.tools {
+  position: relative;
+  float: left;
 }
+
+#pallette-area {
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
 
 .brush, .paint {
   height: 30px;
