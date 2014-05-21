@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .drawing-area {
   margin-left: 20%;
-  display: block;
 }
 
 #my-canvas{
@@ -14,26 +13,29 @@
   border: 7px solid #a9a9a9;
   margin: 10px;
   float: left;
-  position: relative; 
 }
 
 .tools {
   float: left;
-  width: 160px;
+  width: 155px;
   margin: 10px;
 }
 
 #pallette-area, #brush-area {
   margin: 5px;
   padding: 15px;
+  border-radius: 15px;
+}
+
+#pallette-area:after, #brush-area:after {
+  content: "";
+  clear: both;
+  display: block;
 }
 
 #pallette-area {
   background-color: #DB8C10;
-  padding: 15px;
-  border-radius: 15px;
 }
-
 
 .brush, .paint {
   height: 30px;
@@ -41,6 +43,7 @@
   border: 2px solid #FFFFFF;
   margin: 3px;
   border-radius: 5px;
+  float: left;
 }
 
 .paint:hover {

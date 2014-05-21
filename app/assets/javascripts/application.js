@@ -37,7 +37,7 @@ $(function(){
   var canvasOffset = $("#my-canvas").offset();
   
   $(".paint").click(function(event){
-    var color = event.target.id;         
+    var color = event.target.id;      
     ctx.strokeStyle = color
     ctx.moveTo(event.pageX - canvasOffset.left, event.pageY - canvasOffset.top);
   });
