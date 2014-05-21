@@ -14,3 +14,8 @@
  *= require_self
  */
 @import "bootstrap";
+
+@font-face {
+  font-family: 'glyphicon';
+  src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
+}
