@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .drawing-area {
   margin-left: 20%;
+  margin-top: 35px;
 }
 
 #my-canvas{
@@ -62,6 +63,15 @@
   border: 2px solid #a9a9a9;
 }
 
+#submit-drawing-button {
+  border-radius: 10px;
+  background-color: #DB8C10;
+  color: #FFFFFF;
+  margin-top: 15px;
+  width: 145px;
+  border: 2px solid #DB8C10
+}
+
 #black {
   background-color: black;
 }
@@ -70,26 +80,30 @@
   background-color: red;
 }
 
-#orange {
-  background-color: orange;
+#darkorange {
+  background-color: darkorange;
 }
 
-#yellow {
-  background-color: yellow;
+#gold {
+  background-color: gold;
 }
-#green {
-  background-color: green;
+#forestgreen {
+  background-color: forestgreen;
 }
-#blue {
-  background-color: blue;
+#darkturquoise {
+  background-color: darkturquoise;
 } 
  
-#purple {
-  background-color: purple;
+#darkorchid {
+  background-color: darkorchid;
 }
 
 #white {
   background-color: white;
+}
+
+#saddlebrown {
+  background-color: saddlebrown;
 }
 
 #sm {
