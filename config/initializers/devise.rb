@@ -1,6 +1,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.authentication_keys = [ :username ]
   config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.scoped_views = true
   # The secret key used by Devise. Devise uses this key to generate
