@@ -38,19 +38,15 @@
   border-color: #a9a9a9;
   border-width: 4px;
   border-radius: 20px;
-  margin-bottom: -4px;
-  margin-right: 8px;
-
 }
 
 #brush-area, #pallette-area {
-  float: left;
   margin-top: 10px;
   margin-left: 10px;
 }
 
 #pallette-area{
-  
+  position: relative;
 }
 
 #black {
@@ -78,4 +74,9 @@
 }
 #white {
   background-color: white;
+}
+
+#sm {
+  height: 15px;
+  width: 15px;
 }
