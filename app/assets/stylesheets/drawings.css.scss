@@ -12,21 +12,26 @@
   height: 600px; 
   background-color: #FFFFFF;
   border: 7px solid #a9a9a9;
+  margin: 10px;
   float: left;
-  position: relative;
-  
+  position: relative; 
 }
 
 .tools {
-  position: relative;
   float: left;
+  width: 160px;
+  margin: 10px;
+}
+
+#pallette-area, #brush-area {
+  margin: 5px;
+  padding: 15px;
 }
 
 #pallette-area {
-  width: 200px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  background-color: #DB8C10;
+  padding: 15px;
+  border-radius: 15px;
 }
 
 
@@ -34,8 +39,7 @@
   height: 30px;
   width: 30px;
   border: 2px solid #FFFFFF;
-  margin: 10px;
-  float: left;
+  margin: 3px;
   border-radius: 5px;
 }
 
