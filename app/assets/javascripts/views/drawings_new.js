@@ -15,8 +15,7 @@ FP.Views.NewDrawing = Backbone.View.extend({
     return this
   },
   
-  submit: function(){
-    
+  submit: function(){   
   }
   
 })
