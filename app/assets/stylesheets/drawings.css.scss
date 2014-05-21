@@ -10,6 +10,7 @@
   background-color: #FFFFFF;
   border-color: #a9a9a9;
   margin: 15px;
+  position: relative;
 }
 
 .brush {
@@ -35,8 +36,11 @@
 
 .paint:hover {
   border-color: #a9a9a9;
-  border-width: 3px;
+  border-width: 4px;
   border-radius: 20px;
+  margin-bottom: -4px;
+  margin-right: 8px;
+
 }
 
 #brush-area, #pallette-area {
