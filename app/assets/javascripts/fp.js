@@ -11,6 +11,6 @@ window.FP = {
   }
 };
 
-$(document).ready(function(){
+$(function(){
   FP.initialize();
 });

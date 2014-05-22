@@ -13,9 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap";
 
 @import url(http://fonts.googleapis.com/css?family=Lobster);
+
+body {
+  background-color: #0f8790;
+}
 
 @font-face {
   font-family: 'glyphicon';
@@ -25,6 +30,7 @@
 .my-nav {
   background-color: #05565E;
   border-radius: 0px;
+  color: #FFFFFF;
 }
 
 .navbar-brand {
