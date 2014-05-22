@@ -9,9 +9,9 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   sketchShow: function(id){
-    var sketch = SketchMate.sketches.getOrFetch(id);
-
-  }
+    var sketch = SketchMate.sketches.getOrFetch(id)
+     var board = Trellino.Collections.boards.getOrFetch(id)
+  },
   
   sketchNew: function(){
     var newSketch = new SketchMate.Models.Sketch();
