@@ -1,18 +1,27 @@
-<h2>Sign up</h2>
+<div class="container col-xs-4 col-xs-offset-3">
+  <h1>Join the Darkside</h1>
+  <h4>Reap the karma</h4>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    
+    <div class="form-group">
+      <div><%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "awesomesauce@fantastic.io" %></div>
+    </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+ <div class="form-group">
+       <%= f.label :password %><br>
+       <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Make it good..." %>
+ </div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <div class="form-group">
+      <%= f.label :password_again %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "...make it hard" %>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+   <div>
+     <%= f.submit "Sign Up", class: "btn" %>
+   </div>
+  <% end %>
+</div>
