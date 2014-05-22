@@ -5,6 +5,7 @@ gem 'ejs'
 gem 'serialize_json-rails', '~> 0.0.1'
 gem 'fabric-rails'
 gem 'devise'
+gem 'omniauth'
 
 gem 'pg'
 gem 'pry-rails'

@@ -10,18 +10,16 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-@import "bootstrap";
+/*@import "bootstrap";
 
-@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url("http://fonts.googleapis.com/css?family=Lobster");
 
 @font-face {
   font-family: 'glyphicon';
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
-}
-
+}*/
+/*
 .btn {
   background-color: #DB8C10;
   color: #FFFFFF;
@@ -60,4 +58,4 @@
   border: none;
   margin: 7px 15px;
   padding: 5px 10px;
-}
+}*/
