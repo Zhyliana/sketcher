@@ -28,8 +28,25 @@
 </nav>
 
 
-  <p class="notice"><%= notice if notice %></p>
-  <p class="alert"><%= alert if alert %></p>
+<% if alert %>
+  <p class="alert alert-danger container"><%= alert %></p>
+<% end %>
+
+<% if notice %>
+  <p class="alert alert-success container"><%= notice %></p>
+<% end %>
+
+<% if flash[:errors] %>
+  <div class="alert alert-danger">
+    <h3>Dammit. Get it together!</h3>
+    <ul>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 
 <%= yield %>
 
