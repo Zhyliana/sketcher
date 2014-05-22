@@ -22,6 +22,16 @@
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
 }
 
+body {
+  background-color: #0f8790;
+}
+
+.btn {
+  background-color:  #DB8C10;
+  color: #FFFFFF;
+  border-radius: 10px;
+}
+
 .my-nav {
   background-color: #05565E;
   border-radius: 0px;
