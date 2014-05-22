@@ -1,11 +1,12 @@
-class CreateDrawings < ActiveRecord::Migration
+class CreateSketches < ActiveRecord::Migration
   def change
-    create_table :drawings do |t|
-      t.integer :user_id
+    create_table :sketches do |t|
+      t.integer :user_id, null: false
+      t.integer :votes
 
       t.timestamps
     end
     
-    add_index :drawings, :user_id
+    add_index :sketches, :user_id
   end
 end

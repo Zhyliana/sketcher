@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
   namespace :api, defaults: { format: :json } do
-    resources :drawings
+    resources :sketches
   end
 end

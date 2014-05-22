@@ -4,6 +4,7 @@ window.SketchMate = {
   Views: {},
   Routers: {},
   initialize: function() {
+    SketchMate.sketches = new SketchMate.Collections.Sketches();
     new SketchMate.Routers.AppRouter({
       $rootEl: $("#content")
     });

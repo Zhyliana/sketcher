@@ -1,15 +1,15 @@
-SketchMate.Views.NewDrawing = Backbone.View.extend({
-  template: JST["drawings/new"],
+SketchMate.Views.NewSketch = Backbone.View.extend({
+  template: JST["sketches/new"],
   className: "drawing-area",
-  // collection: SketchMate.Collections.Drawings(),
+  collection: SketchMate.Collections.Sketches,
   
   events: {
     "click button#new-drawing" : "submit"
   },
   
   render: function(){
-    var renderedContent = this.template({})
-    
+    var renderedContent = this.template()
+    debugger
     this.$el.html(renderedContent)
     
     return this

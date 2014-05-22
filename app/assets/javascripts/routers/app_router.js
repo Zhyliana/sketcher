@@ -4,16 +4,16 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
-    "" : "drawingNew"
+    "" : "sketchNew"
   },
   
-  drawingNew: function(){
-    var newDrawing = new SketchMate.Models.Drawing();
-    var newDrawingView = new SketchMate.Views.NewDrawing({
-      model: newDrawing
+  sketchNew: function(){
+    var newSketch = new SketchMate.Models.Sketch();
+        debugger
+    var newSketchView = new SketchMate.Views.NewSketch({
+      model: newSketch
     });
-    
-    this._swapView(newDrawingView);
+    this._swapView(newSketchView);
   },
   
   _swapView: function(view) {
