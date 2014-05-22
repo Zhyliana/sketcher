@@ -1,10 +1,10 @@
-window.FP = {
+window.SketchMate = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    new FP.Routers.AppRouter({
+    new SketchMate.Routers.AppRouter({
       $rootEl: $("#content")
     });
     Backbone.history.start();
@@ -12,5 +12,5 @@ window.FP = {
 };
 
 $(document).ready(function(){
-  FP.initialize();
+  SketchMate.initialize();
 });

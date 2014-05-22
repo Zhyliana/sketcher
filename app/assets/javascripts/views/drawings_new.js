@@ -1,7 +1,7 @@
-FP.Views.NewDrawing = Backbone.View.extend({
+SketchMate.Views.NewDrawing = Backbone.View.extend({
   template: JST["drawings/new"],
   className: "drawing-area",
-  // collection: FP.Collections.Drawings(),
+  // collection: SketchMate.Collections.Drawings(),
   
   events: {
     "click button#new-drawing" : "submit"

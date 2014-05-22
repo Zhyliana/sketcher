@@ -1,4 +1,4 @@
-FP.Routers.AppRouter = Backbone.Router.extend({
+SketchMate.Routers.AppRouter = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl  
   },
@@ -8,8 +8,8 @@ FP.Routers.AppRouter = Backbone.Router.extend({
   },
   
   drawingNew: function(){
-    var newDrawing = new FP.Models.Drawing();
-    var newDrawingView = new FP.Views.NewDrawing({
+    var newDrawing = new SketchMate.Models.Drawing();
+    var newDrawingView = new SketchMate.Views.NewDrawing({
       model: newDrawing
     });
     
