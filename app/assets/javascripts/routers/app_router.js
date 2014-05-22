@@ -9,7 +9,6 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   
   sketchNew: function(){
     var newSketch = new SketchMate.Models.Sketch();
-        debugger
     var newSketchView = new SketchMate.Views.NewSketch({
       model: newSketch
     });

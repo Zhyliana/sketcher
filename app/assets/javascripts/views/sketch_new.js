@@ -4,18 +4,25 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
   collection: SketchMate.Collections.Sketches,
   
   events: {
-    "click button#new-drawing" : "submit"
+    "click button#submit-drawing-button" : "submit"
   },
   
   render: function(){
     var renderedContent = this.template()
-    debugger
     this.$el.html(renderedContent)
     
     return this
   },
   
-  submit: function(){   
+  submit: function(){ 
+    var canvas = $("#my-canvas")[0].toDataURL();
+    this.model.set({
+      data_url: canvas
+    });
+    
+    this.model.save({},{
+      success: alert("saved!")
+    });
   }
   
 })

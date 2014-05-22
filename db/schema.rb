@@ -13,13 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20140522045006) do
 
-  create_table "drawings", force: true do |t|
-    t.integer  "user_id"
+  create_table "sketches", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "data_url"
+    t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "drawings", ["user_id"], name: "index_drawings_on_user_id"
+  add_index "sketches", ["user_id"], name: "index_sketches_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
