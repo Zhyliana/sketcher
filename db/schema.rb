@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140521212944) do
+=======
+ActiveRecord::Schema.define(version: 20140522045006) do
+>>>>>>> safe-email
 
   create_table "drawings", force: true do |t|
     t.integer  "user_id"
@@ -22,8 +26,11 @@ ActiveRecord::Schema.define(version: 20140521212944) do
   add_index "drawings", ["user_id"], name: "index_drawings_on_user_id"
 
   create_table "users", force: true do |t|
+<<<<<<< HEAD
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+>>>>>>> safe-email
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -34,6 +41,11 @@ ActiveRecord::Schema.define(version: 20140521212944) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+<<<<<<< HEAD
+=======
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> safe-email
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
