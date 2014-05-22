@@ -1,0 +1,22 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="form-group">
+    <div><%= f.label :email %><br>
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "We call it your secret service alias" %></div>
+  </div>
+  
+  <div class="form-group">
+        <%= f.label :password %><br>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Quick, they'll look!" %>
+  </div>
+  
+  <div class="form-group checkbox">    
+    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me %><%= f.label :I_shall_be_back %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit "Let's rumble!", class: "btn" %>
+  </div>
+<% end %>

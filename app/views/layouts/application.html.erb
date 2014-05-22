@@ -7,8 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-  <nav class="navbar my-nav" role="navigation">
+    <nav class="navbar my-nav" role="navigation">
     <div class="container-fluid ">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -16,50 +15,59 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-    <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-user"></span> <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%=link_to "Profile", user_url(current_user)%></li>
-            <li class="divider"></li>
-            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-          </ul>
-        </li>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-user"></span> <b class="caret"></b>
+            </a>
+          <!-- </li> -->
+            <ul class="dropdown-menu">
+              <li>
+                <%=link_to "Profile", user_url(current_user)%>
+              </li>
+            
+              <li class="divider">
+              </li>
+            
+              <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+            </ul>
+          </li>
 
-                <% else %>
+        <% else %>
 
+          <li>
+            <button class="btn navbar-btn sessions-nav-btn"
+                    id="sign-in-nav-btn"
+                    data-toggle="modal"
+                    data-target=".sign-in-modal">
+                    Sign In
+            </button>
+          </li>
 
-                  <li>
-                    <button class="btn btn-default navbar-btn"
-                            data-toggle="modal"
-                            data-target=".bs-example-modal-sm"
-                            style="border-radius: 5px 0px 0px 5px">
-                      Sign In
-                    </button>
-                  </li>
+          <div class="modal fade sign-in-modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="mySmallModalLabel"
+              aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <h1 style="color: black">Sign In</h1>
+                  <%= render "devise/sessions/new", :user => @user %>
+                 </div>
+               </div>
+            </div>
+          </div>
 
-                  <div class="modal fade bs-example-modal-sm"
-                      tabindex="-1"
-                      role="dialog"
-                      aria-labelledby="mySmallModalLabel"
-                      aria-hidden="true">
-                      <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
-                          <div class="modal-body">
-                            <%= render "sessions/form", :user => @user %>
-                           </div>
-                         </div>
-                      </div>
-                    </div>
-
-                  <li><%= button_to "Sign up", new_user_url, :method => :get, :class => "btn btn-default navbar-btn", :style => "border-radius: 0px 5px 5px 0px;"%></li>
-
-                <% end %>
-    
-
+          <li>
+            <%= button_to "Sign up", new_user_registration_url, 
+              class: "btn navbar-btn sessions-nav-btn", 
+              id: "sign-up-nav-btn", 
+              method: :get %>
+          </li>
+       <% end %>
+    </ul>
   </div>
 </nav>
 
