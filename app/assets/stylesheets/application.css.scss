@@ -39,6 +39,20 @@
   border-radius: 10px;
 }
 
+body {
+  background-color: #0f8790;
+}
+
+h1, h2, h4, label {
+  color: #FFFFFF;
+}
+
+.btn {
+  background-color:  #DB8C10;
+  color: #FFFFFF;
+  border-radius: 10px;
+}
+
 .my-nav {
   background-color: #05565E;
   border-radius: 0px;
@@ -53,7 +67,6 @@
 .navbar-btn {
   border-radius: 10px;
   color: #999999;
-  top: 5px;
   background-color: #ECECEC;
   border: none;
   margin: 7px 15px;
