@@ -9,6 +9,7 @@ gem 'devise'
 gem 'pg'
 gem 'pry-rails'
 
+gem 'rails_12factor', group: :production
 
 group :development do
   gem 'annotate'
