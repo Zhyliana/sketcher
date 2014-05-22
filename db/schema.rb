@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140522045006) do
 
   create_table "sketches", force: true do |t|
     t.integer  "user_id",    null: false
-    t.string   "data_url"
+    t.text     "data_url"
     t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"

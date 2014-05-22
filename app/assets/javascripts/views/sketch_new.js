@@ -3,9 +3,13 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
   className: "drawing-area",
   collection: SketchMate.Collections.Sketches,
   
+  initialize: function(options){
+  },
+  
   events: {
     "click button#submit-drawing-button" : "submit"
   },
+  
   
   render: function(){
     var renderedContent = this.template()
@@ -14,15 +18,23 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     return this
   },
   
-  submit: function(){ 
+  submit: function(event){ 
+    event.preventDefault()
+    
     var canvas = $("#my-canvas")[0].toDataURL();
-    this.model.set({
-      data_url: canvas
+    var newSketch = new SketchMate.Models.Sketch();
+      
+    newSketch.set({
+      data_url: canvas,
+      votes: 0
     });
     
-    this.model.save({},{
-      success: alert("saved!")
-    });
+    newSketch.save({},{
+      success: function(){
+        // SketchMate.sketches.add(newSketch);
+        Backbone.history.navigate("#/sketches/" + newSketch.id, { trigger: true })
+      }
+    });    
   }
   
 })
