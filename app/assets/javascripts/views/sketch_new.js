@@ -32,7 +32,7 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     newSketch.save({},{
       success: function(){
         // SketchMate.sketches.add(newSketch);
-        Backbone.history.navigate("#/sketches/" + newSketch.id, { trigger: true })
+        Backbone.history.navigate("#/sketch/" + newSketch.id, { trigger: true })
       }
     });    
   }
