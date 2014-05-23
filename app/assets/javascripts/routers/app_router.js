@@ -10,9 +10,11 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   
   sketchShow: function(id){
     var sketch = SketchMate.sketches.getOrFetch(id);
+    sketch.fetch();
     
     var sketchView = new SketchMate.Views.ShowSketch({
-      model: sketch
+      model: sketch,
+      cards: sketch.whiteCards(),
     })
     
     this._swapView(sketchView);

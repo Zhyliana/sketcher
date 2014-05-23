@@ -9,11 +9,14 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   },
   
   initialize: function(options){
+    this.listenTo(this.model, "sync add remove", this.render);
+    this.listenTo( this.model.whiteCards(), "sync add", this.addCard);
+    
     this.model.whiteCards().each(this.addWhiteCard.bind(this));
-    // this.listenTo(this.model, "sync add remove", this.render);
   },
   
   addWhiteCard: function(card){
+    debugger
       var whiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ model: card });   
       this.addSubview(".cards", whiteCardShowView);
     },
@@ -25,6 +28,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     })
     
     this.$el.html(renderedContent)
+    debugger
     this.attachSubviews();
 
     return this

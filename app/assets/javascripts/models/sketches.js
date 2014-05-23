@@ -4,19 +4,22 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
     return (this.get("description") ? false : true)
   },
   
-  whiteCards: function () {    
+  whiteCards: function () { 
+    debugger 
      if (!this._whiteCards) {
        this._whiteCards = new SketchMate.Collections.WhiteCards([], {
          sketch: this
        });
      }
-     
+
      return this._whiteCards;
    },
   
-   parse: function (jsonResp) {
-     if (jsonResp.whiteCards) {
-       this.whiteCards.set(jsonResp.white_cards, { parse: true });
+   parse: function (jsonResp) {  
+     debugger
+     if (jsonResp.white_cards) {
+       debugger
+       this.whiteCards().set(jsonResp.white_cards, { parse: true });
        delete jsonResp.white_cards;
      }
      
