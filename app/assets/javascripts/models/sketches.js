@@ -5,7 +5,6 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
   },
   
   whiteCards: function () { 
-    debugger 
      if (!this._whiteCards) {
        this._whiteCards = new SketchMate.Collections.WhiteCards([], {
          sketch: this
@@ -16,9 +15,7 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
    },
   
    parse: function (jsonResp) {  
-     debugger
      if (jsonResp.white_cards) {
-       debugger
        this.whiteCards().set(jsonResp.white_cards, { parse: true });
        delete jsonResp.white_cards;
      }

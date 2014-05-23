@@ -8,7 +8,7 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   render: function(){
-    debugger
+
     var renderedContent = this.template({
       white_card: this.model
     });
