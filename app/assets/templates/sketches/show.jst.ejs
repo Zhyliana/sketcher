@@ -1,15 +1,35 @@
 <p><%= sketch.get("user_id") %></p>
 <p><%= sketch.get("data_url") %></p>
-<% debugger %>
+
 
 <h1>ghudhdsuh</h1>
 
 <canvas id="my-canvas" width="500" height="500"></canvas>
-<script>
-debugger
-  var canvas = document.getElementsByTagName("myCanvas")[0];
-  var ctx = canvas.getContext("2d")
-  var url = sketch.get("data_url")
-  ctx.draw(url, 0, 0)
-</script>
+  <script>
+    function loadCanvas(dataURL){
+        var canvas = $("#my-canvas")[0];
+        var ctx = $("#my-canvas")[0].getContext("2d");
+      
+        var imageObj = new Image();
+        imageObj.onload = function() {
+          ctx.drawImage(this, 0, 0);
+        };
+      
+        imageObj.src = dataURL
+      }
+      
+      var request = new XMLHttpRequest();
+            request.open('GET', 'http://www.html5canvastutorials.com/demos/assets/dataURL.txt', true);
+            request.onreadystatechange = function() {
+              // Makes sure the document is ready to parse.
+              if(request.readyState == 4) {
+                // Makes sure it's found the file.
+                if(request.status == 200) {
+                  loadCanvas(request.responseText);
+                }
+              }
+            };
+            request.send(null);
+
+  </script>
 </div>
