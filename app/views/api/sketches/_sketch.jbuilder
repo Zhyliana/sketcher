@@ -1,1 +1,1 @@
-json.extract! sketch, :id, :data_url, :user_id, :created_at, :updated_at
+json.extract! sketch, :id, :image, :user_id, :votes, :created_at, :updated_at

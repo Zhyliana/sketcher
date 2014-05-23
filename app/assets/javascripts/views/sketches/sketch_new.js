@@ -62,7 +62,7 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
 
   submit: function(event){ 
     event.preventDefault()
-    
+    var view = this;
     var canvas = $("#my-canvas")[0].toDataURL();
     var newSketch = new SketchMate.Models.Sketch();
       
@@ -73,7 +73,7 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     
     newSketch.save({},{
       success: function(){
-        // this.collection.add(newSketch);
+        SketchMate.sketches.add(newSketch);
         Backbone.history.navigate("#/sketch/" + newSketch.id, { trigger: true })
       }
     });    

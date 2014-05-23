@@ -4,7 +4,7 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
   
   getOrFetch: function(id){
     var model;
-    var sketches = this;
+    var collection = this;
     
     if(model = this.get(id)){
       model.fetch();
@@ -13,7 +13,7 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
       model = new SketchMate.Models.Sketch({id: id});
       model.fetch({
         success: function(){
-          sketches.add(model)
+          collection.add(model)
         }
       });
       return model;
@@ -21,4 +21,4 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
   },
 })
 
-window.SketchMate.sketches = new SketchMate.Collections.Sketches();
+// window.SketchMate.sketches = new SketchMate.Collections.Sketches();
