@@ -18,7 +18,7 @@ class Sketch < ActiveRecord::Base
   validates :user_id, :votes, presence: true
   
   belongs_to :user
-  has_many :card_sketch_assignments, foreign_key: :sketch_id, class_name: "CardSketchAssignment"
+  has_many :card_sketch_assignments
   # has_many :voters, through: :card_assignments, foreign_key: :user_id
   
   has_attached_file :image, :styles => {
