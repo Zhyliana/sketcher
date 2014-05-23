@@ -11,19 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523182522) do
+ActiveRecord::Schema.define(version: 20140523183139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "card_sketch_assignments", force: true do |t|
     t.integer  "sketch_id"
-    t.integer  "card_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "white_card_id"
   end
 
-  add_index "card_sketch_assignments", ["card_id"], name: "index_card_sketch_assignments_on_card_id", using: :btree
   add_index "card_sketch_assignments", ["sketch_id"], name: "index_card_sketch_assignments_on_sketch_id", using: :btree
 
   create_table "sketches", force: true do |t|
