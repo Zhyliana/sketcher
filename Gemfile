@@ -10,7 +10,7 @@ gem 'pg'
 gem 'pry-rails'
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
-gem "aws-sdk"
+gem 'aws-sdk'
 gem 'figaro'
 
 gem 'rails_12factor', group: :production

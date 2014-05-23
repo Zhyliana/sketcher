@@ -67,7 +67,7 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     var newSketch = new SketchMate.Models.Sketch();
       
     newSketch.set({
-      data_url: canvas,
+      image: canvas,
       votes: 0
     });
     

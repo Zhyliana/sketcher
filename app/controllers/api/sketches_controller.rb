@@ -1,5 +1,6 @@
 module Api
   class SketchesController < ApiController
+    wrap_parameters :sketch, include: [:image, :votes]
     def index
       @sketches = current_user.sketches.all
       
@@ -23,7 +24,7 @@ module Api
 
     private
     def sketch_params
-      params.require(:sketch).permit(:user_id, :data_url, :votes)
+      params.require(:sketch).permit(:user_id, :image, :votes)
     end
   end
 end
