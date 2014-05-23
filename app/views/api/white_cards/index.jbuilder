@@ -1,0 +1,1 @@
+json.array! @white_cards, partial: 'api/white_cards/white_card', as: :white_card

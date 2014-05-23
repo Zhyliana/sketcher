@@ -2,7 +2,7 @@ module Api
   class SketchesController < ApiController
     wrap_parameters :sketch, include: [:image, :votes]
     def index
-      @sketches = current_user.sketches.all
+      @sketches = current_user.sketches.includes(:white_cards).all
       
       render :index
     end
@@ -30,7 +30,7 @@ module Api
 
     private
     def sketch_params
-      params.require(:sketch).permit(:user_id, :image, :votes, :user)
+      params.require(:sketch).permit(:user_id, :image, :votes, :user, :cards)
     end
   end
 end

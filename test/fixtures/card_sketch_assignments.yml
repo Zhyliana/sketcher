@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: card_sketch_assignments
+#
+#  id            :integer          not null, primary key
+#  sketch_id     :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  white_card_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sketch_id: 1
+  card_id: 1
+
+two:
+  sketch_id: 1
+  card_id: 1
