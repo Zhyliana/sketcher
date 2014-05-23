@@ -1,4 +1,4 @@
-SketchMate.Views.ShowSketch = Backbone.View.extend({
+SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   template: JST["sketches/show"],
   className: "show-sketch",
   collection: SketchMate.Collections.Sketches,
