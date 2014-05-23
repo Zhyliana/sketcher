@@ -1,19 +1,31 @@
-FP.Routers.AppRouter = Backbone.Router.extend({
+SketchMate.Routers.AppRouter = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl  
   },
   
   routes: {
-    "" : "drawingNew"
+    "" : "sketchNew",
+    "sketch/:id" : "sketchShow"
   },
   
-  drawingNew: function(){
-    var newDrawing = new FP.Models.Drawing();
-    var newDrawingView = new FP.Views.NewDrawing({
-      model: newDrawing
+  sketchShow: function(id){
+    var sketch = SketchMate.sketches.getOrFetch(id);
+    
+    var sketchView = new SketchMate.Views.ShowSketch({
+      model: sketch
+    })
+    
+    this._swapView(sketchView);
+  },
+  
+  sketchNew: function(){
+    var newSketch = new SketchMate.Models.Sketch();
+    
+    var newSketchView = new SketchMate.Views.NewSketch({
+      model: newSketch
     });
     
-    this._swapView(newDrawingView);
+    this._swapView(newSketchView);
   },
   
   _swapView: function(view) {

@@ -1,5 +1,19 @@
 Rails.application.configure do
+<<<<<<< HEAD
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+=======
+  
+  config.paperclip_defaults = {                                   
+    :storage => :s3,                                    
+    :s3_credentials => {                                          
+      :bucket => ENV['AWS_BUCKET'], #these values safely stored in application.yml thanks to figaro!                
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],                 
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+      :s3_host_name => "s3-us-west-1.amazonaws.com"         
+    }                                                             
+  }     
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+>>>>>>> safe-email
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

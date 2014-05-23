@@ -1,10 +1,5 @@
-<div class="container col-xs-4 col-xs-offset-3">
-  <h1>Glad to see you're back, little one.</h1>
-  <h4>Maybe today's the day.</h4>
-<<<<<<< HEAD
-  
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  
   <div class="form-group">
     <div><%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "We call it your secret service alias" %></div>
@@ -24,8 +19,4 @@
   <div>
     <%= f.submit "Let's rumble!", class: "btn" %>
   </div>
-</div>
-=======
-  <%= render "devise/sessions/new", :user => @user %>
-</div>
->>>>>>> safe-email
+<% end %>

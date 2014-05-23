@@ -1,0 +1,1 @@
+json.array! @sketches, partial: 'api/sketches/sketch', as: :sketch

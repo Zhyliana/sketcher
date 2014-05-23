@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module FP
+module SketchMate
   class Application < Rails::Application
     config.assets.initialize_on_precompile = false
     # Settings in config/environments/* take precedence over those specified here.
