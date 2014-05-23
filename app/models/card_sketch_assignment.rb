@@ -11,5 +11,5 @@
 
 class CardSketchAssignment < ActiveRecord::Base
   belongs_to :white_card
-  # belngs_to :sketch, foreign_key: :sketch_id, class_name: "Sketch"
+  belongs_to :sketch, foreign_key: :sketch_id, class_name: "Sketch"
 end
