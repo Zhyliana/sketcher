@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: sketches
+#
+#  id                 :integer          not null, primary key
+#  user_id            :integer          not null
+#  data_url           :text
+#  votes              :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#
+
 class Sketch < ActiveRecord::Base
   validates :user_id, presence: true
   
