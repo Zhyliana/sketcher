@@ -9,6 +9,10 @@ gem 'devise'
 gem 'pg'
 gem 'pry-rails'
 
+gem "paperclip"
+gem "aws-sdk"
+gem 'figaro'
+
 gem 'rails_12factor', group: :production
 
 group :development do
