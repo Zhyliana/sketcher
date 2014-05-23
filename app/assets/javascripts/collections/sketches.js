@@ -5,7 +5,7 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
   getOrFetch: function(id){
     var model;
     var collection = this;
-    
+
     if(model = this.get(id)){
       model.fetch();
       return model;

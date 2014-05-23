@@ -18,7 +18,7 @@ window.SketchMate = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+
     SketchMate.sketches = new SketchMate.Collections.Sketches();   
     SketchMate.sketches.fetch({
       

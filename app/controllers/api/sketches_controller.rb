@@ -2,7 +2,7 @@ module Api
   class SketchesController < ApiController
     wrap_parameters :sketch, include: [:image, :votes]
     def index
-      @sketches = current_user.sketches.includes(:white_cards).allall
+      @sketches = current_user.sketches.includes(:white_cards).all
       
       render :index
     end
