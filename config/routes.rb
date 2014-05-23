@@ -36,5 +36,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   namespace :api, defaults: { format: :json } do
     resources :sketches
+    resources :white_cards
   end
 end
