@@ -21,6 +21,12 @@ module Api
         render json: { errors: @sketch.errors.full_messages }, status: 422
       end
     end
+    
+    def update
+      @sketch = Sketch.find(params[:id])
+      
+    end
+
 
     private
     def sketch_params

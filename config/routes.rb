@@ -30,11 +30,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-<<<<<<< HEAD
-
-=======
   
->>>>>>> safe-email
   root to: "root#root"
   
   resources :users, only: [:show]
