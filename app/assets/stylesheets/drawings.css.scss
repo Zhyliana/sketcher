@@ -1,12 +1,12 @@
 // Place all the styles related to the Drawings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.drawing-area {
+.drawing-area, .show-sketch {
   margin-left: 20%;
   margin-top: 35px;
 }
 
-#my-canvas{
+#my-canvas, .show-canvas {
   border-radius: 15px;
   background-color: #FFFFFF;
   border: 7px solid #a9a9a9;
@@ -63,13 +63,27 @@
   border: 2px solid #a9a9a9;
 }
 
+.vote{
+  background: none;
+  border: none;
+  height: 45px;
+  color: white;
+  font-size: 30px;
+}
+
+.vote:hover {
+  color: red;
+  outline: none;
+  border: none;
+}
+
 #submit-drawing-button {
   border-radius: 10px;
   background-color: #DB8C10;
   color: #FFFFFF;
   margin-top: 15px;
   width: 145px;
-  border: 2px solid #DB8C10
+  border: 2px solid #DB8C10;
 }
 
 #black {
@@ -126,3 +140,7 @@
   font-size: 25px;
   border-radius: 25px;
 }
+
+
+
+

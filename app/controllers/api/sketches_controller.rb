@@ -24,7 +24,7 @@ module Api
 
     private
     def sketch_params
-      params.require(:sketch).permit(:user_id, :image, :votes)
+      params.require(:sketch).permit(:user_id, :image, :votes, :user)
     end
   end
 end
