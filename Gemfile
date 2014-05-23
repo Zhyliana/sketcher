@@ -9,7 +9,7 @@ gem 'devise'
 gem 'pg'
 gem 'pry-rails'
 
-gem "paperclip"
+gem 'paperclip', github: 'thoughtbot/paperclip'
 gem "aws-sdk"
 gem 'figaro'
 
