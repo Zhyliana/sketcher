@@ -10,7 +10,7 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
          sketch: this
        });
      }
-
+     
      return this._white_cards;
    },
   
@@ -19,7 +19,7 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
        this.white_cards().set(jsonResp.white_cards, { parse: true });
        delete jsonResp.white_cards;
      }
-  
+     
      return jsonResp;
    }
 })
