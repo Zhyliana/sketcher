@@ -11,4 +11,6 @@
 #
 
 class WhiteCard < ActiveRecord::Base
+  validates :user_id, :body, :votes, presence: true
+  has_many :card_sketch_assignments
 end
