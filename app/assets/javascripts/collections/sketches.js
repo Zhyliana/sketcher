@@ -12,7 +12,6 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
     } else {
       model = new SketchMate.Models.Sketch({id: id});
       model.fetch({
-        debugger
         success: function(){
           sketches.add(model)
         }
@@ -21,3 +20,5 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
     }
   }
 })
+
+window.SketchMate.sketches = new SketchMate.Collections.Sketches();
