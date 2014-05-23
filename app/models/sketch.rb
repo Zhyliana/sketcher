@@ -19,6 +19,7 @@ class Sketch < ActiveRecord::Base
   
   belongs_to :user
   has_many :card_sketch_assignments
+  has_many :cards, through: :card_sketch_assignments, source: :white_card_id
   # has_many :voters, through: :card_assignments, foreign_key: :user_id
   
   has_attached_file :image, :styles => {
