@@ -1,4 +1,15 @@
-<% debugger %>
+<p><%= sketch.get("user_id") %></p>
 <p><%= sketch.get("data_url") %></p>
+<% debugger %>
 
 <h1>ghudhdsuh</h1>
+
+<canvas id="my-canvas" width="500" height="500"></canvas>
+<script>
+debugger
+  var canvas = document.getElementsByTagName("myCanvas")[0];
+  var ctx = canvas.getContext("2d")
+  var url = sketch.get("data_url")
+  ctx.draw(url, 0, 0)
+</script>
+</div>
