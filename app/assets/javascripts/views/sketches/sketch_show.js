@@ -3,11 +3,6 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   className: "show-sketch",
   collection: SketchMate.Collections.Sketches,
   
-  events: {
-    "click .upvote" : "upvote",
-    "click .downvote" : "downvote",
-  },
-  
   initialize: function(options){
     this.listenTo(this.model, "sync add remove", this.render);
     this.listenTo( this.model.whiteCards(), "sync add", this.addCard);
@@ -32,22 +27,6 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this
-  },
-  
-  upvote: function(event){
-    var currVotes = this.model.get("votes")
-    this.model.save({
-      votes: currVotes + 1
-    })
-    alert(this.model.get("votes"))
-  },
-  
-  downvote: function(event){
-    var votes = this.model.get("votes")
-    this.model.save({
-      votes: votes - 1
-    })
-    alert(this.model.get("votes"))
   },
   
 })
