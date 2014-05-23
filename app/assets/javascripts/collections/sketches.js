@@ -18,7 +18,7 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
       });
       return model;
     }
-  }
+  },
 })
 
 window.SketchMate.sketches = new SketchMate.Collections.Sketches();

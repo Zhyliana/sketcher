@@ -2,11 +2,13 @@ module Api
   class SketchesController < ApiController
     def index
       @sketches = current_user.sketches.all
+      
       render :index
     end
 
     def show
       @sketch = Sketch.find(params[:id])
+
       render partial: "api/sketches/sketch", locals: { sketch: @sketch }
     end
 

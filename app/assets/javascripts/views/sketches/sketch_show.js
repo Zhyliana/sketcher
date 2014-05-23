@@ -1,9 +1,10 @@
 SketchMate.Views.ShowSketch = Backbone.View.extend({
   template: JST["sketches/show"],
-  className: "drawing-area",
+  className: "show-sketch",
   collection: SketchMate.Collections.Sketches,
   
   initialize: function(options){
+    this.listenTo(this.model, "sync add remove", this.render); 
   },
   
   events: {
@@ -12,6 +13,7 @@ SketchMate.Views.ShowSketch = Backbone.View.extend({
   },
   
   render: function(){
+    debugger
     var renderedContent = this.template({
       sketch: this.model
     })

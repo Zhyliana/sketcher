@@ -10,7 +10,7 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   
   sketchShow: function(id){
     var sketch = SketchMate.sketches.getOrFetch(id);
-
+    
     var sketchView = new SketchMate.Views.ShowSketch({
       model: sketch
     })
