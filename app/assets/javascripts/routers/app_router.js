@@ -5,12 +5,17 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   
   routes: {
     "" : "sketchNew",
-    "sketch/id" : "sketchShow"
+    "sketch/:id" : "sketchShow"
   },
   
   sketchShow: function(id){
-    var sketch = SketchMate.sketches.getOrFetch(id)
-     var board = Trellino.Collections.boards.getOrFetch(id)
+    var sketch = SketchMate.sketches.getOrFetch(id);
+    debugger
+    var sketchView = SketchMate.Views.ShowSketch({
+      model: sketch
+    })
+    
+    this._swapView(newSketchView);
   },
   
   sketchNew: function(){
@@ -18,6 +23,7 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
     var newSketchView = new SketchMate.Views.NewSketch({
       model: newSketch
     });
+    
     this._swapView(newSketchView);
   },
   

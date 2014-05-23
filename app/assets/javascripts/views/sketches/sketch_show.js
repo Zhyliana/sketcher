@@ -11,6 +11,15 @@ SketchMate.Views.ShowSketch = Backbone.View.extend({
     "click button#downvote" : "downvote"
   },
   
+  render: function(){
+    var renderedContent = this.template({
+      sketch: this.model
+    })
+    this.$el.html(renderedContent)
+    
+    return this
+  },
+  
   upvote: function(event){
     var votes = this.model.votes()
     this.model.set({
@@ -23,15 +32,5 @@ SketchMate.Views.ShowSketch = Backbone.View.extend({
     this.model.set({
       votes: votes - 1
     })
-  },
-  
-  
-  render: function(){
-    var renderedContent = this.template({
-      sketch: this.model
-    })
-    this.$el.html(renderedContent)
-    
-    return this
   },
 })

@@ -1,16 +1,18 @@
-SketchMate.Collections.Sketches = Backbone.View.extend({
-  url: "/api/sketches",
+SketchMate.Collections.Sketches = Backbone.Collection.extend({
   model: SketchMate.Models.Sketch, 
+  url: "/api/sketches",
   
   getOrFetch: function(id){
     var model;
     var sketches = this;
+    
     if(model = this.get(id)){
       model.fetch();
       return model;
     } else {
-      model = new Trellino.Models.Board({id: id});
+      model = new SketchMate.Models.Sketch({id: id});
       model.fetch({
+        debugger
         success: function(){
           sketches.add(model)
         }

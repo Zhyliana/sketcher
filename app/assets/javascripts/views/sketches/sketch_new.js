@@ -22,7 +22,6 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
   drawable: function (event) {
     if (!this["hasBeenDone"]) {
       this.hasBeenDone = true
-      debugger
       this.canvas = $("#my-canvas")[0];
       this.ctx = $("#my-canvas")[0].getContext("2d");
       this.ctx.strokeStyle = "black"; 
@@ -74,8 +73,7 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     
     newSketch.save({},{
       success: function(){
-        debugger
-        // SketchMate.sketches.add(newSketch);
+        // this.collection.add(newSketch);
         Backbone.history.navigate("#/sketch/" + newSketch.id, { trigger: true })
       }
     });    
