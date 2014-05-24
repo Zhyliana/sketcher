@@ -15,7 +15,39 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-        <%= render "api/white_cards/new" %>
+        <form id="new-card"> 
+          <label>
+            <input type="text" 
+                   class="form-control" 
+                   name="white_card[body]" 
+                   autofocus="true"
+                   placeholder="Think you're witty?"></input>
+          </label>
+  
+          <div>
+            <input type="submit" class="nav-btn btn"></button>
+          </div>
+        </form>
+
+        <script>
+        $(function() {
+          $("#new-card").on("submit", function (event) {
+              event.preventDefault();
+
+              var formData = $(this).serializeJSON();
+
+              $.ajax({
+                url: "/api/white_cards",
+                type: "POST",
+                data: formData,
+                success: function () {
+                }
+              });
+            }
+          );
+        });
+        </script>
+        
 
         <% if user_signed_in? %>
           <li class="dropdown">
