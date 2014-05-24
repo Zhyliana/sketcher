@@ -6,7 +6,7 @@
            autofocus="true"
            placeholder="Think you're witty?"></input>
   </label>
-  
+
   <div>
     <input type="submit" class="nav-btn btn"></button>
   </div>
@@ -19,26 +19,14 @@ $(function() {
 
       var formData = $(this).serializeJSON();
 
-      debugger
       $.ajax({
         url: "/api/white_cards",
         type: "POST",
         data: formData,
         success: function () {
-          $.ajax({
-            url: "/api/white_cards",
-            type: "GET",
-            success: function (data) {
-              alert("saved")
-            }
-          });}
+        }
       });
     }
   );
 });
 </script>
-
-
-
-
-
