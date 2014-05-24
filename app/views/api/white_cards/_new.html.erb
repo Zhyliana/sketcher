@@ -1,16 +1,19 @@
-<form class="form-inline new-card" id="new-card-form">
-  
-  <div class="form-group">       
+<% debugger %>
+<form action="<%= white_cards_url %>" method="POST">
+  <input name="authenticity_token" type="hidden">
+ 
+  <label>
     <input type="text" 
-          name="white_card[body]" 
-          class="form-control"
-          placeholder="You think you're witty.">
-  </div>
-         
-  <div class="btn-group">  
-    <input class="btn btn-xs glyphicon glyphicon-plus " 
-           type="submit" 
-           id="submit-new-card">
-    </input>
+           class="form-control" 
+           name="white_card[body]" 
+           autofocus="true"
+           placeholder="Think you're witty?"></input>
+  </label>
+  
+  <div>
+    <input type="submit" class="nav-btn">Submit</button>
   </div>
 </form>
+
+
+

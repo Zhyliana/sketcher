@@ -21,11 +21,11 @@ module Api
       end
     end
     
-    def create
-      @white_card =  WhiteCard.new(white_card_params)
-      @white_card.user_id = current_user.id
-      @white_card.save
+    
+    def new
+      debugger
     end
+
 
     
     private

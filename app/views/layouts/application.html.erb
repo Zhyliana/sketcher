@@ -15,16 +15,21 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      
-      
-      
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Think you're witty?">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
+         <form action="<%= white_cards_url %>" method="POST">
+           <input name="authenticity_token" type="hidden">
+ 
+           <label>
+             <input type="text" 
+                    class="form-control" 
+                    name="white_card[body]" 
+                    autofocus="true"
+                    placeholder="Think you're witty?"></input>
+           </label>
+  
+           <div>
+             <input type="submit" class="nav-btn">Submit</button>
+           </div>
+         </form>
 
         <% if user_signed_in? %>
           <li class="dropdown">
