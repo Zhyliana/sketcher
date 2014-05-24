@@ -15,21 +15,7 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-         <form action="<%= white_cards_url %>" method="POST">
-           <input name="authenticity_token" type="hidden">
- 
-           <label>
-             <input type="text" 
-                    class="form-control" 
-                    name="white_card[body]" 
-                    autofocus="true"
-                    placeholder="Think you're witty?"></input>
-           </label>
-  
-           <div>
-             <input type="submit" class="nav-btn">Submit</button>
-           </div>
-         </form>
+        <%= render "api/white_cards/new" %>
 
         <% if user_signed_in? %>
           <li class="dropdown">

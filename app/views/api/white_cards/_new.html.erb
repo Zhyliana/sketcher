@@ -1,6 +1,4 @@
-<form action="<%= white_cards_url %>" method="POST">
-  <input name="authenticity_token" type="hidden">
- 
+<form id="new-card"> 
   <label>
     <input type="text" 
            class="form-control" 
@@ -10,9 +8,35 @@
   </label>
   
   <div>
-    <input type="submit" class="nav-btn">Submit</button>
+    <input type="submit" class="nav-btn btn"></button>
   </div>
 </form>
+
+<script>
+  $("#new-card").on("submit", function (event) {
+      event.preventDefault();
+
+      var formData = $(this).serializeJSON();
+
+      debugger
+      $.ajax({
+        url: "/api/white_cards",
+        type: "POST",
+        data: formData,
+        success: function () {
+          $.ajax({
+            url: "/api/white_cards",
+            type: "GET",
+            success: function (data) {
+              alert("saved")
+            }
+          });}
+      });
+    }
+  );
+</script>
+
+
 
 
 
