@@ -13,7 +13,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   addWhiteCard: function(card){
 
       var whiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ model: card });   
-      this.addSubview(".cards", whiteCardShowView);
+      this.addSubview("#all-cards", whiteCardShowView);
     },
   
   render: function(){
