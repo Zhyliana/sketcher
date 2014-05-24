@@ -9,7 +9,8 @@ SketchMate.Collections.WhiteCards = Backbone.Collection.extend({
   },
   
   initialize: function(models, options) { 
-
-    this.sketch = options.sketch;
+    if (options){
+      this.sketch = options.sketch;
+    };
   }
 })

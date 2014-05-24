@@ -15,7 +15,7 @@ SketchMate.Views.IndexWhiteCards = Backbone.CompositeView.extend({
   
   addCardView: function(card){
     var cardShowView = new SketchMate.Views.ShowWhiteCard({ model: card });
-    this.addSubview("#cards", cardShowView)
+    this.addSubview("#all-cards", cardShowView)
   },
   
   render: function(){

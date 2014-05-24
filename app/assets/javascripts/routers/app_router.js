@@ -32,7 +32,8 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
     
   cardsIndex: function(){
-    var allWhiteCards = SketchMate.Collections.WhiteCards()
+    var allWhiteCards = SketchMate.allWhiteCards;
+
     var allWhiteCardsView = new SketchMate.Views.IndexWhiteCards({
       collection: allWhiteCards
     });
