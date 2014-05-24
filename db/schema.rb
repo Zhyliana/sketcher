@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140521212944) do
 =======
 ActiveRecord::Schema.define(version: 20140522045006) do
@@ -24,6 +25,9 @@ ActiveRecord::Schema.define(version: 20140523163612) do
 =======
 ActiveRecord::Schema.define(version: 20140523183139) do
 >>>>>>> safe-email
+=======
+ActiveRecord::Schema.define(version: 20140524042233) do
+>>>>>>> 7f43ae95a641a1915d95dab5d09245a583d23e0d
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,14 +82,11 @@ ActiveRecord::Schema.define(version: 20140523183139) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "white_cards", force: true do |t|
-    t.string   "body",       null: false
-    t.integer  "user_id",    null: false
-    t.integer  "votes",      null: false
+    t.string   "body",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "votes",      default: 0
   end
-
-  add_index "white_cards", ["user_id"], name: "index_white_cards_on_user_id", using: :btree
-  add_index "white_cards", ["votes"], name: "index_white_cards_on_votes", using: :btree
 
 end

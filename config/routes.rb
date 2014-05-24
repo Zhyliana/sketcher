@@ -40,4 +40,6 @@ Rails.application.routes.draw do
     end
     resources :white_cards
   end
+
 end
+
