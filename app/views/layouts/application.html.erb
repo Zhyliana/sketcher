@@ -16,45 +16,48 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+          <%= render "api/white_cards/new", user: @user %>
           <% if user_signed_in? %>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
+            <li class="dropdown">
+              <a href="#" 
+                 class="dropdown-toggle" 
+                 data-toggle="dropdown">
+                 <span class="glyphicon glyphicon-user"></span> 
+                 <b class="caret"></b>
+               </a>
               <ul class="dropdown-menu">
                 <li><%=link_to "Profile", user_url(current_user)%></li>
                 <li class="divider"></li>
-                <li><%=link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+                <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
+          <% else %>
+            <li><button class="navbar-btn sessions-nav-btn"
+                    id="sign-in-nav-btn"
+                    data-toggle="modal"
+                    data-target=".sign-in-modal">
+                    Sign In
+            </button>
 
-        <% else %>
-
-          <button class="btn navbar-btn sessions-nav-btn"
-                  id="sign-in-nav-btn"
-                  data-toggle="modal"
-                  data-target=".sign-in-modal">
-                  Sign In
-          </button>
-
-
-          <div class="modal fade sign-in-modal"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="mySmallModalLabel"
-              aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <h1 style="color: black">Sign In</h1>
-                  <%= render "devise/sessions/new", :user => @user %>
+            <div class="modal fade sign-in-modal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="mySmallModalLabel"
+                aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h1 style="color: black">Sign In</h1>
+                    <%= render "devise/sessions/new", user: @user %>
+                   </div>
                  </div>
-               </div>
+              </div>
             </div>
-          </div>
-
-          <%= button_to "Sign Up", new_user_registration_url, 
-            class: "btn navbar-btn sessions-nav-btn", 
-            id: "sign-up-nav-btn", 
-            method: :get %>
-
+            
+            <li><%= button_to "Sign Up", new_user_registration_url, 
+              class: "navbar-btn sessions-nav-btn", 
+              id: "sign-up-nav-btn",
+              method: :get %>
        <% end %>
      </div>
     </ul>
