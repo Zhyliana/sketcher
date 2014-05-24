@@ -5,7 +5,8 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   
   routes: {
     "" : "sketchNew",
-    "sketch/:id" : "sketchShow"
+    "sketch/:id" : "sketchShow",
+    'white_cards/vote' : "cardsIndex"
   },
   
   sketchShow: function(id){
@@ -28,6 +29,16 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
     });
     
     this._swapView(newSketchView);
+  },
+    
+  cardsIndex: function(){
+    var allWhiteCards = SketchMate.Collections.WhiteCards()
+    var allWhiteCardsView = new SketchMate.Views.IndexWhiteCards({
+      collection: allWhiteCards
+    });
+    
+    allWhiteCards.fetch()
+    this._swapView(allWhiteCardsView)
   },
   
   _swapView: function(view) {
