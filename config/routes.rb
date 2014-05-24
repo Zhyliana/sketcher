@@ -40,6 +40,5 @@ Rails.application.routes.draw do
     end
     resources :white_cards
   end
-  
-  resources :white_cards, only: [:create]
+
 end

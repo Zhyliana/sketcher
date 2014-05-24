@@ -20,14 +20,12 @@ module Api
         render partial: "api/white_cards/white_card", locals: { white_board: @white_card }
       end
     end
-    
-    
-    def new
-      debugger
+    def create
+      @white_card =  WhiteCard.new(white_card_params)
+      @white_card.user_id = current_user.id
+      @white_card.save
     end
 
-
-    
     private
     def white_card_params
       params.require(:white_card).permit(:body, :votes, :user_id, :sketches)
