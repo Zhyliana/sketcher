@@ -20,7 +20,7 @@ window.SketchMate = {
   initialize: function() {
 
     SketchMate.sketches = new SketchMate.Collections.Sketches();   
-    SketchMate.allWhiteCards = new SketchMate.Collections.WhiteCards();
+
     SketchMate.sketches.fetch({
       
       success: function(){

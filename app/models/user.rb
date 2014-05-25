@@ -24,4 +24,23 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :sketches
+  has_many :white_cards
+  
+  def card_karma
+    card_karma = 0
+    white_cards.map do |card|
+      card_karma += card.votes
+    end    
+    card_karma
+  end
+  
+  def sketch_karma
+    sketches.length
+  end
+
+  
+  def username
+    email.split("@").first
+  end
+
 end
