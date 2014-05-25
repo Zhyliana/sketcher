@@ -1,7 +1,7 @@
 SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   template: JST["white_cards/show"],
   className: "card panel panel-default",
-  collection: SketchMate.Collections.WhiteCards,
+  // collection: SketchMate.Collections.WhiteCards,
   // 
   // attributes: function(){
   //   return { id: this.model.get("id")}
@@ -18,11 +18,10 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   render: function(){
-
     var renderedContent = this.template({
       white_card: this.model
     });
-  
+
     this.$el.html(renderedContent);
   
     return this;

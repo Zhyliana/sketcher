@@ -5,6 +5,7 @@ class WhiteCardsController < ApplicationController
     @white_card.user_id = current_user.id
     @white_card.save
   end
+  
  
   private
   def white_card_params

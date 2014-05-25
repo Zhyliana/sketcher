@@ -13,6 +13,14 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
 
      return this._whiteCards;
    },
+   
+   playableCards: function(){
+     var playableCards = new SketchMate.Collections.PlayableWhiteCards([], {
+       sketch: this
+     });
+
+     return playableCards
+   },
   
    parse: function (jsonResp) {  
      if (jsonResp.white_cards) {
