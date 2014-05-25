@@ -39,7 +39,8 @@ Rails.application.routes.draw do
        get "white_cards", to: "white_cards#index"
        get "playable_cards", to: "white_cards#playable"
     end
-    resources :white_cards 
+    resources :white_cards
+    resources :card_sketch_assignments 
     get "top_cards", to: "white_cards#top"
   end
 

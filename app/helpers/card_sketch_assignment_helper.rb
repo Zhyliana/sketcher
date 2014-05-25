@@ -1,0 +1,2 @@
+module CardSketchAssignmentHelper
+end
