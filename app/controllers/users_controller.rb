@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @User = User.find(params[:id])
+    @user = User.find(params[:id])
 
-    render partial: "users/user", locals: { sketch: @sketch }
+    render partial: "users/user", locals: { user: @user }
   end
   
   def index
@@ -17,6 +17,6 @@ class UsersController < ApplicationController
 
   private  
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :sketches, :white_cards)
   end
 end
