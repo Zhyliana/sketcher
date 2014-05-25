@@ -2,7 +2,7 @@ module Api
   class CardSketchAssignmentsController < ApplicationController
     def create
       @assignment =  CardSketchAssignment.new(assign_params)
-      # fail
+      
       if @assignment.save
         render json: { sucess: "saved" }
       else 

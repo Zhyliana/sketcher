@@ -31,7 +31,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root to: "root#root"
+  root to: "static_pages#home"
   
   resources :users, only: [:show, :index], defaults: { format: :json }
   namespace :api, defaults: { format: :json } do

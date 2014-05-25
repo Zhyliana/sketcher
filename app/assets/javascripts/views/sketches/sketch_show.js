@@ -53,32 +53,18 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     $(event.target).removeClass("selected")
   },
   
-  submitCardSketchAssoc: function(event){
-    var cardID = JSON.parse($(".selected").attr("id"));
-    var sketchID = this.model.id;
-    var userID = currentUserID;
-    debugger
-  },
-  
-  
   submitCardSketchAssoc: function(event){ 
     event.preventDefault()
     
-    var view = this;
     var cardID = JSON.parse($(".selected").attr("id"));
     var sketchID = this.model.id;
-    var userID = currentUserID;
-
     var newAssoc  = new SketchMate.Models.CardSketchAssignment();
       
-    newAssoc.set({
+    newAssoc.save({
       white_card_id: cardID,
       sketch_id: sketchID,
       user_id: currentUserID,
-    });
-    
-    newAssoc.save({},{
-      success: function(){
+    }, { success: function(){
         alert("newAssocMAde")
         // Backbone.history.navigate("#/sketch/" + newSketch.id, { trigger: true })
       }

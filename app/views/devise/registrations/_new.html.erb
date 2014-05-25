@@ -1,0 +1,22 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-inline") do |f| %>
+  <%= devise_error_messages! %>
+  
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "awesomesauce@fantastic.io" %></div>
+  </div>
+  
+  <input
+     id="user_password"
+     name="user[password]"
+     type="hidden"
+     value="12345678">
+   <input
+      id="user_password_confirmation"
+      name="user[password_confirmation]"
+      type="hidden"
+      value="12345678">
+
+ <div>
+   <%= f.submit "Play!", class: "btn" %>
+ </div>
+<% end %>

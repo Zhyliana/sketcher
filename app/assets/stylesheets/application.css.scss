@@ -78,3 +78,20 @@ h1, h2, h4, label {
   border-radius: 7px 0px 0px 7px;
   margin-right: 0px;  
 }
+
+.jumbotron {
+  border-bottom: 2px solid #414042;
+  padding-bottom: 140px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #05565E;
+  border: none;
+}
+
+.sign-in-container{
+  max-width: 80%;
+  margin: -60px auto 0;
+  padding: 30px;
+  background-color: red;
+  border-radius: 5px;
+}
