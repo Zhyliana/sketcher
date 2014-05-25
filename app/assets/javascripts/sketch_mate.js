@@ -19,6 +19,7 @@ window.SketchMate = {
   Routers: {},
   initialize: function() {
 
+    SketchMate.users = new SketchMate.Collections.Users();
     SketchMate.sketches = new SketchMate.Collections.Sketches();   
 
     SketchMate.sketches.fetch({
