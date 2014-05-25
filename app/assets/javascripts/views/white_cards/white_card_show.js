@@ -3,10 +3,10 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   className: "card panel panel-default",
   // collection: SketchMate.Collections.WhiteCards,
   // 
-  // attributes: function(){
-  //   return { id: this.model.get("id")}
-  // },
-  // 
+  attributes: function(){
+    return { id: this.model.get("id")}
+  },
+   
   
   events: {
     "click .upvote" : "upvote",

@@ -2,6 +2,11 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   template: JST["sketches/show"],
   className: "show-sketch",
   collection: SketchMate.Collections.Sketches,
+  events: {
+    "click .playable-cards .card" : "selectCard",
+    "click .playable-cards .selected" : "deSelectCard",
+    "click  .submit-new-sketch-card-assoc-btn" : "submitCardSketchAssoc"
+  },
   
   initialize: function(options){
     this.listenTo(this.model, "sync add remove", this.render);
@@ -37,6 +42,20 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     });
     
     this.addSubview(".playable-cards", playableWhiteCardShowView) 
+  },
+  
+  selectCard: function(event){
+    $(event.target).addClass("selected")
+    $(event.target).siblings().removeClass("selected")
+  },
+  
+  deSelectCard: function(event){
+    $(event.target).removeClass("selected")
+  },
+  
+  submitCardSketchAssoc: function(event){
+    alert("sdgfu")
+    debugger
   },
   
   render: function(){
