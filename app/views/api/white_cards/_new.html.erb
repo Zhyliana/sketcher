@@ -1,0 +1,32 @@
+<form id="new-card" class="navbar-form"> 
+  
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <div class="input-group">
+    <input type="submit" class="btn" id="new-card-btn"></input>
+    <input type="text" 
+           class="form-control nav-pill" 
+           id="new-card-input"
+           name="white_card[body]" 
+           autofocus="true"
+           placeholder="Think you're witty?">
+    </div>
+</form>
+
+<script>
+  $(function() {
+    $("#new-card").on("submit", function (event) {
+        event.preventDefault();
+
+        var formData = $(this).serializeJSON();
+
+        $.ajax({
+          url: "/api/white_cards",
+          type: "POST",
+          data: formData,
+          success: function () {
+          }
+        });
+      }
+    );
+  });
+</script>

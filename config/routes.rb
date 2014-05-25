@@ -36,9 +36,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   namespace :api, defaults: { format: :json } do
     resources :sketches do 
-      resources :white_cards, only: [:index]
+       get "white_cards", to: "white_cards#index"
+       get "playable_cards", to: "white_cards#playable"
     end
-    resources :white_cards
+    resources :white_cards 
+    get "top_cards", to: "white_cards#top"
   end
 
 end

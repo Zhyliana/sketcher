@@ -40,6 +40,16 @@
   display: block;
 }
 
+.playable-cards {
+  clear: both;
+}
+
+.playable-cards .selected{
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
 .paint {
   height: 30px;
   width: 30px;

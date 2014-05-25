@@ -1,8 +1,8 @@
 SketchMate.Models.Sketch = Backbone.Model.extend({
   urlRoot: "/api/sketches",
-  is_image: function () {
-    return (this.get("description") ? false : true)
-  },
+  // is_image: function () {
+  //   return (this.get("description") ? false : true)
+  // },
   
   whiteCards: function () { 
      if (!this._whiteCards) {
@@ -12,6 +12,14 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
      }
 
      return this._whiteCards;
+   },
+   
+   playableCards: function(){
+     var playableCards = new SketchMate.Collections.PlayableWhiteCards([], {
+       sketch: this
+     });
+
+     return playableCards
    },
   
    parse: function (jsonResp) {  

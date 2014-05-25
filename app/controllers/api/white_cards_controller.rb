@@ -10,16 +10,37 @@ module Api
       end
     end
     
+    def playable
+      played_card_ids = []
+      
+      Sketch.find(params[:sketch_id]).white_cards.each do |card|
+        played_card_ids << card.id
+      end
+      
+      top_cards =  WhiteCard.order(votes: :desc).limit(100)
+      available_cards =  top_cards.where.not(id: played_card_ids)
+      @white_cards = available_cards.shuffle[0,2]
+
+      render :index
+    end
+
+    def top
+      @white_cards =  WhiteCard.order(votes: :desc).limit(100)
+      render :index
+    end
+
+    
     def update
       @white_card = WhiteCard.find_by(id: params[:id])
       
       if @white_card.update_attributes(white_card_params)
-        render partial: "api/white_cards/white_card", locals: { white_board: @white_card }
+        render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
       else
         @white_cards = WhiteCard.all
-        render partial: "api/white_cards/white_card", locals: { white_board: @white_card }
+        render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
       end
     end
+  
     def create
       @white_card =  WhiteCard.new(white_card_params)
       

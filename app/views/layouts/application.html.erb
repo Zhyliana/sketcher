@@ -13,95 +13,59 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="#">SketchMate</a>
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
-        <form id="new-card"> 
-          <label>
-            <input type="text" 
-                   class="form-control" 
-                   name="white_card[body]" 
-                   autofocus="true"
-                   placeholder="Think you're witty?"></input>
-          </label>
-  
-          <div>
-            <input type="submit" class="nav-btn btn"></button>
-          </div>
-        </form>
-
-        <script>
-        $(function() {
-          $("#new-card").on("submit", function (event) {
-              event.preventDefault();
-
-              var formData = $(this).serializeJSON();
-
-              $.ajax({
-                url: "/api/white_cards",
-                type: "POST",
-                data: formData,
-                success: function () {
-                }
-              });
-            }
-          );
-        });
-        </script>
-        
-
-        <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-user"></span> <b class="caret"></b>
-            </a>
-          <!-- </li> -->
-            <ul class="dropdown-menu">
-              <li>
-                <%=link_to "Profile", user_url(current_user)%>
-              </li>
-            
-              <li class="divider">
-              </li>
-            
-              <li>
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-
-        <% else %>
-
-          <li>
-            <button class="btn navbar-btn sessions-nav-btn"
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li> <a href='/home'><span class="glyphicon glyphicon-home"></span></a> </li>
+          <li> <a href='/contact'><span class="glyphicon glyphicon-envelope"></span></a> </li>
+          <li> <a href="#/white_cards/vote"><span class="glyphicon glyphicon-th"></span></a> </li>
+          <li> <%= render "api/white_cards/new" %> </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <h4><%= current_user.username %> (<%= current_user.card_karma %> : <%= current_user.sketch_karma %> )</h4>
+            <li class="dropdown">
+              <a href="#" 
+                 class="dropdown-toggle" 
+                 data-toggle="dropdown">
+                 <span class="glyphicon glyphicon-user"></span> 
+                 <b class="caret"></b>
+               </a>
+              <ul class="dropdown-menu">
+                <li><%=link_to "Profile", user_url(current_user)%></li>
+                <li class="divider"></li>
+                <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><button class="navbar-btn sessions-nav-btn"
                     id="sign-in-nav-btn"
                     data-toggle="modal"
                     data-target=".sign-in-modal">
                     Sign In
             </button>
-          </li>
 
-          <div class="modal fade sign-in-modal"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="mySmallModalLabel"
-              aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <h1 style="color: black">Sign In</h1>
-                  <%= render "devise/sessions/new", :user => @user %>
+            <div class="modal fade sign-in-modal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="mySmallModalLabel"
+                aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h1 style="color: black">Sign In</h1>
+                    <%= render "devise/sessions/new", user: @user %>
+                   </div>
                  </div>
-               </div>
+              </div>
             </div>
-          </div>
-
-          <li>
-            <%= button_to "Sign Up", new_user_registration_url, 
-              class: "btn navbar-btn sessions-nav-btn", 
-              id: "sign-up-nav-btn", 
+            
+            <li><%= button_to "Sign Up", new_user_registration_url, 
+              class: "navbar-btn sessions-nav-btn", 
+              id: "sign-up-nav-btn",
               method: :get %>
-          </li>
        <% end %>
+     </div>
     </ul>
   </div>
 </nav>

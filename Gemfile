@@ -5,7 +5,11 @@ gem 'ejs'
 gem 'serialize_json-rails', '~> 0.0.1'
 gem 'fabric-rails'
 gem 'devise'
+<<<<<<< HEAD
 gem 'omniauth'
+=======
+gem 'jquery-ui-rails'
+>>>>>>> safe-email2
 
 gem 'pg'
 gem 'pry-rails'

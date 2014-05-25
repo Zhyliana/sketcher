@@ -15,6 +15,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140521212944) do
 =======
 ActiveRecord::Schema.define(version: 20140522045006) do
@@ -28,6 +29,9 @@ ActiveRecord::Schema.define(version: 20140523183139) do
 =======
 ActiveRecord::Schema.define(version: 20140524042233) do
 >>>>>>> 7f43ae95a641a1915d95dab5d09245a583d23e0d
+=======
+ActiveRecord::Schema.define(version: 20140525015813) do
+>>>>>>> safe-email2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140524042233) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "white_card_id"
+    t.integer  "user_id"
   end
 
   add_index "card_sketch_assignments", ["sketch_id"], name: "index_card_sketch_assignments_on_sketch_id", using: :btree

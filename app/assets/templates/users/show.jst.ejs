@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= user.get("username") %></h1>
+  <h4> CardKarma: <%= user.get("card_karma") %></h4>
+  <h4> SketchKarma: <%= user.get("sketch_karma") %></h4>
+  
+  
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#">Profile</a></li>
+    <li><a href="api/sketches" id="user-sketches">Sketches</a></li>
+    <li><a href="#">Cards</a></li>
+  </ul>
+  
+  
+ 
+
+</div>
+
+
+<script>
+$('#user-sketches').click(function (event) {
+  event.preventDefault()
+  debugger
+  $(this).tab('show')
+})
+</script>

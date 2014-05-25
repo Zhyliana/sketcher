@@ -10,8 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+<<<<<<< HEAD
  */
 /*@import "bootstrap";
+=======
+ *= require_tree .
+ *= require_self
+*= require jquery.ui.all
+ */
+
+@import "bootstrap";
+>>>>>>> safe-email2
 
 <<<<<<< HEAD
 @import url("http://fonts.googleapis.com/css?family=Lobster");
@@ -55,7 +64,7 @@ h1, h2, h4, label {
 }
 
 .btn {
-  background-color:  #DB8C10;
+  background-color: #DB8C10;
   color: #FFFFFF;
   border-radius: 10px;
 }
@@ -78,4 +87,29 @@ h1, h2, h4, label {
   border: none;
   margin: 7px 15px;
   padding: 5px 10px;
+<<<<<<< HEAD
 }*/
+=======
+}
+
+.sessions-nav-btn {
+  border: 3px solid #a9a9a9;
+}
+
+#new-card-btn {
+
+}
+
+#new-card-input {
+
+}
+#sign-up-nav-btn{
+  border-radius: 0px 7px 7px 0px;
+  margin-left: 0px;
+}
+
+#sign-in-nav-btn{
+  border-radius: 7px 0px 0px 7px;
+  margin-right: 0px;  
+}
+>>>>>>> safe-email2
