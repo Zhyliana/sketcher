@@ -14,7 +14,6 @@ SketchMate.Views.ShowUser = Backbone.CompositeView.extend({
   },
   
   render: function(){
-
     var renderedContent = this.template({
       user: this.model
     });

@@ -1,3 +1,5 @@
 SketchMate.Models.User = Backbone.Model.extend({
-  urlRoot: "/users.json",
+  url: function() {
+      return "/users/" + this.id;
+  }
 })

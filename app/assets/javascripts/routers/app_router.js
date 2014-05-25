@@ -23,8 +23,8 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   userShow: function(id){
-    debugger
-    var user = SketchMate.users.fetch(id);
+    var user = SketchMate.users.getOrFetch(id);
+
     user.fetch();
     
     var userView = new SketchMate.Views.ShowUser({

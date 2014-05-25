@@ -1,9 +1,8 @@
 SketchMate.Collections.Users = Backbone.Collection.extend({
   model: SketchMate.Models.User, 
-  url: "/users.json",
+  url: "/users",
   
   getOrFetch: function(id){
-    debugger
     var model;
     var collection = this;
   
@@ -22,3 +21,4 @@ SketchMate.Collections.Users = Backbone.Collection.extend({
   },
 })
 
+SketchMate.users = new SketchMate.Collections.Users();
