@@ -1,0 +1,1 @@
+json.array! @assoc, partial: 'api/card_sketch_associations/assoc', as: :assoc

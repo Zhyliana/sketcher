@@ -2,7 +2,6 @@ class CreateSketches < ActiveRecord::Migration
   def change
     create_table :sketches do |t|
       t.integer :user_id, null: false
-      t.text :data_url 
       t.integer :votes
 
       t.timestamps

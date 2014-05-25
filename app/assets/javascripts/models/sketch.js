@@ -13,7 +13,7 @@ SketchMate.Models.Sketch = Backbone.Model.extend({
 
      return this._whiteCards;
    },
-  
+   
    parse: function (jsonResp) {  
      if (jsonResp.white_cards) {
        this.whiteCards().set(jsonResp.white_cards, { parse: true });
