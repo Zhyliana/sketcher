@@ -1,9 +1,21 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="form-group">
-    <div><%= f.label :email %><br>
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "We call it your secret service alias" %></div>
-  </div>
+    <div class="form-group">
+      <input
+         id="username"
+         class="form-control"
+         type="text"
+         placeholder="awesome_sauce">
+     </div>
+    
+    <input type="hidden" name="user[email]" id="user_email">
+    
+  <script>
+    $("form#new_user").on("submit", function(event){
+      var $form = $(event.currentTarget)
+      $form.find("input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
+    })
+  </script>
   
   <div class="form-group">
         <%= f.label :password %><br>
