@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   
   root to: "root#root"
   
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index], defaults: { format: :json }
   namespace :api, defaults: { format: :json } do
     resources :sketches do 
        get "white_cards", to: "white_cards#index"
