@@ -2,8 +2,9 @@
   <%= devise_error_messages! %>
   
   <div class="form-group">
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "awesomesauce@fantastic.io" %></div>
+    <%= f.email_field :email, autofocus: true, class: "form-control email", placeholder: "awesomesauce@fantastic.io", novalidate: "novalidate", value: "$('#user_email').val() + '@test.com'" %></div>
   </div>
+  
   
   <input
      id="user_password"
@@ -17,6 +18,8 @@
       value="12345678">
 
  <div>
-   <%= f.submit "Play!", class: "btn" %>
+   <%= f.submit "Play!", class: "btn new-user" %>
  </div>
 <% end %>
+
+

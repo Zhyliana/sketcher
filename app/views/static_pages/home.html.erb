@@ -7,7 +7,18 @@
     <p><a class="btn btn-lg" role="button">Learn more</a></p>
   </div> 
   <div class="sign-in-container">
-     <%= render "devise/registrations/new" %>
+   <input
+      id="user_password_confirmation"
+      name="user[password_confirmation]"
+      type="hidden">
+
+     <div>
+   <input type="submit" value="Play!" class="btn new-user">
+   <script>
+   $("#new-user").click(function(){
+    <%= render "devise/registration/new", email:  %>>
+   })
+   </script>
   </div>
   
   <div class="row">
@@ -25,4 +36,6 @@
   	  var currentUserID = <%= current_user.id %>;
   <% end %>
 </script>
+
+
 
