@@ -19,16 +19,22 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   },
   
   addPlayableCards: function(){
-    debugger
-    var sketch = this.model;
-    var play = SketchMate.Collections.PlayableWhiteCards({sketch: sketch});
-    play.each(function(card){
-      var playableWhiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ 
-        model: card,
-        sketch: sketch,
-      }); 
-      this.addSubview(".playable-cards", playableWhiteCardShowView); 
-    })
+    var currSketch = this.model;
+    var play = new SketchMate.Collections.PlayableWhiteCards([], {sketch: currSketch});
+    var view = this;
+    play.fetch({
+      success: function(){
+        play.forEach(function(card){
+          alert("play")
+          var playableWhiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ 
+            model: card,
+            sketch: currSketch,
+          }); 
+          view.addSubview(".playable-cards", playableWhiteCardShowView); 
+        })
+      }
+    });
+  
   },
   
   render: function(){
