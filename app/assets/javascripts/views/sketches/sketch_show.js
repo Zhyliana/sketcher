@@ -55,6 +55,9 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   
   submitCardSketchAssoc: function(event){
     alert("sdgfu")
+    var cardID = JSON.parse($(".selected").attr("id"));
+    var sketchID = this.model.id
+    var userID = ///NOTE TO MORNING SELF: GET USERS INTO BACKBONE
     debugger
   },
   

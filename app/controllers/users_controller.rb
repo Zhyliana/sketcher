@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
-  # def show
-  #   @user = User.find(params[:id])
-  # end
+  def show
+    @User = User.find(params[:id])
+
+    render partial: "users/user", locals: { sketch: @sketch }
+  end
   
   def index
     @users = User.all
