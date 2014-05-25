@@ -11,6 +11,13 @@ SketchMate.Views.ShowUser = Backbone.CompositeView.extend({
  
   initialize: function(options){
     this.listenTo(this.model, "sync add remove change:votes", this.render);
+ 
+    this.model.userWhiteCards().each(this.addWhiteCard.bind(this));
+  },
+  
+  addWhiteCard: function(card){
+    var whiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ model: card });  
+    this.addSubview(".user-cards", whiteCardShowView);
   },
   
   render: function(){
@@ -19,6 +26,7 @@ SketchMate.Views.ShowUser = Backbone.CompositeView.extend({
     });
   
     this.$el.html(renderedContent);
+    this.attachSubviews();
   
     return this;
   },
