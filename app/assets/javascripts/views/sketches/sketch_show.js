@@ -5,10 +5,9 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   
   initialize: function(options){
     this.listenTo(this.model, "sync add remove", this.render);
-    this.listenTo(this.model, "sync add remove", this.addPlayableCards);
     this.listenTo(this.model.whiteCards(), "sync add", this.addWhiteCard);
   
- 
+    this.addPlayableCards()
     this.model.whiteCards().each(this.addWhiteCard.bind(this));
     
   },
@@ -25,16 +24,19 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     play.fetch({
       success: function(){
         play.forEach(function(card){
-          alert("play")
-          var playableWhiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ 
-            model: card,
-            sketch: currSketch,
-          }); 
-          view.addSubview(".playable-cards", playableWhiteCardShowView); 
-        })
+          view.renderPlayableCard(card)
+        });
       }
     });
+  },
   
+  renderPlayableCard: function(card){
+    var playableWhiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ 
+      model: card,
+      sketch: this.model,
+    });
+    
+    this.addSubview(".playable-cards", playableWhiteCardShowView) 
   },
   
   render: function(){
