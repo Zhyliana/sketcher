@@ -1,18 +1,14 @@
+<li><%= current_user.username %> (<%= current_user.card_karma %> : <%= current_user.sketch_karma %> )</li>
 
+<li><a href="#" 
+   class="dropdown-toggle" 
+   data-toggle="dropdown">
+   <span class="glyphicon glyphicon-user"></span> 
+   <b class="caret"></b>
+ </a></li>
+<ul class="dropdown-menu">
+  <li><a href="#/users/<%= current_user.id %>">Profile</li>
+  <li class="divider"></li>
+  <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+</ul>
 
-<div class="dropdown navbar-right">
-  
-
-  <h4 class="nav-text"><%= current_user.username %> (<%= current_user.card_karma %> : <%= current_user.sketch_karma %> )</h4>
-  <a href="#" 
-     class="dropdown-toggle" 
-     data-toggle="dropdown">
-     <span class="glyphicon glyphicon-user"></span> 
-     <b class="caret"></b>
-   </a>
-  <ul class="dropdown-menu">
-    <li><a href="#/users/<%= current_user.id %>">Profile</li>
-    <li class="divider"></li>
-    <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-  </ul>
-</li>
