@@ -12,11 +12,25 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     "click #submit-drawing-button" : "submit",
   },
   
+  initialize: function(){
+    this.addPromptCard()
+  },
+  
   render: function(){
     var renderedContent = this.template()
     this.$el.html(renderedContent)
     
     return this
+  },
+  
+  addPromptCard: function(){
+    var cards = new SketchMate.Collections.WhiteCards();
+    cards.fetch({
+      success: function(){
+        alert(cards.length)
+      }
+    })
+
   },
   
   drawable: function (event) {
