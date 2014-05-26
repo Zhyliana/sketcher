@@ -65,8 +65,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
       sketch_id: sketchID,
       user_id: currentUserID,
     }, { success: function(){
-        alert("newAssocMAde")
-        // Backbone.history.navigate("#/sketch/" + newSketch.id, { trigger: true })
+        Backbone.history.navigate("#/game", { trigger: true })
       }
     });    
   },

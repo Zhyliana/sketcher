@@ -29,7 +29,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     var cards = new SketchMate.Collections.WhiteCards();
     cards.fetch({
       success: function(){
-        var randID = Math.floor(cards.length * Math.random())
+        var randID = Math.floor(cards.length * Math.random()) + 1;
         card = cards.getOrFetch(randID)
         view.renderCard(card)
       }
@@ -99,7 +99,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     newSketch.save({},{
       success: function(){
         SketchMate.sketches.add(newSketch);
-        var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random());
+        var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;
 
         Backbone.history.navigate("#/sketch/" + nextSketchID, { trigger: true })
       }
