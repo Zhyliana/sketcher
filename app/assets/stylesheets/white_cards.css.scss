@@ -29,18 +29,19 @@
 
 .vote-area {
   display: table-row;
-  vertical-align: bottom;
+/*  vertical-align: bottom;*/
   height: 1px;
   position: relative;
   margin: 15px;
 }
 
 .card-votes {
+   display : table-cell;
   font-size: 16px;
   font-weight: 15px;
   font-family: Helvetica;  
   position: absolute;
-  margin: 10px 0px;
+  margin: 0px 10px;
 }
 
 .card-vote {
@@ -52,6 +53,7 @@
 }
 
 .upvote {
+  
 }
 
 .downvote {
