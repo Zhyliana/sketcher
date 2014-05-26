@@ -45,12 +45,12 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   },
   
   selectCard: function(event){
-    $(event.target).addClass("selected")
-    $(event.target).siblings().removeClass("selected")
+    $(event.currentTarget).addClass("selected")
+    $(event.currentTarget).siblings().removeClass("selected")
   },
   
   deSelectCard: function(event){
-    $(event.target).removeClass("selected")
+    $(event.currentTarget).removeClass("selected")
   },
   
   submitCardSketchAssoc: function(event){ 

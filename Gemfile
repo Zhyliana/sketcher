@@ -6,6 +6,7 @@ gem 'serialize_json-rails', '~> 0.0.1'
 gem 'fabric-rails'
 gem 'devise'
 gem 'jquery-ui-rails'
+gem 'bootstrap-sass'
 
 gem 'pg'
 gem 'pry-rails'

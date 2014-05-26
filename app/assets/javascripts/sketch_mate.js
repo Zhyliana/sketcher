@@ -19,11 +19,8 @@ window.SketchMate = {
   Routers: {},
   initialize: function() {
     SketchMate.sketches = new SketchMate.Collections.Sketches();   
-
-    SketchMate.sketches.fetch({
-      
-      success: function(){
-        
+    SketchMate.sketches.fetch({      
+      success: function(){      
         new SketchMate.Routers.AppRouter({
           $rootEl: $("#content"),
           // sketches: SketchMate.sketches
