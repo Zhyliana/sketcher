@@ -3,7 +3,7 @@ module Api
     wrap_parameters :sketch, include: [:image, :votes]
     def index
       # @sketches = current_user.sketches.includes(:white_cards).all
-      @sketches = Sketch.all
+      @sketches = Sketch.playable
       fail
       render :index
     end
