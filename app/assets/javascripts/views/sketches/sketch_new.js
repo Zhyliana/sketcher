@@ -1,4 +1,4 @@
-SketchMate.Views.NewSketch = Backbone.View.extend({
+SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   template: JST["sketches/new"],
   className: "drawing-area",
   collection: SketchMate.Collections.Sketches,
@@ -13,7 +13,7 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
   },
   
   initialize: function(){
-    this.addPromptCard()
+    this.selectPromptCard()
   },
   
   render: function(){
@@ -23,14 +23,26 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     return this
   },
   
-  addPromptCard: function(){
+  selectPromptCard: function(){
+    var card;
+    var view = this;
     var cards = new SketchMate.Collections.WhiteCards();
     cards.fetch({
       success: function(){
-        alert(cards.length)
+        // alert(cards.length)
+        var randID = Math.floor(cards.length * Math.random())
+        card = cards.getOrFetch(randID)
+        view.renderCard(card)
       }
     })
-
+  },
+  
+  renderCard: function(card){
+    var promptCardShowView =  new SketchMate.Views.ShowWhiteCard({ 
+      model: card
+    });
+    
+    this.addSubview(".prompt-card", promptCardShowView) 
   },
   
   drawable: function (event) {
