@@ -1,0 +1,21 @@
+<li><button class="navbar-btn sessions-nav-btn"
+        id="sign-in-nav-btn"
+        data-toggle="modal"
+        data-target=".sign-in-modal">
+        Sign In
+</button>
+
+<div class="modal fade sign-in-modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1 style="color: black">Sign In</h1>
+        <%= render "devise/sessions/new" %>
+       </div>
+     </div>
+  </div>
+</div>

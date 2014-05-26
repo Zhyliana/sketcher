@@ -1,20 +1,19 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-inline ") do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-inline") do |f| %>
   <%= devise_error_messages! %>
   
-  <div class="form-group col-xs-2 pull-right">
+  <div class="form-group">
     <input
        id="username"
        class="form-control"
        type="text"
        placeholder="awesome_sauce">
-       <%= f.submit "Play!", class: "input-group-addon" %>
    </div>
   
   
   <input type="hidden" name="user[email]" id="user_email">
   
   <script>
-    $("form#new_user").on("submit", function(event){
+    $(".sign-in-container form#new_user").on("submit", function(event){
       var $form = $(event.currentTarget)
       $form.find("input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
     })
@@ -31,7 +30,9 @@
       type="hidden"
       value="12345678">
 
-
+ <div>
+   <%= f.submit "Play!", class: "btn new-user" %>
+ </div>
 <% end %>
 
 
