@@ -1,14 +1,12 @@
-<form class="form-inline">
+<form>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-
-    <div class="form-group">
+    <label> sketch-mate.com/users/</label>
       <input
          id="username"
-         class="form-control"
+         class=""
          type="text"
          placeholder="awesome_sauce">
-     </div>
 
 
     <input type="hidden" name="user[email]" id="user_email">
@@ -31,8 +29,6 @@
         type="hidden"
         value="12345678">
 
-   <div>
-     <%= f.submit "Play!", class: "btn new-user" %>
-   </div>
+    <%= f.submit "Play!", class: "btn new-user" %>
   <% end %>
 </firm>

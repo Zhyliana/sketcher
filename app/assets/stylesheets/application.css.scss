@@ -109,7 +109,7 @@ h1, h2, h4, label, .navbar-text {
 
 .sign-in.container{
   max-width: 80%;
-  height: 120px;
+  height: 200px;
   margin: -99px auto;
   padding: 30px;
   border-radius: 3px;
@@ -118,25 +118,65 @@ h1, h2, h4, label, .navbar-text {
   background-position: 0 -1px;
 }
 
+.sign-in.container > *, .jumbotron {
+  font-family: 'PT Sans', sans-serif;
+}
+
 #hello, .sign-in.container {
   font-size: 1.2em;
   line-height: 1.4em;
-  text-align: right;
+  text-align: center;
+}
+
+label {
+  color: #bcbec0;
+  padding: 0px;
+  line-height: 30px;
+  font-size: 1.6em;
+  font-weight: 400;
+  float: left;
+  margin-left: 10%;
 }
 
 #username {
-  float: right;
   background: none;
   border: none;
+  box-shadow: none;
   border-radius: 0px;
   border-bottom: 2px solid black;
   padding: 0;
-  font-family: 'PT Sans', sans-serif;
-  width: 150px;
-  margin-top: -19px;
+  width: 200px;
   font-size: 1.6em;
   line-height: 30px;
-  margin: 0px;
+  margin-left: 1%;
   -webkit-appearance: textfield;
   -webkit-writing-mode: horizontal-tb;
+  float: left;
+}
+
+#username:active{
+  font-color: red;
+  outline: none;
+}
+
+.btn.new-user {
+  font-size: 1.2em;
+  line-height: 30px;
+  margin-left: 5%;
+  padding: 5px 30px;
+  border-radius: 3px;
+  background-color: rgb(228, 152, 148);
+  float: left;
+}
+
+.highlighted {
+  color: rgba(0,0,0,0.8);
+  background: rgba(255,236,0,0.6);
+  padding: 0 5px;
+  -webkit-transform: rotate(-2deg);
+  font-size: 1.2em;
+  width: 50%;
+  margin: 10px auto 50px;
+  display: block;
+  font-weight: bold;
 }
