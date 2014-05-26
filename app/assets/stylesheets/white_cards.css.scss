@@ -16,8 +16,9 @@
   background-color: white;
   float: left;
   margin: 20px;
-  position: relative;
   border-radius: 15px;
+/*  border-collapse:collapse;*/
+  display : table;
 }
 
 .card-body {
@@ -27,27 +28,33 @@
 }
 
 .vote-area {
-  padding-bottom: 10px; 
+  display: table-row;
+  vertical-align: bottom;
+  height: 1px;
+  position: relative;
+  margin: 15px;
 }
 
 .card-votes {
-  padding-left: 65px;
   font-size: 16px;
   font-weight: 15px;
   font-family: Helvetica;  
+  position: absolute;
+  margin: 10px 0px;
 }
 
 .card-vote {
-  padding: 10px;
+  display : table-cell;
+/*  padding: 10px;*/
   font-size: 20px;
   font-weight: 20px;
+  position: absolute;
 }
 
 .upvote {
-  float: right;  
 }
 
 .downvote {
-  float: left;
   -webkit-transform: rotate(-180deg);
+
 }
