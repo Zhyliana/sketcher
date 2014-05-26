@@ -45,7 +45,7 @@ module Api
       @white_card =  WhiteCard.new(white_card_params)
       
       @white_card.user = current_user
-      
+
       if @white_card.save
         render json: { sucess: "saved" }
       else 
