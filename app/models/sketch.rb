@@ -27,5 +27,12 @@ class Sketch < ActiveRecord::Base
     :thumbnail => "150x150#>"
   }
   
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/  
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ 
+  
+  def self.playable_sketches
+    Sketch.select(<<-SQL)
+    
+    SQL
+  end
+
 end

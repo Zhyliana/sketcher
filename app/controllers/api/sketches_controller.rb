@@ -12,6 +12,10 @@ module Api
 
       render partial: "api/sketches/sketch", locals: { sketch: @sketch }
     end
+    
+    def playable
+   
+    end
 
     def create
       @sketch = current_user.sketches.build(sketch_params)
