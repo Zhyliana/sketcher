@@ -1,3 +1,41 @@
 // Place all the styles related to the CardSketchAssignment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.scrollable {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin-left: -25%;
+  margin-top: 0px;
+}
+
+.show-sketch {
+  margin-top: 0px;
+}
+
+.played-cards {
+  height: 180px;
+  background-color: black;
+  width: 1500px;    
+}
+
+.played-cards > .card {
+  height: 150px; 
+  margin: 15px 10px; 
+  display: inline-block;
+  float: left;
+  background-color: rgba(255,255,255, 0.9);
+}
+
+.played-cards > .card:first-child {
+  margin-left: 50px;
+}
+
+.played-cards > .card > .card-body {
+  font-size: 18px;
+  padding: 10px;
+}
+
+.played-cards > .card > .vote-area > .card-votes {
+  font-size: 13px;
+}

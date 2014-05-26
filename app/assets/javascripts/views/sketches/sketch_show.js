@@ -19,7 +19,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   
   addWhiteCard: function(card){    
     var whiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ model: card });  
-    this.addSubview(".cards", whiteCardShowView);
+    this.addSubview(".played-cards", whiteCardShowView);
   },
   
   addPlayableCards: function(){
@@ -44,7 +44,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     this.addSubview(".playable-cards", playableWhiteCardShowView) 
   },
   
-  selectCard: function(event){
+  selectCard: function(event) {
     $(event.currentTarget).addClass("selected")
     $(event.currentTarget).siblings().removeClass("selected")
   },
