@@ -1,9 +1,11 @@
-<form id="new-card" class="navbar-form">   
+<form id="new-card" class="navbar-form navbar-left">   
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <div class="input-group">
-    <input type="submit" class="btn" id="new-card-btn"></input>
+  <div class="form-group">
+    <button type="submit" class="input-group-addon" id="new-card-btn" value="">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
     <input type="text" 
-           class="form-control nav-pill" 
+           class="form-control" 
            id="new-card-input"
            name="white_card[body]" 
            autofocus="true"

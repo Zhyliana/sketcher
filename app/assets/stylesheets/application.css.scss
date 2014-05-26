@@ -63,11 +63,20 @@ h1, h2, h4, label {
 }
 
 #new-card-btn {
-
+  margin-right: -5px;
+  height: 34px;
+  width: 35px;
+  background-color: #DB8C10;
+  color: #FFFFFF;
+  border: none;
 }
 
 #new-card-input {
+  border-radius: 0px 3px 3px 0px
+}
 
+#new-card-btn.glyphicon {
+  position: inherit;
 }
 #sign-up-nav-btn{
   border-radius: 0px 7px 7px 0px;
