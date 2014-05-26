@@ -5,37 +5,47 @@
 .scrollable {
   overflow-x: scroll;
   overflow-y: hidden;
-  margin-left: -25%;
-  margin-top: 0px;
-}
-
-.show-sketch {
-  margin-top: 0px;
 }
 
 .played-cards {
-  height: 180px;
+  height: 130px;
   background-color: black;
-  width: 1500px;    
+  width: auto; 
+  opacity: 0.9;   
 }
 
 .played-cards > .card {
-  height: 150px; 
+  height: 100px;
+  width: 100px; 
   margin: 15px 10px; 
   display: inline-block;
   float: left;
-  background-color: rgba(255,255,255, 0.9);
 }
 
 .played-cards > .card:first-child {
-  margin-left: 50px;
+  margin-left: 3%;
 }
 
 .played-cards > .card > .card-body {
-  font-size: 18px;
+  font-size: 13px;
   padding: 10px;
 }
 
 .played-cards > .card > .vote-area > .card-votes {
-  font-size: 13px;
+  font-size: 11px;
 }
+
+.played-cards > .card > .vote-area > .card-vote {
+  font-size: 11px;
+}
+
+.show-canvas {
+  margin: 2%;
+  margin-left: 25%;
+  display: block;
+}
+
+.playable-cards {
+  margin-left: 10%;
+}
+

@@ -19,7 +19,7 @@ module Api
       
       top_cards =  WhiteCard.order(votes: :desc).limit(100)
       available_cards =  top_cards.where.not(id: played_card_ids)
-      @white_cards = available_cards.shuffle[0,2]
+      @white_cards = available_cards.shuffle[0,5]
 
       render :index
     end

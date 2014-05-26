@@ -1,6 +1,5 @@
 SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   template: JST["sketches/show"],
-  className: "show-sketch",
   collection: SketchMate.Collections.Sketches,
   events: {
     "click .playable-cards .card" : "selectCard",
