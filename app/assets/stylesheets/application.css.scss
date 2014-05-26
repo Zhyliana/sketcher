@@ -17,9 +17,9 @@
 
 @import "bootstrap";
 
-/*@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
 
-@font-face {
+/*@font-face {
   font-family: 'glyphicon';
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
 }*/
@@ -28,7 +28,7 @@ body {
   background-color: #0f8790;
 }
 
-h1, h2, h4, label {
+h1, h2, h4, label, .navbar-text {
   color: #FFFFFF;
 }
 
@@ -41,6 +41,10 @@ h1, h2, h4, label {
 .my-nav {
   background-color: #05565E;
   border-radius: 0px;
+}
+
+.my-nav .glyphicon {
+  color: #FFFFFF;
 }
 
 .navbar-brand {
