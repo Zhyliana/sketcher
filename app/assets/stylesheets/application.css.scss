@@ -109,7 +109,7 @@ h1, h2, h4, label, .navbar-text {
 
 .sign-in.container{
   max-width: 80%;
-  height: 200px;
+  height: 180px;
   margin: -99px auto;
   padding: 30px;
   border-radius: 3px;
@@ -152,11 +152,8 @@ label {
   -webkit-appearance: textfield;
   -webkit-writing-mode: horizontal-tb;
   float: left;
-}
-
-#username:active{
-  font-color: red;
   outline: none;
+  
 }
 
 .btn.new-user {
@@ -167,6 +164,13 @@ label {
   border-radius: 3px;
   background-color: rgb(228, 152, 148);
   float: left;
+  font-weight: bold;
+}
+
+
+.btn.new-user:hover{
+  color: #FFFFFF;
+  background-color: rgb(220, 152, 148)
 }
 
 .highlighted {
@@ -179,4 +183,9 @@ label {
   margin: 10px auto 50px;
   display: block;
   font-weight: bold;
+}
+
+.sign-in-form {
+  margin-top: 0px;
+  padding-top: 0px;
 }
