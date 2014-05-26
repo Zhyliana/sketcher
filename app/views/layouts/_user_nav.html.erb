@@ -1,6 +1,9 @@
-<h4 class="nav-text"><%= current_user.username %> (<%= current_user.card_karma %> : <%= current_user.sketch_karma %> )</h4>
 
-<div class="dropdown">
+
+<div class="dropdown navbar-right">
+  
+
+  <h4 class="nav-text"><%= current_user.username %> (<%= current_user.card_karma %> : <%= current_user.sketch_karma %> )</h4>
   <a href="#" 
      class="dropdown-toggle" 
      data-toggle="dropdown">
@@ -12,4 +15,4 @@
     <li class="divider"></li>
     <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
   </ul>
-</div>
+</li>
