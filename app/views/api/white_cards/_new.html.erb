@@ -10,17 +10,14 @@
            name="white_card[body]" 
            autofocus="true"
            placeholder="Think you're witty?">
-    </div>
-    
+    </input>    
 </form>
 
 <script>
   $(function() {
     $("#new-card").on("submit", function (event) {
         event.preventDefault();
-
         var formData = $(this).serializeJSON()
-
         $.ajax({
           url: "/api/white_cards",
           type: "POST",

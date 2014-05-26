@@ -1,38 +1,38 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-inline") do |f| %>
-  <%= devise_error_messages! %>
-  
-  <div class="form-group">
+<form class="form-inline">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <input
+         id="username"
+         class="form-control"
+         type="text"
+         placeholder="awesome_sauce">
+     </div>
+
+
+    <input type="hidden" name="user[email]" id="user_email">
+
+    <script>
+      $(".sign-in form#new_user").on("submit", function(event){
+        var $form = $(event.currentTarget)
+        $form.find("input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
+      })
+    </script>
+
     <input
-       id="username"
-       class="form-control"
-       type="text"
-       placeholder="awesome_sauce">
+       id="user_password"
+       name="user[password]"
+       type="hidden"
+       value="12345678">
+     <input
+        id="user_password_confirmation"
+        name="user[password_confirmation]"
+        type="hidden"
+        value="12345678">
+
+   <div>
+     <%= f.submit "Play!", class: "btn new-user" %>
    </div>
-  
-  
-  <input type="hidden" name="user[email]" id="user_email">
-  
-  <script>
-    $(".sign-in-container form#new_user").on("submit", function(event){
-      var $form = $(event.currentTarget)
-      $form.find("input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
-    })
-  </script>
-  
-  <input
-     id="user_password"
-     name="user[password]"
-     type="hidden"
-     value="12345678">
-   <input
-      id="user_password_confirmation"
-      name="user[password_confirmation]"
-      type="hidden"
-      value="12345678">
-
- <div>
-   <%= f.submit "Play!", class: "btn new-user" %>
- </div>
-<% end %>
-
-
+  <% end %>
+</firm>
