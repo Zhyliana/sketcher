@@ -12,7 +12,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     "mousemove #my-canvas" : "draw",
     "mouseup #my-canvas" : "stopDrawing",
     "click #submit-drawing-button" : "submit",
-    "click #color-picker-btn" : "showColorGradient",
+    "click #picker" : "showColorGradient",
   },
   
   initialize: function(){
@@ -54,12 +54,13 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     if (!this["hasBeenDone"]) {
       this.hasBeenDone = true
       this.canvas = document.getElementById("my-canvas");
-      this.ctx = $("#my-canvas")[0].getContext("2d");
+      this.ctx = this.canvas.getContext("2d");
       this.ctx.strokeStyle = "black"; 
       this.ctx.lineWidth = this.brushSize;
       this.ctx.lineJoin = 'round';
       this.ctx.lineCap = 'round'; 
       this.canvasOffset = $("#my-canvas").offset();
+      debugger
     }
   },
   
@@ -70,13 +71,26 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     this.ctx.moveTo(event.pageX - this.canvasOffset.left, event.pageY - this.canvasOffset.top);
   },
   
+  
+  
+  
+  
+  
   showColorGradient: function(event){
     event.preventDefault();
-    this.colorPickerDisplay = !this.colorPickerDisplay
+    $('#picker').colpick({
+    	layout:'hex',
+    	submit:0,
+      color: this.ctx.strokeStyle,
+    });
 
-    this.sketch.picker.toggle(this.colorPickerDisplay)
-    $("#color-picker").removeClass("hide");
   },
+  
+  
+  
+  
+  
+  
   
   pickBrush: function(event){
     var width = JSON.parse(event.target.getAttribute("data-size-id"));
@@ -103,8 +117,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     }
   },
   
-  restartSketch: function(){
-    
+  restartSketch: function(){    
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
   },
 
