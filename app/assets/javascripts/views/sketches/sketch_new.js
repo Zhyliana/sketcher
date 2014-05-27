@@ -10,6 +10,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     "mousemove #my-canvas" : "draw",
     "mouseup #my-canvas" : "stopDrawing",
     "click #submit-drawing-button" : "submit",
+    "click #color-picker-btn" : "showColorGradient"
   },
   
   initialize: function(){
@@ -65,6 +66,14 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
          
     this.ctx.strokeStyle = color;
     this.ctx.moveTo(event.pageX - this.canvasOffset.left, event.pageY - this.canvasOffset.top);
+  },
+  
+  showColorGradient: function(event){
+    event.preventDefault();
+    this.colorPickerDisplay = !this.colorPickerDisplay
+
+    this.sketch.picker.toggle(this.colorPickerDisplay)
+    $("#color-picker").removeClass("hide");
   },
   
   pickBrush: function(event){

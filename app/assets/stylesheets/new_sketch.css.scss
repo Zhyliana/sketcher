@@ -68,45 +68,73 @@
   text-align: center;
 }
 
-.tools button:focus, .tools button:hover, .tools  button:active {
+.tools button:focus, .tools button:hover, .tools  button:active{
   outline: none;
   border: 2px solid #FFFFFF; 
-  -webkit-animation: glowing 10s ease-in-out infinite;
+}
+
+.tools .paint:focus, .tools .paint:hover, .tools  .paint:active {
+  -webkit-animation: glow 4s ease-in-out infinite;
+}
+
+.tools .brush:focus, .tools .brush:hover, .tools  .brush:active {
+  -webkit-animation: dangle 4s ease-in-out infinite;
 }
 
 
-@-webkit-keyframes glowing {
+@-webkit-keyframes glow {
   0%  {
-    box-shadow: -1px 1px 4px #ffc, 1px -1px 4px #fff;
+    box-shadow: -1px 1px 3px #ffc, 1px -1px 3px #fff;
   }
-  12%  {
+  20%  {
     box-shadow: -1px 1px 5px #ffc, 1px -1px 5px #fff;
   }
-  24%  {
-    box-shadow: -1px 1px 6px #ffc, 1px -1px 6px #fff;
+  35%  {
+    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;
   }
-  36%  {
-    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;;
+  50%  {
+    box-shadow: -1px 1px 9px #ffc, 1px -1px 9px #fff;;
   }
-  42%  {
-    box-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+  65%  {
+    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;
   }
-  54%  {
-    box-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
-  }
-  62%  {
-    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;;
-  }
-  74%  {
-    box-shadow: -1px 1px 6px #ffc, 1px -1px 6px #fff;
-  }
-  88%  {
+  80%  {
     box-shadow: -1px 1px 5px #ffc, 1px -1px 5px #fff;
   }
   100%  {
-    box-shadow: -1px 1px 4px #ffc, 1px -1px 4px #fff;
+    box-shadow: -1px 1px 3px #ffc, 1px -1px 3px #fff;;
   }
 }
+
+@-webkit-keyframes dangle {
+  0%  {
+   -webkit-transform: rotate(0deg)
+  }
+  20% {
+      -webkit-transform: rotate(-6deg) scaleY(1.05);
+  }
+
+  35% {
+      -webkit-transform: rotate(6deg) scaleY(1);
+  }
+
+  50% {
+      -webkit-transform: rotate(-6deg);
+  }
+
+  65% {
+      -webkit-transform: rotate(3deg);
+  }
+
+  80% {
+      -webkit-transform: rotate(-3deg);
+  }
+
+  100% {
+      -webkit-transform: rotate(0deg);
+  }
+}
+
 
 
 .prompt-card > .card {
@@ -114,7 +142,7 @@
   background-color: black;
   color: #FFFFFF;
   border-color: black;
- -webkit-animation-name: hatch;
+ -webkit-animation-name: popout;
  -webkit-animation-duration: 2s;
  -webkit-animation-timing-function: ease-in-out;
  -webkit-transform-origin: 50% 100%;
@@ -122,7 +150,7 @@
   
 }
 
-@-webkit-keyframes hatch {
+@-webkit-keyframes popout {
     0% {
         -webkit-transform: rotate(0deg) scaleY(0.6);
     }
