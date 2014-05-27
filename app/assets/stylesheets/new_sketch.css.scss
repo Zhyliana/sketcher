@@ -55,17 +55,18 @@
 .paint {
   height: 30px;
   width: 30px;
+  border: 2px solid #FFFFFF;
   border-radius: 5px;
 }
 
 .brush, .paint {
-  border: 2px solid #FFFFFF;
   margin: 3px;
   float: left;
 }
 
 .brush {
-  background-color: #DB8C10;
+  border: none;
+  background-color: #8E5905;
   color: #FFFFFF;
   text-align: center;
 }
@@ -75,12 +76,16 @@
   border: 2px solid #FFFFFF; 
 }
 
-.tools .paint:focus, .tools .paint:hover, .tools  .paint:active {
+.paint:focus, .tools .paint:hover, .tools  .paint:active {
   -webkit-animation: glow 4s ease-in-out infinite;
 }
 
-.tools .brush:focus, .tools .brush:hover, .tools  .brush:active {
-  -webkit-animation: dangle 4s ease-in-out infinite;
+.brush:focus, .tools .brush:hover, .tools  .brush:active {
+  -webkit-animation: dangle 6s ease-in-out infinite;
+}
+.brush:active, .brush:focus {
+  background-color: #EDAD48;
+  border: 2px solid #FFFFFF; 
 }
 
 
