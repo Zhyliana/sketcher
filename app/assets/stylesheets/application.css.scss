@@ -24,6 +24,10 @@
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
 }*/
 
+* {
+  font-family: 'PT Sans', sans-serif;
+}
+
 body {
   background-color: #0f8790;
 }
@@ -39,8 +43,9 @@ h1, h2, h4, label, .navbar-text {
 }
 
 .my-nav {
-  background-color: #05565E;
+  background-image:url('nav_background.png');
   border-radius: 0px;
+  margin-bottom: 0px ;
 }
 
 .my-nav .glyphicon {
@@ -60,6 +65,14 @@ h1, h2, h4, label, .navbar-text {
   border: none;
   margin: 7px 15px;
   padding: 5px 10px;
+}
+
+/* Jumbotron */
+.hello h2 {
+  font-size: 40px;
+  line-height: 60px;
+  text-shadow: 0 2px 0 #414042;
+  font-weight: bold;
 }
 
 /* Nav Sign In */
@@ -88,15 +101,14 @@ h1, h2, h4, label, .navbar-text {
   display: inherit;
   border-radius: 0px 3px 3px 0px;
   animation-name: stretchRight;
-    -webkit-animation-name: stretchRight;
-    animation-duration: 1.5s;
-    -webkit-animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    -webkit-animation-timing-function: ease-out;
-    transform-origin: 0% 0%;
-    -ms-transform-origin: 0% 0%;
-    -webkit-transform-origin: 0% 0%;
-  
+  -webkit-animation-name: stretchRight;
+  animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+  transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -webkit-transform-origin: 0% 0%;
 }
 
 #new-card-input:active {
@@ -206,9 +218,6 @@ h1, h2, h4, label, .navbar-text {
   background-position: 0 -1px;
 }
 
-.sign-in.container > *, .jumbotron {
-  font-family: 'PT Sans', sans-serif;
-}
 
 #hello, .sign-in.container {
   font-size: 1.2em;

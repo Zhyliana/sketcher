@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= user.get("username") %></h1>
+  <h1><%= user.escape("username") %></h1>
   
   
   <ul class="nav nav-tabs">
@@ -12,8 +12,8 @@
   
   <div class="tab-content">
     <div class="tab-pane fade" id="user-stats">
-      <h4> CardKarma: <%= user.get("card_karma") %></h4>
-      <h4> SketchKarma: <%= user.get("sketch_karma") %></h4>
+      <h4> CardKarma: <%= user.escape("card_karma") %></h4>
+      <h4> SketchKarma: <%= user.escape("sketch_karma") %></h4>
     </div>
     <div class="tab-pane fade" id="user-cards">
       <div class="user-cards">
