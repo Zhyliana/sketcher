@@ -31,15 +31,16 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root to: "root#root"
+  root to: "static_pages#home"
   
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index], defaults: { format: :json }
   namespace :api, defaults: { format: :json } do
     resources :sketches do 
        get "white_cards", to: "white_cards#index"
        get "playable_cards", to: "white_cards#playable"
     end
-    resources :white_cards 
+    resources :white_cards
+    resources :card_sketch_assignments 
     get "top_cards", to: "white_cards#top"
   end
 

@@ -1,0 +1,33 @@
+<form>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <label> sketch-mate.com/users/</label>
+      <input
+         id="username"
+         type="text"
+         placeholder="awesome_sauce">
+
+
+    <input type="hidden" name="user[email]" id="user_email">
+
+    <script>
+      $(".sign-in form#new_user").on("submit", function(event){
+        var $form = $(event.currentTarget)
+        $form.find("input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
+      })
+    </script>
+
+    <input
+       id="user_password"
+       name="user[password]"
+       type="hidden"
+       value="12345678">
+     <input
+        id="user_password_confirmation"
+        name="user[password_confirmation]"
+        type="hidden"
+        value="12345678">
+
+    <%= f.submit "Play!", class: "btn new-user" %>
+  <% end %>
+</firm>

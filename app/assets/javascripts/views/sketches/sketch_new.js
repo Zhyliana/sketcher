@@ -1,4 +1,4 @@
-SketchMate.Views.NewSketch = Backbone.View.extend({
+SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   template: JST["sketches/new"],
   className: "drawing-area",
   collection: SketchMate.Collections.Sketches,
@@ -12,11 +12,39 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     "click #submit-drawing-button" : "submit",
   },
   
+  initialize: function(){
+   this.colorPickerDisplay = false;
+
+   // this.listenTo(this, 'inDOM', this.createSketch);
+    this.selectPromptCard()
+  },
+  
   render: function(){
     var renderedContent = this.template()
     this.$el.html(renderedContent)
     
     return this
+  },
+  
+  selectPromptCard: function(){
+    var card;
+    var view = this;
+    var cards = new SketchMate.Collections.WhiteCards();
+    cards.fetch({
+      success: function(){
+        var randID = Math.floor(cards.length * Math.random()) + 1;
+        card = cards.getOrFetch(randID)
+        view.renderCard(card)
+      }
+    })
+  },
+  
+  renderCard: function(card){
+    var promptCardShowView =  new SketchMate.Views.ShowWhiteCard({ 
+      model: card
+    });
+    
+    this.addSubview(".prompt-card", promptCardShowView) 
   },
   
   drawable: function (event) {
@@ -26,6 +54,7 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
       this.ctx = $("#my-canvas")[0].getContext("2d");
       this.ctx.strokeStyle = "black"; 
       this.ctx.lineWidth = 10;
+      this.ctx.lineJoin = 'round';
       this.ctx.lineCap = 'round'; 
       this.canvasOffset = $("#my-canvas").offset();
     }
@@ -74,7 +103,9 @@ SketchMate.Views.NewSketch = Backbone.View.extend({
     newSketch.save({},{
       success: function(){
         SketchMate.sketches.add(newSketch);
-        Backbone.history.navigate("#/sketch/" + newSketch.id, { trigger: true })
+        var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;
+
+        Backbone.history.navigate("#/sketch/" + nextSketchID, { trigger: true })
       }
     });    
   }

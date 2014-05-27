@@ -1,0 +1,89 @@
+// Place all the styles related to the CardSketchAssignment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.scrollable {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.played-cards {
+  height: 130px;
+  background-color: black;
+  width: auto; 
+  opacity: 0.9;   
+}
+
+.played-cards > .card {
+  height: 100px;
+  width: 100px; 
+  margin: 15px 10px; 
+  display: inline-block;
+  float: left;
+}
+
+.played-cards > .card:first-child {
+  margin-left: 3%;
+}
+
+.played-cards > .card > .card-body {
+  font-size: 13px;
+  padding: 10px;
+}
+
+.played-cards > .card > .vote-area > .card-votes {
+  font-size: 11px;
+}
+
+.played-cards > .card > .vote-area > .card-vote {
+  font-size: 11px;
+}
+
+.show-canvas {
+  margin: 2%;
+  margin-left: 25%;
+  display: block;
+}
+
+.playable-cards {
+  margin-left: 10%;
+}
+
+.card.selected {
+  animation-name: floating;
+  -webkit-animation-name: floating;
+  animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+@keyframes floating {
+    0% {
+        transform: translateY(0%);
+    }
+
+    50% {
+        transform: translateY(8%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes floating {
+    0% {
+        -webkit-transform: translateY(0%);
+    }
+
+    50% {
+        -webkit-transform: translateY(8%);
+    }
+
+    100% {
+        -webkit-transform: translateY(0%);
+    }
+}
+

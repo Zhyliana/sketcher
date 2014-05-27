@@ -1,9 +1,8 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="form-group">
-    <div><%= f.label :email %><br>
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "We call it your secret service alias" %></div>
-  </div>
+    <div class="form-group has-error has-feedback">
+      <div><%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %></div>
   
   <div class="form-group">
         <%= f.label :password %><br>

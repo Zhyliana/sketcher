@@ -1,17 +1,29 @@
 <div class="container">
-  <h1><%= user.get("username") %></h1>
-  <h4> CardKarma: <%= user.get("card_karma") %></h4>
-  <h4> SketchKarma: <%= user.get("sketch_karma") %></h4>
+  <h1><%= user.escape("username") %></h1>
   
   
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#">Profile</a></li>
-    <li><a href="api/sketches" id="user-sketches">Sketches</a></li>
-    <li><a href="#">Cards</a></li>
+    <li class=""><a href="#user-stats" data-toggle="tab">Karma</a></li>
+    <li><a href="#user-cards" data-toggle="tab">Cards</a></li>
+    <li><a href="#user-sketches" data-toggle="tab">Sketches</a></li>
   </ul>
   
   
- 
+  
+  <div class="tab-content">
+    <div class="tab-pane fade" id="user-stats">
+      <h4> CardKarma: <%= user.escape("card_karma") %></h4>
+      <h4> SketchKarma: <%= user.escape("sketch_karma") %></h4>
+    </div>
+    <div class="tab-pane fade" id="user-cards">
+      <div class="user-cards">
+      </div>
+    </div>
+    <div class="tab-pane fade" id="user-sketches">
+      <div class="user-sketches">
+      </div>
+    </div>
+  </div>
 
 </div>
 
@@ -19,7 +31,11 @@
 <script>
 $('#user-sketches').click(function (event) {
   event.preventDefault()
-  debugger
+  $(this).tab('show')
+})
+
+$('#user-cards').click(function (event) {
+  event.preventDefault()
   $(this).tab('show')
 })
 </script>

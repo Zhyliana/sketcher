@@ -1,29 +1,42 @@
-<form id="new-card" class="navbar-form"> 
-  
+<form id="new-card" class="navbar-form navbar-left">    
+  </button> 
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <div class="input-group">
-    <input type="submit" class="btn" id="new-card-btn"></input>
+  <div class="form-group">
+    <button type="submit" 
+            class="input-group-addon" 
+            id="new-card-btn"
+            data-toggle="popover" 
+            data-placement="bottom"
+            data-animation="animation" 
+            data-container="body" 
+            data-content="Your card is now in the running. Check it out at the all-card showdown!" 
+            value="">
+      <span class="glyphicon glyphicon-plus"></span>&nbspCard
+    </button>
     <input type="text" 
-           class="form-control nav-pill" 
+           class="form-control" 
            id="new-card-input"
            name="white_card[body]" 
            autofocus="true"
            placeholder="Think you're witty?">
-    </div>
+    </input>    
 </form>
 
 <script>
   $(function() {
     $("#new-card").on("submit", function (event) {
         event.preventDefault();
-
-        var formData = $(this).serializeJSON();
-
+        var formData = $(this).serializeJSON()
         $.ajax({
           url: "/api/white_cards",
           type: "POST",
           data: formData,
           success: function () {
+            $('#new-card-btn').popover("toggle")
+            window.setInterval(function(){
+              $('#new-card-btn').popover('hide')
+            }, 3000);
+            
           }
         });
       }

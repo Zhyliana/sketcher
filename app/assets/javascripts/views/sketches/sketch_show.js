@@ -1,6 +1,5 @@
 SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   template: JST["sketches/show"],
-  className: "show-sketch",
   collection: SketchMate.Collections.Sketches,
   events: {
     "click .playable-cards .card" : "selectCard",
@@ -19,7 +18,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   
   addWhiteCard: function(card){    
     var whiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ model: card });  
-    this.addSubview(".cards", whiteCardShowView);
+    this.addSubview(".played-cards", whiteCardShowView);
   },
   
   addPlayableCards: function(){
@@ -44,19 +43,32 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     this.addSubview(".playable-cards", playableWhiteCardShowView) 
   },
   
-  selectCard: function(event){
-    $(event.target).addClass("selected")
-    $(event.target).siblings().removeClass("selected")
+  selectCard: function(event) {
+    $(event.currentTarget).addClass("selected")
+    $(event.currentTarget).siblings().removeClass("selected")
   },
   
   deSelectCard: function(event){
-    $(event.target).removeClass("selected")
+    $(event.currentTarget).removeClass("selected")
   },
   
-  submitCardSketchAssoc: function(event){
-    alert("sdgfu")
-    debugger
+  submitCardSketchAssoc: function(event){ 
+    event.preventDefault()
+    
+    var cardID = JSON.parse($(".selected").attr("id"));
+    var sketchID = this.model.id;
+    var newAssoc  = new SketchMate.Models.CardSketchAssignment();
+      
+    newAssoc.save({
+      white_card_id: cardID,
+      sketch_id: sketchID,
+      user_id: currentUserID,
+    }, { success: function(){
+        Backbone.history.navigate("#/game", { trigger: true })
+      }
+    });    
   },
+  
   
   render: function(){
     var renderedContent = this.template({

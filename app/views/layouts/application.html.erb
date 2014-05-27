@@ -7,81 +7,45 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <nav class="navbar my-nav" role="navigation">
+  <nav class="navbar my-nav" role="navigation">
     <div class="container-fluid ">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand" href="#">SketchMate</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="navbar-collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li> <a href='/home'><span class="glyphicon glyphicon-home"></span></a> </li>
-          <li> <a href='/contact'><span class="glyphicon glyphicon-envelope"></span></a> </li>
-          <li> <a href="#/white_cards/vote"><span class="glyphicon glyphicon-th"></span></a> </li>
-          <li> <%= render "api/white_cards/new" %> </li>
+          <%= render "layouts/nav_btns" %>
+           <% if user_signed_in? %>
+            <%= render "api/white_cards/new" %>
+          <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-          <h4><%= current_user.username %> (<%= current_user.card_karma %> : <%= current_user.sketch_karma %> )</h4>
-            <li class="dropdown">
-              <a href="#" 
-                 class="dropdown-toggle" 
-                 data-toggle="dropdown">
-                 <span class="glyphicon glyphicon-user"></span> 
-                 <b class="caret"></b>
-               </a>
-              <ul class="dropdown-menu">
-                <li><%=link_to "Profile", user_url(current_user)%></li>
-                <li class="divider"></li>
-                <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </li>
+            <%= render "layouts/user_nav" %>
           <% else %>
-            <li><button class="navbar-btn sessions-nav-btn"
-                    id="sign-in-nav-btn"
-                    data-toggle="modal"
-                    data-target=".sign-in-modal">
-                    Sign In
-            </button>
-
-            <div class="modal fade sign-in-modal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="mySmallModalLabel"
-                aria-hidden="true">
-              <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <h1 style="color: black">Sign In</h1>
-                    <%= render "devise/sessions/new", user: @user %>
-                   </div>
-                 </div>
-              </div>
-            </div>
-            
+            <%= render "layouts/sign_in_modal" %>            
             <li><%= button_to "Sign Up", new_user_registration_url, 
               class: "navbar-btn sessions-nav-btn", 
               id: "sign-up-nav-btn",
               method: :get %>
-       <% end %>
-     </div>
-    </ul>
-  </div>
+          <% end %>
+        </ul><!-- navbar-right -->
+     </div><!-- navbar-collapse -->
+  </div><!-- container-fluid-->
 </nav>
 
-
-
-<!-- <% if alert %>
+<% if alert %>
     <div class="alert alert-success col-xs-4 col-xs-offset-3s">
       <%= alert %>
     <button type="button" class="close" data-dismiss="alert">      
       <span class="glyphicon glyphicon-remove"></span>    
     </button>  
   </div>
-<% end %>
+<% end %> 
 
-<% if notice %>
+<!-- <% if notice %>
   <div class="alert alert-success col-xs-4 col-xs-offset-3s">
     <%= notice %>
     <button type="button" class="close" data-dismiss="alert">

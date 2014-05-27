@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
   has_many :sketches
   has_many :white_cards
   
+  def email_required?
+     false
+   end
+  
   def card_karma
     card_karma = 0
     white_cards.map do |card|
@@ -44,3 +48,5 @@ class User < ActiveRecord::Base
   end
 
 end
+
+

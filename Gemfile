@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 gem 'backbone-on-rails'
-gem 'jquery-ui-rails'
 gem 'ejs'
 gem 'serialize_json-rails', '~> 0.0.1'
 gem 'fabric-rails'
@@ -9,7 +8,11 @@ gem 'devise'
 gem 'omniauth'
 =======
 gem 'jquery-ui-rails'
+<<<<<<< HEAD
 >>>>>>> safe-email2
+=======
+gem 'bootstrap-sass'
+>>>>>>> fcce62a45134c218fcbf709cf270261744513159
 
 gem 'pg'
 gem 'pry-rails'

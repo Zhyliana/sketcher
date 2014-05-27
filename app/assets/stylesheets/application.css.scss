@@ -23,12 +23,16 @@
 >>>>>>> safe-email2
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @import url("http://fonts.googleapis.com/css?family=Lobster");
 =======
 /*@import url(http://fonts.googleapis.com/css?family=Lobster);
 >>>>>>> safe-email
+=======
+/*@import url(http://fonts.googleapis.com/css?family=Lobster);*/
+>>>>>>> fcce62a45134c218fcbf709cf270261744513159
 
-@font-face {
+/*@font-face {
   font-family: 'glyphicon';
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
 }*/
@@ -55,11 +59,15 @@
 =======
 >>>>>>> safe-email
 
+* {
+  font-family: 'PT Sans', sans-serif;
+}
+
 body {
   background-color: #0f8790;
 }
 
-h1, h2, h4, label {
+h1, h2, h4, label, .navbar-text {
   color: #FFFFFF;
 }
 
@@ -70,8 +78,13 @@ h1, h2, h4, label {
 }
 
 .my-nav {
-  background-color: #05565E;
+  background-image:url('nav_background.png');
   border-radius: 0px;
+  margin-bottom: 0px ;
+}
+
+.my-nav .glyphicon {
+  color: #FFFFFF;
 }
 
 .navbar-brand {
@@ -92,24 +105,193 @@ h1, h2, h4, label {
 =======
 }
 
+/* Nav Sign In */
+
 .sessions-nav-btn {
   border: 3px solid #a9a9a9;
 }
 
-#new-card-btn {
-
-}
-
-#new-card-input {
-
-}
-#sign-up-nav-btn{
+#sign-up-nav-btn {
   border-radius: 0px 7px 7px 0px;
   margin-left: 0px;
 }
 
-#sign-in-nav-btn{
+#sign-in-nav-btn {
   border-radius: 7px 0px 0px 7px;
   margin-right: 0px;  
 }
+
+/* New White Card */
+
+#new-card-input {
+  display: none
+}
+
+#new-card:hover #new-card-input {
+  display: inherit;
+  border-radius: 0px 3px 3px 0px;
+  -webkit-animation-name: stretchRight;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-transform-origin: 0% 0%;
+}
+
+#new-card-input:active {
+  display: inherit;
+  border-radius: 0px 3px 3px 0px;
+}
+
+#new-card-btn {
+ border-radius: 5px
+}
+
+#new-card-btn:hover {
+  border-radius: 3px 0px 0px 3px
+}
+<<<<<<< HEAD
 >>>>>>> safe-email2
+=======
+
+#new-card-btn {
+  margin-right: -5px;
+  height: 34px;
+  width: 75px;
+  background-color: #DB8C10;
+  color: #FFFFFF;
+  border: none;
+}
+
+#new-card-btn.glyphicon {
+  position: inherit;
+}
+
+@-webkit-keyframes stretchRight {
+  0% {
+      -webkit-transform: scaleX(0.3);
+  }
+
+  40% {
+      -webkit-transform: scaleX(0.88);
+  }
+
+  60% {
+      -webkit-transform: scaleX(0.95);
+  }
+
+  80% {
+      -webkit-transform: scaleX(1);
+  }
+
+  100% {
+      -webkit-transform: scaleX(1.03);
+  }
+
+  80% {
+      -webkit-transform: scaleX(1.01);
+  }
+
+  100% {
+      -webkit-transform: scaleX(1);
+  }
+}
+
+/* Jumbotron */
+.hello h2 {
+  font-size: 40px;
+  line-height: 60px;
+  text-shadow: 0 2px 0 #414042;
+  font-weight: bold;
+}
+
+/* Guest Login */
+
+.jumbotron {
+  border-bottom: 2px solid #414042;
+  padding-bottom: 140px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: black;
+}
+
+.sign-in.container{
+  max-width: 80%;
+  height: 180px;
+  margin: -99px auto;
+  padding: 30px;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, #b7e4f4 0%,#fff 6%);
+  background-size: 100% 24px,10px 100%;
+  background-position: 0 -1px;
+}
+
+
+#hello, .sign-in.container {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+label {
+  color: #bcbec0;
+  padding: 0px;
+  line-height: 30px;
+  font-size: 1.6em;
+  font-weight: 400;
+  float: left;
+  margin-left: 10%;
+}
+
+#username {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border-bottom: 2px solid black;
+  padding: 0;
+  width: 200px;
+  font-size: 1.6em;
+  line-height: 30px;
+  margin-left: 1%;
+  -webkit-appearance: textfield;
+  -webkit-writing-mode: horizontal-tb;
+  float: left;
+  outline: none;
+  
+}
+
+.btn.new-user {
+  font-size: 1.2em;
+  line-height: 30px;
+  margin-left: 5%;
+  padding: 5px 30px;
+  border-radius: 3px;
+  background-color: rgb(228, 152, 148);
+  float: left;
+  font-weight: bold;
+}
+
+
+.btn.new-user:hover{
+  color: #FFFFFF;
+  background-color: rgb(220, 152, 148)
+}
+
+.highlighted {
+  color: rgba(0,0,0,0.8);
+  background: rgba(255,236,0,0.6);
+  padding: 0 5px;
+  -webkit-transform: rotate(-2deg);
+  font-size: 1.2em;
+  width: 50%;
+  margin: 10px auto 50px;
+  display: block;
+  font-weight: bold;
+}
+
+.sign-in-form {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+
+>>>>>>> fcce62a45134c218fcbf709cf270261744513159

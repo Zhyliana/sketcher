@@ -1,4 +1,11 @@
-<canvas id="my-canvas" width="500" height="500"></canvas>
+<canvas id="my-canvas" width="500" height="500">
+  <script>
+    $(function() {
+      $("#my-canvas" ).selectable({ disabled: true });
+    });
+    </script>
+  
+</canvas>
 <div class="tools">
   <div id="pallette-area">
     <button id="black" class="paint">
@@ -32,6 +39,9 @@
     <button class="btn" id="submit-drawing-button">
       Submit
     </button>
+    
+    <div class="prompt-card">
+    </div>
   </div>
 </div>
 

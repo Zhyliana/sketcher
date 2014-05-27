@@ -4,7 +4,7 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
-    "" : "sketchNew",
+    "game" : "sketchNew",
     "sketch/:id" : "sketchShow",
     'white_cards/vote' : "cardsIndex",
     "users/:id" : "userShow"
@@ -23,14 +23,17 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   userShow: function(id){
-    var user = SketchMate.users.fetch(id);
-    user.fetch();
+    var user = SketchMate.users.getOrFetch(id);
+    var route = this;
+    user.fetch({
+      success: function(){
+        var userView = new SketchMate.Views.ShowUser({
+          model: user,
+        })
     
-    var userView = new SketchMate.Views.ShowUser({
-      model: user,
-    })
-    
-    this._swapView(userView);
+        route._swapView(userView);
+      }
+    }); 
   },
   
   sketchNew: function(){
