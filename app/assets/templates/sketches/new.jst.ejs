@@ -20,10 +20,15 @@
     $(function() {
       $("#my-canvas" ).selectable({ disabled: true });
     });
-    </script>
-  
+    </script> 
 </canvas>
 <div class="tools">
+  
+  <div class="size-slider">
+    <input type="range" value="10" min="1" max="100" id="brush-slider">
+    <div id="current-brush-size">10</div>
+  </div>
+  
   <div id="pallette-area">
     <button id="black" class="paint">
     </button>
