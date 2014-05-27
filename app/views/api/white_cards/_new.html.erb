@@ -1,11 +1,11 @@
 <form id="new-card" class="navbar-form navbar-left">   
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <div class="form-group">
-    <button type="submit" class="input-group-addon" id="new-card-btn" value="">
+    <button type="submit" class="input-group-addon slideRight" id="new-card-btn" value="">
       <span class="glyphicon glyphicon-plus"></span>
     </button>
     <input type="text" 
-           class="hide" 
+           class="form-control" 
            id="new-card-input"
            name="white_card[body]" 
            autofocus="true"
@@ -15,23 +15,9 @@
 
 
 <style>
-#new-card-input{
-  display: none;
-}
+
 </style>
-
-
-<script>
-$(function(){
-  $(".new-card-btn").click(function(event){
-    debugger
-    $("#new-card-input").toggleClass("form-control", 1000);
-    return false
-  })
-})
-</script>
-
-
+ 
 <script>
   $(function() {
     $("#new-card").on("submit", function (event) {

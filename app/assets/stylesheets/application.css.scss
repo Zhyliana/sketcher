@@ -80,6 +80,34 @@ h1, h2, h4, label, .navbar-text {
 
 /* New White Card */
 
+#new-card-input {
+  display: none
+}
+
+#new-card:hover #new-card-input {
+  animation: slide 0.5s forwards;
+  display: inherit;
+  border-radius: 0px 3px 3px 0px;
+  animation-name: stretchRight;
+    -webkit-animation-name: stretchRight;
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+    transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -webkit-transform-origin: 0% 0%;
+  
+}
+
+#new-card-btn {
+ border-radius: 5px
+}
+
+#new-card-btn:hover {
+  border-radius: 3px 0px 0px 3px
+}
+
 #new-card-btn {
   margin-right: -5px;
   height: 34px;
@@ -89,12 +117,68 @@ h1, h2, h4, label, .navbar-text {
   border: none;
 }
 
-#new-card-input {
-  border-radius: 0px 3px 3px 0px
-}
-
 #new-card-btn.glyphicon {
   position: inherit;
+}
+
+@keyframes stretchRight {
+  0% {
+      transform: scaleX(0.3);
+  }
+
+  40% {
+      transform: scaleX(1.02);
+  }
+
+  60% {
+      transform: scaleX(0.98);
+  }
+
+  80% {
+      transform: scaleX(1.01);
+  }
+
+  100% {
+      transform: scaleX(0.98);
+  }
+
+  80% {
+      transform: scaleX(1.01);
+  }
+
+  100% {
+      transform: scaleX(1);
+  }
+}
+
+@-webkit-keyframes stretchRight {
+  0% {
+      -webkit-transform: scaleX(0.3);
+  }
+
+  40% {
+      -webkit-transform: scaleX(1.02);
+  }
+
+  60% {
+      -webkit-transform: scaleX(0.98);
+  }
+
+  80% {
+      -webkit-transform: scaleX(1.01);
+  }
+
+  100% {
+      -webkit-transform: scaleX(0.98);
+  }
+
+  80% {
+      -webkit-transform: scaleX(1.01);
+  }
+
+  100% {
+      -webkit-transform: scaleX(1);
+  }
 }
 
 /* Guest Login */
@@ -189,3 +273,5 @@ label {
   margin-top: 0px;
   padding-top: 0px;
 }
+
+
