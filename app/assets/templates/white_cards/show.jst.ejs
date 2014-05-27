@@ -1,5 +1,5 @@
 <div class="card-body">
-  <%= white_card.get("body") %>
+  <%= white_card.escape("body") %>
 </div>
 
 <div class="vote-area row">
@@ -8,7 +8,7 @@
   </div>
   
   <div class="card-votes col-xs-1">
-    <%= white_card.get("votes") %>
+    <%= white_card.escape("votes") %>
   </div>
   
   <div class="card-vote downvote col-xs-1">
