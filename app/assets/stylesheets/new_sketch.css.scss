@@ -88,6 +88,21 @@
   border: 2px solid #FFFFFF; 
 }
 
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background: #8E5905;
+    height: 5px;
+    border-radius: 3px;
+    outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #F6C476;
+    border-radius: 15px;
+    height: 15px;
+    width: 15px;
+}
+
 
 @-webkit-keyframes glow {
   0%  {
