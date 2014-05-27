@@ -52,6 +52,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
       this.ctx = $("#my-canvas")[0].getContext("2d");
       this.ctx.strokeStyle = "black"; 
       this.ctx.lineWidth = 10;
+      this.ctx.lineJoin = 'round'
       this.ctx.lineCap = 'round'; 
       this.canvasOffset = $("#my-canvas").offset();
     }
