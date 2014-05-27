@@ -15,5 +15,5 @@ class UserVote < ActiveRecord::Base
   belongs_to :user
   belongs_to :white_card
   
-  validates :user_id, :uniqueness: { scope: :white_card_id }
+  validates :user_id, uniqueness: { scope: :white_card_id }
 end

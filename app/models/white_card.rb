@@ -23,8 +23,14 @@ class WhiteCard < ActiveRecord::Base
   has_many :sketches, through: :card_sketch_assignments, source: :sketch
   belongs_to :user
   
-  def self.votes
-    true
+  def karma
+    self.votes = 0
+    
+    self.user_votes.each do |user_vote|
+      self.votes += user_vote.vote_value
+    end
+    
+    self.votes
   end
 
 end
