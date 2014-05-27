@@ -5,13 +5,32 @@
       <span class="glyphicon glyphicon-plus"></span>
     </button>
     <input type="text" 
-           class="form-control" 
+           class="hide" 
            id="new-card-input"
            name="white_card[body]" 
            autofocus="true"
            placeholder="Think you're witty?">
     </input>    
 </form>
+
+
+<style>
+#new-card-input{
+  display: none;
+}
+</style>
+
+
+<script>
+$(function(){
+  $(".new-card-btn").click(function(event){
+    debugger
+    $("#new-card-input").toggleClass("form-control", 1000);
+    return false
+  })
+})
+</script>
+
 
 <script>
   $(function() {

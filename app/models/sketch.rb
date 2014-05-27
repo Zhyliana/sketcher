@@ -38,4 +38,15 @@ class Sketch < ActiveRecord::Base
       HAVING COUNT(card_sketch_assignments.white_card_id) < 9
     SQL
   end
+  
+  def self.completed
+    Sketch.find_by_sql(([<<-SQL]))
+      SELECT 
+        sketches.*
+      FROM
+        sketches JOIN card_sketch_assignments ON card_sketch_assignments.sketch_id = sketches.id
+      GROUP BY sketches.id
+      HAVING COUNT(card_sketch_assignments.white_card_id) = 8 
+    SQL
+  end
 end

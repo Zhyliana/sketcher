@@ -13,6 +13,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   },
   
   initialize: function(){
+   // this.listenTo(this, 'inDOM', this.createSketch);
     this.selectPromptCard()
   },
   

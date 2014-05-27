@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 gem 'backbone-on-rails'
-gem 'jquery-ui-rails'
 gem 'ejs'
 gem 'serialize_json-rails', '~> 0.0.1'
 gem 'fabric-rails'
