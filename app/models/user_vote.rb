@@ -12,6 +12,8 @@ class UserVote < ActiveRecord::Base
   validates :user_id, :white_card_id, :vote_value, presence: true
   validates :vote_value, inclusion: { in: [-1, 0, 1] }
   
-  belongs_to :user_id
-  belongs_to :white_card_id
+  belongs_to :user
+  belongs_to :white_card
+  
+  validates :user_id, :uniqueness: { scope: :white_card_id }
 end
