@@ -100,14 +100,9 @@ h1, h2, h4, label, .navbar-text {
 #new-card:hover #new-card-input {
   display: inherit;
   border-radius: 0px 3px 3px 0px;
-  animation-name: stretchRight;
   -webkit-animation-name: stretchRight;
-  animation-duration: 1.5s;
   -webkit-animation-duration: 1.5s;
-  animation-timing-function: ease-out;
   -webkit-animation-timing-function: ease-out;
-  transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
   -webkit-transform-origin: 0% 0%;
 }
 
@@ -137,43 +132,13 @@ h1, h2, h4, label, .navbar-text {
   position: inherit;
 }
 
-@keyframes stretchRight {
-  0% {
-      transform: scaleX(0.3);
-  }
-
-  40% {
-      transform: scaleX(1.02);
-  }
-
-  60% {
-      transform: scaleX(0.98);
-  }
-
-  80% {
-      transform: scaleX(1.01);
-  }
-
-  100% {
-      transform: scaleX(0.98);
-  }
-
-  80% {
-      transform: scaleX(1.01);
-  }
-
-  100% {
-      transform: scaleX(1);
-  }
-}
-
 @-webkit-keyframes stretchRight {
   0% {
       -webkit-transform: scaleX(0.3);
   }
 
   40% {
-      -webkit-transform: scaleX(1.02);
+      -webkit-transform: scaleX(0.6);
   }
 
   60% {
@@ -185,7 +150,7 @@ h1, h2, h4, label, .navbar-text {
   }
 
   100% {
-      -webkit-transform: scaleX(0.98);
+      -webkit-transform: scaleX(1.03);
   }
 
   80% {
