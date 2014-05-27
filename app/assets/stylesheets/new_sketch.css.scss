@@ -88,10 +88,28 @@
   border: 2px solid #FFFFFF; 
 }
 
+#brush-slider {
+  margin: 70px 5px;
+  margin-bottom: 15px;
+  width: 125px;
+}
+
+#current-brush-size {
+  background-color: #8E5905;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 25px;
+  height: 35px;
+  width: 35px;
+  margin: auto;
+  line-height: 35px;
+}
+
 input[type='range'] {
     -webkit-appearance: none !important;
     background: #8E5905;
     height: 5px;
+    width: 150;
     border-radius: 3px;
     outline: none;
 }
@@ -105,8 +123,9 @@ input[type='range']::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-input[type='range']::-webkit-slider-thumb:hover {
-    background: red;
+input[type='range']::-webkit-slider-thumb:hover, input[type='range']::-webkit-slider-thumb:active {
+  height: 20px;
+  width: 20px;
 }
 
 
