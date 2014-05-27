@@ -7,6 +7,7 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #  white_card_id :integer
+#  user_id       :integer
 #
 
 class CardSketchAssignment < ActiveRecord::Base

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525015813) do
+ActiveRecord::Schema.define(version: 20140527220306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20140525015813) do
   end
 
   add_index "sketches", ["user_id"], name: "index_sketches_on_user_id", using: :btree
+
+  create_table "user_votes", force: true do |t|
+    t.integer "user_id",                   null: false
+    t.integer "white_card_id",             null: false
+    t.integer "vote_value",    default: 0, null: false
+  end
+
+  add_index "user_votes", ["user_id", "white_card_id"], name: "index_user_votes_on_user_id_and_white_card_id", using: :btree
+  add_index "user_votes", ["white_card_id", "user_id"], name: "index_user_votes_on_white_card_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

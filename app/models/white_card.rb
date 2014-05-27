@@ -4,10 +4,10 @@
 #
 #  id         :integer          not null, primary key
 #  body       :string(255)      not null
-#  user_id    :integer          not null
-#  votes      :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
+#  votes      :integer          default(0)
 #
 
 class WhiteCard < ActiveRecord::Base
@@ -19,6 +19,12 @@ class WhiteCard < ActiveRecord::Base
    }
    
   has_many :card_sketch_assignments
+  has_many :user_votes
   has_many :sketches, through: :card_sketch_assignments, source: :sketch
   belongs_to :user
+  
+  def self.votes
+    true
+  end
+
 end
