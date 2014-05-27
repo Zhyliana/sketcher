@@ -6,11 +6,8 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   events: {
     "click .paint" : "pickColor",
     "click .brush" : "pickBrush",
-    
-     ////////////////////////
     "change #brush-slider" : "pickBrushSlider",
-    ////////////////////////
-    
+    "click #restart"  : "restartSketch",
     "mousedown #my-canvas" : "beginDrawing",
     "mousemove #my-canvas" : "draw",
     "mouseup #my-canvas" : "stopDrawing",
@@ -86,6 +83,13 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     this.ctx.lineWidth = width;
   },
   
+  pickBrushSlider: function(event){
+    event.preventDefault();
+    this.brushSize = JSON.parse($(event.currentTarget)[0].value)
+    $("#current-brush-size").text(this.brushSize)
+    $("#brush-slider").val(this.brushSize)
+  },
+   
   beginDrawing: function(event){
     this.drawable();
     this.drawing = true;
@@ -99,15 +103,11 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     }
   },
   
-  pickBrushSlider: function(event){
-    event.preventDefault();
-    //update sketch style
-    this.brushSize = JSON.parse($(event.currentTarget)[0].value)
-    $("#current-brush-size").text(this.brushSize)
-    this.ctx.lineWidth = this.brushSize;
-    $("#brush-slider").val(this.brushSize)
+  restartSketch: function(){
+    
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
   },
-  
+
   stopDrawing: function(){
     this.drawing = false;
   },
