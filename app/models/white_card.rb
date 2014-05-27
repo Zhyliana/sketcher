@@ -22,4 +22,8 @@ class WhiteCard < ActiveRecord::Base
   has_many :user_votes
   has_many :sketches, through: :card_sketch_assignments, source: :sketch
   belongs_to :user
+  
+  def votes
+    WhiteCard.joins(:user_votes).sum("vote_value")
+  end
 end
