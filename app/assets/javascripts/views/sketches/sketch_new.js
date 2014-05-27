@@ -6,7 +6,11 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   events: {
     "click .paint" : "pickColor",
     "click .brush" : "pickBrush",
+    
+     ////////////////////////
     "change #brush-slider" : "pickBrushSlider",
+    ////////////////////////
+    
     "mousedown #my-canvas" : "beginDrawing",
     "mousemove #my-canvas" : "draw",
     "mouseup #my-canvas" : "stopDrawing",
@@ -16,7 +20,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   
   initialize: function(){
    this.colorPickerDisplay = false;
-
+   this.brushSize = 10;
    // this.listenTo(this, 'inDOM', this.createSketch);
     this.selectPromptCard()
   },
@@ -55,7 +59,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
       this.canvas = $("#my-canvas")[0];
       this.ctx = $("#my-canvas")[0].getContext("2d");
       this.ctx.strokeStyle = "black"; 
-      this.ctx.lineWidth = 10;
+      this.ctx.lineWidth = this.brushSize;
       this.ctx.lineJoin = 'round';
       this.ctx.lineCap = 'round'; 
       this.canvasOffset = $("#my-canvas").offset();
@@ -95,16 +99,13 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     }
   },
   
-  pickBrushSlider: function(){
+  pickBrushSlider: function(event){
     event.preventDefault();
-
-     //update sketch style
-     this.brushSize = $(event.currentTarget).data("size")
-     this.sketch.style.lineWidth = this.brushSize;
-
-     //update brush controls
-     $("#current-size").text(this.brushSize)
-     $("#size-slider").val(this.brushSize)
+    //update sketch style
+    this.brushSize = JSON.parse($(event.currentTarget)[0].value)
+    $("#current-brush-size").text(this.brushSize)
+    this.ctx.lineWidth = this.brushSize;
+    $("#brush-slider").val(this.brushSize)
   },
   
   stopDrawing: function(){

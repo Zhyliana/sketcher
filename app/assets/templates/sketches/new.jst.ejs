@@ -14,7 +14,9 @@
   </div>
 </div>
    -->
-  
+<div class="prompt-card">
+</div>
+
 <canvas id="my-canvas" width="500" height="500">
   <script>
     $(function() {
@@ -23,11 +25,6 @@
     </script> 
 </canvas>
 <div class="tools">
-  
-  <div class="size-slider">
-    <input type="range" value="10" min="1" max="100" id="brush-slider">
-    <div id="current-brush-size">10</div>
-  </div>
   
   <div id="pallette-area">
     <button id="black" class="paint">
@@ -50,21 +47,23 @@
     </button>
   </div>
   
-  <div id="brush-area">
+  <div id="brush-area"> 
+    <div class="brush-slider">
+      <input type="range" value="10" min="1" max="100" id="brush-slider">
+      <div id="current-brush-size">10</div>
+    </div>
+    
     <button id="sm" class="brush glyphicon glyphicon-pencil" data-size-id="3">
     </button>
     <button id="med" class="brush glyphicon glyphicon-pencil" data-size-id="10">  
     </button>
     <button id="lrg" class="brush glyphicon glyphicon-pencil" data-size-id="25">
     </button>
-    
-    <button class="btn" id="submit-drawing-button">
-      Submit
-    </button>
-    
-    <div class="prompt-card">
-    </div>
   </div>
+    
+  <button class="btn" id="submit-drawing-button">
+    Submit
+  </button>
 </div>
 
 

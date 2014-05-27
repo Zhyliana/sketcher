@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .drawing-area, .show-sketch {
-  margin-left: 20%;
+  margin-left: 10%;
   margin-top: 35px;
 }
 
@@ -21,6 +21,7 @@
 }
 
 #pallette-area, #brush-area {
+  background-color: #DB8C10;
   border-radius: 15px;
   margin: 5px;
 }
@@ -31,7 +32,8 @@
 }
 
 #brush-area {  
-  padding: 10px 3px; 
+  padding: 10px 3px;
+  margin-top: 15px; 
 }
 
 #pallette-area:after, #brush-area:after {
