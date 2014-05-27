@@ -30,7 +30,7 @@
   background-color: #DB8C10;
 }
 
-#brush-area{  
+#brush-area {  
   padding: 10px 3px; 
 }
 
@@ -44,7 +44,7 @@
   clear: both;
 }
 
-.playable-cards .selected{
+.playable-cards .selected {
   background-color: black;
   color: white;
   border-color: black;
@@ -70,55 +70,50 @@
 
 .tools button:focus, .tools button:hover, .tools  button:active {
   outline: none;
-  border: 2px solid #a9a9a9;
+  -webkit-animation-name: glowing;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 100%;
 }
+
+
+@-webkit-keyframes glowing {
+  0%  {
+    box-shadow: -1px 1px 5px #ffc;
+  }
+  20%  {
+    box-shadow: -1px 1px 6px #ffc;
+  }
+  35%  {
+    box-shadow: -1px 1px 8px #ffc;
+  }
+  50%  {
+    box-shadow: -1px 1px 8px #ffc;
+  }
+  65%  {
+    box-shadow: -1px 1px 8px #ffc;
+  }
+  85%  {
+    box-shadow: -1px 1px 6px #ffc;
+  }
+  100% {
+    box-shadow: -1px 1px 5px #ffc;
+  }
+}
+
 
 .prompt-card > .card {
   margin-left: 0px;
   background-color: black;
   color: #FFFFFF;
   border-color: black;
-  animation-name: hatch;
-   -webkit-animation-name: hatch;
-   animation-duration: 2s;
-   -webkit-animation-duration: 2s;
-   animation-timing-function: ease-in-out;
-   -webkit-animation-timing-function: ease-in-out;
-   transform-origin: 50% 100%;
-   -ms-transform-origin: 50% 100%;
-   -webkit-transform-origin: 50% 100%;
-   visibility: visible !important;
+ -webkit-animation-name: hatch;
+ -webkit-animation-duration: 2s;
+ -webkit-animation-timing-function: ease-in-out;
+ -webkit-transform-origin: 50% 100%;
+ visibility: visible !important;
   
-}
-
-@keyframes hatch {
-    0% {
-        transform: rotate(0deg) scaleY(0.6);
-    }
-
-    20% {
-        transform: rotate(-2deg) scaleY(1.05);
-    }
-
-    35% {
-        transform: rotate(2deg) scaleY(1);
-    }
-
-    50% {
-        transform: rotate(-2deg);
-    }
-
-    65% {
-        transform: rotate(1deg);
-    }
-
-    80% {
-        transform: rotate(-1deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
 }
 
 @-webkit-keyframes hatch {
