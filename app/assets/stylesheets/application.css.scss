@@ -85,7 +85,6 @@ h1, h2, h4, label, .navbar-text {
 }
 
 #new-card:hover #new-card-input {
-  animation: slide 0.5s forwards;
   display: inherit;
   border-radius: 0px 3px 3px 0px;
   animation-name: stretchRight;
@@ -98,6 +97,11 @@ h1, h2, h4, label, .navbar-text {
     -ms-transform-origin: 0% 0%;
     -webkit-transform-origin: 0% 0%;
   
+}
+
+#new-card-input:active {
+  display: inherit;
+  border-radius: 0px 3px 3px 0px;
 }
 
 #new-card-btn {
