@@ -33,7 +33,7 @@
 
 #brush-area {  
   padding: 10px 3px;
-  margin-top: 15px; 
+  margin-top: 15px;
 }
 
 #pallette-area:after, #brush-area:after {
@@ -98,9 +98,15 @@ input[type='range'] {
 input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     background: #F6C476;
+    border: 2px solid #FFFFFF; 
     border-radius: 15px;
     height: 15px;
     width: 15px;
+    cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+    background: red;
 }
 
 
