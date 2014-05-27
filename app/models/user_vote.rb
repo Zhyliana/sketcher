@@ -16,4 +16,15 @@ class UserVote < ActiveRecord::Base
   belongs_to :white_card
   
   validates :user_id, uniqueness: { scope: :white_card_id }
+  
+  def self.record_vote(current_user, white_card_id, value)
+    self.new(user_id: current_user, )
+      
+    if self.new(user_id: current_user, ).save!
+      card = WhiteCard.find(white_card_id)
+      card.votes += value
+      card.save!
+    end
+  end
+
 end
