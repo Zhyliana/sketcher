@@ -70,35 +70,41 @@
 
 .tools button:focus, .tools button:hover, .tools  button:active {
   outline: none;
-  -webkit-animation-name: glowing;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-transform-origin: 50% 100%;
+  border: 2px solid #FFFFFF; 
+  -webkit-animation: glowing 10s ease-in-out infinite;
 }
 
 
 @-webkit-keyframes glowing {
   0%  {
-    box-shadow: -1px 1px 5px #ffc;
+    box-shadow: -1px 1px 4px #ffc, 1px -1px 4px #fff;
   }
-  20%  {
-    box-shadow: -1px 1px 6px #ffc;
+  12%  {
+    box-shadow: -1px 1px 5px #ffc, 1px -1px 5px #fff;
   }
-  35%  {
-    box-shadow: -1px 1px 8px #ffc;
+  24%  {
+    box-shadow: -1px 1px 6px #ffc, 1px -1px 6px #fff;
   }
-  50%  {
-    box-shadow: -1px 1px 8px #ffc;
+  36%  {
+    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;;
   }
-  65%  {
-    box-shadow: -1px 1px 8px #ffc;
+  42%  {
+    box-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
   }
-  85%  {
-    box-shadow: -1px 1px 6px #ffc;
+  54%  {
+    box-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
   }
-  100% {
-    box-shadow: -1px 1px 5px #ffc;
+  62%  {
+    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;;
+  }
+  74%  {
+    box-shadow: -1px 1px 6px #ffc, 1px -1px 6px #fff;
+  }
+  88%  {
+    box-shadow: -1px 1px 5px #ffc, 1px -1px 5px #fff;
+  }
+  100%  {
+    box-shadow: -1px 1px 4px #ffc, 1px -1px 4px #fff;
   }
 }
 
