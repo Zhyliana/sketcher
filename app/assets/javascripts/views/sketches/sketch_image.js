@@ -1,6 +1,6 @@
 SketchMate.Views.ImageSketch = Backbone.CompositeView.extend({
   template: JST["sketches/image"],
-  className: "show-canvas",
+  className: "col-xs-4",
   
   collection: SketchMate.Collections.Sketches,
 
