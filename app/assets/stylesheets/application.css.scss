@@ -32,14 +32,19 @@ body {
   background-color: #0f8790;
 }
 
-h1, h2, h4, label, .navbar-text {
+h1, h2, h4, label, .navbar-text, .navbar-brand:hover {
   color: #FFFFFF;
 }
 
 .btn {
-  background-color: #BA7B19;
+  background-color: #DB8C10;
   color: #FFFFFF;
   border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #BA7B19;
+  border: none;
 }
 
 .my-nav {

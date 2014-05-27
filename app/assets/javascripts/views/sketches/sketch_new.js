@@ -53,7 +53,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   drawable: function (event) {
     if (!this["hasBeenDone"]) {
       this.hasBeenDone = true
-      this.canvas = $("#my-canvas")[0];
+      this.canvas = document.getElementById("my-canvas");
       this.ctx = $("#my-canvas")[0].getContext("2d");
       this.ctx.strokeStyle = "black"; 
       this.ctx.lineWidth = this.brushSize;

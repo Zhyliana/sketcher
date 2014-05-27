@@ -107,8 +107,16 @@
 }
 
 #restart {
-  background-image:url('skull.png');
-  background-color: #FFFFFF;
+  font-size: 16px;
+  border: none;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+#restart:hover, #restart:active, #restart:focus {
+  color: #FFFFFF;
+  border: none;
+  outline: none;
 }
 
 input[type='range'] {
@@ -231,7 +239,6 @@ input[type='range']::-webkit-slider-thumb:hover, input[type='range']::-webkit-sl
     }
 }
 
-
 #submit-drawing-button {
   border-radius: 10px;
   background-color: #DB8C10;
@@ -303,7 +310,4 @@ input[type='range']::-webkit-slider-thumb:hover, input[type='range']::-webkit-sl
   font-size: 25px;
   border-radius: 25px;
 }
-
-
-
 
