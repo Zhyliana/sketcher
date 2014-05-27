@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.user-sketches {
+  margin-left: -20px;
+}
 .user-sketches > * {
   height: 300px;
   width: 300px;
@@ -14,19 +17,11 @@
 }
 
 .user-sketches img {
+  height: 300px;
+  width: 300px;
   border: 7px solid #a9a9a9;
   background-color: #FFFFFF;
   border-radius: 15px;
-}
-
-.user-sketches > .show-canvas {
-  padding: 0px;
-}
-
-
-.user-sketches > img {
-  height: 300px;
-  width: 300px;
 }
 
 .nav-tabs > li > a {
