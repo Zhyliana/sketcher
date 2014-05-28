@@ -32,7 +32,7 @@ body {
   background-color: #0f8790;
 }
 
-h1, h2, h4, label, .navbar-text, .navbar-brand:hover {
+h1, h2, h4, label, #username-stats, .navbar-brand:hover {
   color: #FFFFFF;
 }
 
@@ -255,4 +255,9 @@ label {
 .sign-in-form {
   margin-top: 0px;
   padding-top: 0px;
+}
+
+
+.glyphicon-plus.closed {
+  -webkit-transform: rotate(45deg);
 }

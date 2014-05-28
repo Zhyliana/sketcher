@@ -56,7 +56,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
       this.hasBeenDone = true
       this.canvas = document.getElementById("my-canvas");
       this.ctx = this.canvas.getContext("2d");
-      this.ctx.lineJoin = this.ctx.lineCap ='round';
+      this.ctx.lineJoin = this.ctx.lineCap = "round";
       this.canvasOffset = $("#my-canvas").offset();
     }
   },
@@ -108,11 +108,11 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   
   drawSquare: function(event){
     var mid = this.brushSize / 2;
-    var x = event.pageX - this.canvasOffset.left - mid;
-    var y = event.pageY - this.canvasOffset.top;
+    var x = event.pageX - (this.canvasOffset.left + mid);
+    var y = event.pageY - (this.canvasOffset.top + mid);
     
     this.ctx.beginPath();
-    this.ctx.rect(x-(this.brushSize/2), y-(this.brushSize/2), this.brushSize, this.brushSize);
+    this.ctx.rect(x, y, this.brushSize, this.brushSize);
     this.ctx.fillStyle = this.ctx.strokeStyle = this.color;
     this.ctx.fill();
     this.ctx.lineWidth = 0;
