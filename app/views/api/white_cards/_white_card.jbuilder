@@ -1,1 +1,1 @@
-json.extract! white_card, :id, :body, :votes, :user_id
+json.extract! white_card, :id, :body, :user_id, :total_votes, :user_votes

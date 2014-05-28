@@ -10,6 +10,16 @@ module Api
       end
     end
     
+    def show
+      @white_card = WhiteCard.find(params[:id])
+      if @white_card
+        render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
+      else
+        @white_cards = WhiteCard.all
+        render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
+      end
+    end
+    
     def playable
       played_card_ids = []
       

@@ -4,10 +4,10 @@ SketchMate.Models.User = Backbone.Model.extend({
   },
   
   userWhiteCards: function () { 
-     if (!this._whiteCards) {
-       this._whiteCards = new SketchMate.Collections.WhiteCards([], {
-         user: this
-       });
+    if (!this._whiteCards) {
+      this._whiteCards = new SketchMate.Collections.WhiteCards([], {
+       user: this
+      });
      }
 
      return this._whiteCards;

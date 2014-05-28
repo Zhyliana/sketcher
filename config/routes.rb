@@ -40,8 +40,7 @@ Rails.application.routes.draw do
        get "playable_cards", to: "white_cards#playable"
     end
     resources :white_cards do 
-      get "user_votes", to: "user_votes#index"
-      post "user_votes", to: "user_votes#create"
+      resources :user_votes
     end
     resources :card_sketch_assignments 
     get "top_cards", to: "white_cards#top"

@@ -8,11 +8,19 @@ module Api
         render json: { sucess: "saved" }
       else 
 
-        render json: { errors: "not saved" }
+        render json: { errors: "not saved" }, status: 422
       end
     end
     
-
+    def update
+      @user_vote =  UserVote.find(params[:id])
+      
+      if @user_vote.update_attributes
+        render json: { sucess: "saved" }
+      else 
+        render json: { errors: "not saved" }, status: 422
+      end
+    end
 
     private
     def user_vote_params
