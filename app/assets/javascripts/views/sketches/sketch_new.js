@@ -15,7 +15,6 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   },
   
   initialize: function(){
-   this.colorPickerDisplay = false;
    this.brushSize = 10;
    // this.listenTo(this, 'inDOM', this.createSketch);
     this.selectPromptCard()
@@ -35,7 +34,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     cards.fetch({
       success: function(){
         var randID = Math.floor(cards.length * Math.random()) + 1;
-        card = cards.getOrFetch(randID)
+        // card = cards.getOrFetch(randID)
         view.renderCard(card)
       }
     })
@@ -59,7 +58,6 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
       this.ctx.lineJoin = 'round';
       this.ctx.lineCap = 'round'; 
       this.canvasOffset = $("#my-canvas").offset();
-
     }
   },
   
@@ -75,18 +73,6 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   
   
   
-  showColorGradient: function(event){
-    event.preventDefault();
-    
-    // $('#picker').colpick({
-  //     layout:'hex',
-  //     submit:0,
-  //     color: this.ctx.strokeStyle,
-    // });
-
-
-  },
-  
   
   
   
@@ -94,7 +80,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   
   
   pickBrush: function(event){
-    var width = JSON.parse(event.target.getAttribute("data-size-id"));
+    this.brushSize = JSON.parse(event.target.getAttribute("data-size-id"));
     this.ctx.lineWidth = width;
   },
   
@@ -129,7 +115,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   submit: function(event){ 
     event.preventDefault()
     var view = this;
-    var canvas = $("#my-canvas")[0].toDataURL();
+    // var canvas = $("#my-canvas")[0].toDataURL();
     var newSketch = new SketchMate.Models.Sketch();
     
     newSketch.save({
