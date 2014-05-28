@@ -32,9 +32,11 @@
   </div><!-- container-fluid-->
 </nav>
 
-<% if flash[:errors] %>
-  <% render "layouts/messages"%>
-<% end %> 
+<% if notice %>
+ <% render "layouts/messages"%>
+<% end %>
+
+
 
 
 

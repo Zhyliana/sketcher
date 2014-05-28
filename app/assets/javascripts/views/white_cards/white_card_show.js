@@ -28,7 +28,9 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   upvote: function(event){
-    var upvote = new SketchMate.Models.UserVote();
+    var upvote = new SketchMate.Models.UserVote({
+      whiteCard: this.model
+    });
     var thumbsUp = $(event.target);
     var votes = $(event.target).parent().parent().children(".card-votes")
     debugger
@@ -50,7 +52,9 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   downvote: function(event){
-    var downvote = new SketchMate.Models.UserVote();
+    var downvote = new SketchMate.Models.UserVote({
+      whiteCard: this.model
+    });
     var thumbsDown = $(event.target);
     var votes = $(event.target).parent().parent().children(".card-votes")
     
