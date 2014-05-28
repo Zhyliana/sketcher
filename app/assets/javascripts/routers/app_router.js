@@ -4,10 +4,10 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
+    "users/:id" : "userShow",
     "game" : "sketchNew",
-    "sketch/:id" : "sketchShow",
+    "game/:id" : "sketchShow",
     'white_cards/vote' : "cardsIndex",
-    "users/:id" : "userShow"
   },
   
   sketchShow: function(id){

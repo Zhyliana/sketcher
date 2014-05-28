@@ -1,21 +1,20 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="tS1jw+axiTuCfeWT+PYfEOzs3qDHdIy5RlXw1w+jTTg="></div>
+  
     <div class="form-group has-error has-feedback">
-      <div><%= f.label :email %><br>
-      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %></div>
+      <div><label for="user_email">Email</label><br>
+      <input autofocus="autofocus" class="form-control" id="user_email" name="user[email]" placeholder="Email" type="email" value=""></div>
   
   <div class="form-group">
-        <%= f.label :password %><br>
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Quick, they'll look!" %>
+        <label for="user_password">Password</label><br>
+        <input autocomplete="off" class="form-control" id="user_password" name="user[password]" placeholder="Quick, they'll look!" type="password">
   </div>
   
   <div class="form-group checkbox">    
-    <% if devise_mapping.rememberable? -%>
-      <%= f.check_box :remember_me %><%= f.label :I_shall_be_back %>
-    <% end %>
+      <input name="user[remember_me]" type="hidden" value="0"><input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1"><label for="user_I_shall_be_back">I shall be back</label>
   </div>
 
   <div>
-    <%= f.submit "Let's rumble!", class: "btn" %>
+    <input class="btn" name="commit" type="submit" value="Let's rumble!">
   </div>
-<% end %>
+
+       </div></form>

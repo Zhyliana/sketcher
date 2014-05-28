@@ -140,15 +140,18 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     
     var view = this;
     var newSketch = new SketchMate.Models.Sketch();
-    debugger
+    var canvas = $("#my-canvas")[0].toDataURL();
+    
     newSketch.save({
-      // image: canvas,
+      user_id: currentUserID,
+      image: canvas
     },{
       success: function(){
+            debugger
         SketchMate.sketches.add(newSketch);
         var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;
         SketchMate.Routers.AppRouter.sketchShow(nextSketchID);
-        // Backbone.history.navigate("#/sketch/" + nextSketchID, { trigger: true })
+        // Backbone.history.navigate("#/game/" + nextSketchID, { trigger: true })
       }
     });    
   }
