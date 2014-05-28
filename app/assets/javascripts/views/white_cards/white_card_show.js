@@ -32,13 +32,15 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
     var upvote = new SketchMate.Models.UserVote();
     var thumbsUp = $(event.target);
     var votes = $(event.target).parent().parent().children(".card-votes")
-    
+    debugger
     upvote.save({
       user_id: currentUserID,
       white_card_id: this.model.escape("id"),
       vote_value: +1
     },{
       success: function(){
+        debugger
+        votes.siblings().children().css("color", "black")
         thumbsUp.parent().removeClass( "upvote" )
         thumbsUp.css("color", "rgb(234, 126, 89)")
         votes.css("color", "rgb(234, 126, 89)")
@@ -59,6 +61,7 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
       vote_value: - 1
     },{
       success: function(){
+        votes.siblings().children().css("color", "black")
         thumbsDown.parent().removeClass( "downvote" )
         thumbsDown.css("color", "rgb(136, 146, 252)")
         votes.css("color", "rgb(136, 146, 252)")
