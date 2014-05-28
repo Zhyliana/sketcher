@@ -1,14 +1,13 @@
 module Api
   class UserVotesController < ApplicationController  
     def create
-      @user_vote =  UserVote.record_vote(current_user.id, white_card_id, value)
-      
-      @user_vote.user = current_user
+      @user_vote =  UserVote.new(user_vote_params)
+    
       if @user_vote.save
-        fail
+
         render json: { sucess: "saved" }
       else 
-        fail
+
         render json: { errors: "not saved" }
       end
     end
@@ -16,7 +15,7 @@ module Api
 
 
     private
-    def white_card_params
+    def user_vote_params
       params.require(:user_vote).permit(:user_id, :white_card_id, :vote_value)
     end
   end

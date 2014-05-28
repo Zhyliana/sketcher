@@ -11,7 +11,7 @@
 #
 
 class WhiteCard < ActiveRecord::Base
-  validates :user, :body, :votes, presence: true
+  validates :user, :body, presence: true
   validates :body, uniqueness: { case_sensitive: false }, length: { 
     in: 3..140,
     too_short: "You gotta write more than that. At least 3 charachters.",
@@ -23,7 +23,7 @@ class WhiteCard < ActiveRecord::Base
   has_many :sketches, through: :card_sketch_assignments, source: :sketch
   belongs_to :user
   
-  def sqlvotes
+  def votes
     WhiteCard.joins(:user_votes).where(id: self.id).sum("vote_value")
   end
 end
