@@ -1,44 +1,33 @@
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#joinModal">
+<button class="btn btn-primary btn-lg" data-toggle="modal" id="joinButton" data-target="#joinModal">
   Join
 </button>
 
 
-<div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal bs-example-modal-sm fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#sign-in" data-toggle="tab">Sign In</a></li>
-          <li><a href="#sign-up" data-toggle="tab">Sign Up</a></li>
-        </ul>
-        
+        <button type="button" 
+                class="close" 
+                data-dismiss="modal" 
+                aria-hidden="true">&times;
+        </button>
+        <ul class="nav nav-tabs" id="joinTabs">
+          <li class="active in">
+            <a href="#sign-in" data-toggle="tab">Sign In</a>
+          </li>
+          <li>
+            <a href="#sign-up" data-toggle="tab">Sign Up</a>
+          </li>
+        </ul>      
       </div>
 
       <div class="modal-body"> 
-        
-        <script>
-          // // $(function () {
-          // //   $('#myTab a:last').tab('show')
-          // // })
-          // // 
-          // // 
-          // $('#sign-in').click(function (event) {
-          //   event.preventDefault()
-          //   $(this).tab('show')
-          // })
-          // 
-          // $('#sign-up').click(function (event) {
-          //   event.preventDefault()
-          //   $(this).tab('show')
-          // })
-        </script>
-
         <div class="tab-content">
-          <div class="tab-pane active" id="sign-in">
-            <%= render "devise/sessions/new" %>  
+          <div class="tab-pane fade active in" id="sign-in">
+            <%= render "devise/sessions/new" %> 
           </div>
-          <div class="tab-pane" id="sign-up">
+          <div class="tab-pane fade" id="sign-up">
             <%= render "devise/registrations/new" %>
           </div>
         </div>
