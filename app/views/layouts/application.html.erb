@@ -32,34 +32,11 @@
   </div><!-- container-fluid-->
 </nav>
 
-<% if alert %>
-    <div class="alert alert-success col-xs-4 col-xs-offset-3s">
-      <%= alert %>
-    <button type="button" class="close" data-dismiss="alert">      
-      <span class="glyphicon glyphicon-remove"></span>    
-    </button>  
-  </div>
+<% if flash[:errors] %>
+  <% render "layouts/messages"%>
 <% end %> 
 
-<!-- <% if notice %>
-  <div class="alert alert-success col-xs-4 col-xs-offset-3s">
-    <%= notice %>
-    <button type="button" class="close" data-dismiss="alert">
-      <span class="glyphicon glyphicon-remove"></span>
-    </button>
-  </div>
-<% end %> -->
 
-<% if flash[:errors] %>
-  <div class="alert alert-danger">
-    <h3>Dammit. Get it together!</h3>
-    <ul>
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 
 
 <%= yield %>

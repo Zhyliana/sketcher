@@ -1,6 +1,6 @@
-<form id="guest">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+<form action="/users" class="new_user" id="new_user" method="post">
+  <!-- <div style="display:none"><input type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="tS1jw+axiTuCfeWT+PYfEOzs3qDHdIy5RlXw1w+jTTg="></div> -->
+  <input name="authenticity_token" type="hidden">
     <label> sketch-mate.com/users/</label>
       <input
          id="username"
@@ -10,11 +10,10 @@
 
     <input type="hidden" name="user[email]" id="user_email">
 
-    <script>
-      $(".sign-in form#new_user").on("submit", function(event){
-        event.preventDefault();
+    <script>   
+      $(".sign-in form").on("submit", function(event){
         var $form = $(event.currentTarget)
-        $form.find("#guest input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
+          $form.find("input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
       })
     </script>
 
@@ -29,6 +28,6 @@
         type="hidden"
         value="12345678">
 
-    <%= f.submit "Play!", class: "btn new-user" %>
-  <% end %>
+     <input class="btn new-user" name="commit" type="submit" value="Play!">
 </firm>
+
