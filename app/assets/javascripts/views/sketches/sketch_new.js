@@ -34,7 +34,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     cards.fetch({
       success: function(){
         var randID = Math.floor(cards.length * Math.random()) + 1;
-        // card = cards.getOrFetch(randID)
+        card = cards.getOrFetch(randID)
         view.renderCard(card)
       }
     })
@@ -54,7 +54,6 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
       this.canvas = document.getElementById("my-canvas");
       this.ctx = this.canvas.getContext("2d");
       this.ctx.strokeStyle = "black"; 
-      this.ctx.lineWidth = this.brushSize;
       this.ctx.lineJoin = 'round';
       this.ctx.lineCap = 'round'; 
       this.canvasOffset = $("#my-canvas").offset();
@@ -86,9 +85,9 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   
   pickBrushSlider: function(event){
     event.preventDefault();
-    this.brushSize = JSON.parse($(event.currentTarget)[0].value)
-    $("#current-brush-size").text(this.brushSize)
-    $("#brush-slider").val(this.brushSize)
+    this.brushSize = JSON.parse($(event.currentTarget)[0].value);
+    $("#current-brush-size").text(this.brushSize);
+    $("#brush-slider").val(this.brushSize);
   },
    
   beginDrawing: function(event){
@@ -99,6 +98,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   
   draw: function(event){
     if (this.drawing === true) {
+      this.ctx.lineWidth = this.brushSize;
       this.ctx.lineTo(event.pageX - this.canvasOffset.left, event.pageY - this.canvasOffset.top);
       this.ctx.stroke();
     }
