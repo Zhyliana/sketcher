@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
          
   has_many :sketches
   has_many :white_cards
+  has_many :user_votes
   
   def email_required?
      false

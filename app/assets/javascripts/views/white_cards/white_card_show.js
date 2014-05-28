@@ -9,8 +9,8 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
    
   
   events: {
-    "click .upvote" : "upvote",
-    "click .downvote" : "downvote",
+    "click div.upvote" : "upvote",
+    "click div.downvote" : "downvote",
   },
   
   initialize: function(options){
@@ -29,16 +29,45 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   upvote: function(event){
-    var currVotes = this.model.get("votes")
-    this.model.save({
-      votes: currVotes + 1
+    var upvote = new SketchMate.Models.UserVote();
+    var thumbsUp = $(event.target);
+    var votes = $(event.target).parent().parent().children(".card-votes")
+    debugger
+    upvote.save({
+      user_id: currentUserID,
+      white_card_id: this.model.escape("id"),
+      vote_value: +1
+    },{
+      success: function(){
+        debugger
+        votes.siblings().children().css("color", "black")
+        thumbsUp.parent().removeClass( "upvote" )
+        thumbsUp.css("color", "rgb(234, 126, 89)")
+        votes.css("color", "rgb(234, 126, 89)")
+        var vote = JSON.parse(votes.text())
+        votes.text(vote + 1)
+      }
     })
   },
   
   downvote: function(event){
-    var currVotes = this.model.get("votes")
-    this.model.save({
-      votes: currVotes - 1
+    var downvote = new SketchMate.Models.UserVote();
+    var thumbsDown = $(event.target);
+    var votes = $(event.target).parent().parent().children(".card-votes")
+    
+    downvote.save({
+      user_id: currentUserID,
+      white_card_id: this.model.escape("id"),
+      vote_value: - 1
+    },{
+      success: function(){
+        votes.siblings().children().css("color", "black")
+        thumbsDown.parent().removeClass( "downvote" )
+        thumbsDown.css("color", "rgb(136, 146, 252)")
+        votes.css("color", "rgb(136, 146, 252)")
+        var vote = JSON.parse(votes.text());
+        votes.text(vote - 1)
+      }
     })
   },
   

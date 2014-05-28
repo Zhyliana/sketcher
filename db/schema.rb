@@ -16,6 +16,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140521212944) do
 =======
 ActiveRecord::Schema.define(version: 20140522045006) do
@@ -32,6 +33,9 @@ ActiveRecord::Schema.define(version: 20140524042233) do
 =======
 ActiveRecord::Schema.define(version: 20140525015813) do
 >>>>>>> safe-email2
+=======
+ActiveRecord::Schema.define(version: 20140528002959) do
+>>>>>>> 5b1070c52b6069adaa237787854306a4ca5cde1d
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +53,6 @@ ActiveRecord::Schema.define(version: 20140525015813) do
   create_table "sketches", force: true do |t|
     t.integer  "user_id",            null: false
     t.text     "data_url"
-    t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -59,6 +62,15 @@ ActiveRecord::Schema.define(version: 20140525015813) do
   end
 
   add_index "sketches", ["user_id"], name: "index_sketches_on_user_id", using: :btree
+
+  create_table "user_votes", force: true do |t|
+    t.integer "user_id",                   null: false
+    t.integer "white_card_id",             null: false
+    t.integer "vote_value",    default: 0, null: false
+  end
+
+  add_index "user_votes", ["user_id", "white_card_id"], name: "index_user_votes_on_user_id_and_white_card_id", using: :btree
+  add_index "user_votes", ["white_card_id", "user_id"], name: "index_user_votes_on_white_card_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
 <<<<<<< HEAD
@@ -86,12 +98,16 @@ ActiveRecord::Schema.define(version: 20140525015813) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "uservotes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "white_cards", force: true do |t|
-    t.string   "body",                   null: false
+    t.string   "body",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "votes",      default: 0
   end
 
 end

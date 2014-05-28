@@ -12,6 +12,7 @@
 
     <script>
       $(".sign-in form#new_user").on("submit", function(event){
+        event.preventDefault();
         var $form = $(event.currentTarget)
         $form.find("input[name=user\\[email\\]]").val($("#username").val() + "@guest.com"); 
       })

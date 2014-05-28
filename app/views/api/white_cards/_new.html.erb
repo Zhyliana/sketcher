@@ -31,8 +31,9 @@
           url: "/api/white_cards",
           type: "POST",
           data: formData,
-          success: function () {
-            $('#new-card-btn').popover("toggle")
+          success: function (event) {
+            $('#new-card-btn').popover("toggle");
+            $("#new-card-input").val("");
             window.setInterval(function(){
               $('#new-card-btn').popover('hide')
             }, 3000);

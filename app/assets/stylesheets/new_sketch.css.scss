@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .drawing-area, .show-sketch {
-  margin-left: 20%;
+  margin-left: 10%;
   margin-top: 35px;
 }
 
@@ -12,6 +12,7 @@
   border: 7px solid #a9a9a9;
   margin: 10px;
   float: left;
+  cursor:  url(pen.png), pointer;
 }
 
 .tools {
@@ -21,6 +22,7 @@
 }
 
 #pallette-area, #brush-area {
+  background-color: #DB8C10;
   border-radius: 15px;
   margin: 5px;
 }
@@ -30,8 +32,9 @@
   background-color: #DB8C10;
 }
 
-#brush-area{  
-  padding: 10px 3px; 
+#brush-area {  
+  padding: 10px 3px;
+  margin-top: 15px;
 }
 
 #pallette-area:after, #brush-area:after {
@@ -44,7 +47,7 @@
   clear: both;
 }
 
-.playable-cards .selected{
+.playable-cards .selected {
   background-color: black;
   color: white;
   border-color: black;
@@ -53,24 +56,144 @@
 .paint {
   height: 30px;
   width: 30px;
+  border: 2px solid #FFFFFF;
   border-radius: 5px;
 }
 
 .brush, .paint {
-  border: 2px solid #FFFFFF;
   margin: 3px;
   float: left;
 }
 
 .brush {
-  background-color: #DB8C10;
+  border: none;
+  background-color: #8E5905;
   color: #FFFFFF;
   text-align: center;
 }
 
-.tools button:focus, .tools button:hover, .tools  button:active {
+.tools button:focus, .tools button:hover, .tools  button:active{
   outline: none;
-  border: 2px solid #a9a9a9;
+  border: 2px solid #FFFFFF; 
+}
+
+.paint:focus, .tools .paint:hover, .tools  .paint:active {
+  -webkit-animation: glow 4s ease-in-out infinite;
+}
+
+.brush:focus, .tools .brush:hover, .tools  .brush:active {
+  -webkit-animation: dangle 6s ease-in-out infinite;
+}
+.brush:active, .brush:focus {
+  background-color: #EDAD48;
+  border: 2px solid #FFFFFF; 
+}
+
+#brush-slider {
+  margin: 70px 5px;
+  margin-bottom: 15px;
+  width: 125px;
+}
+
+#current-brush-size {
+  background-color: #8E5905;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 25px;
+  height: 35px;
+  width: 35px;
+  margin: auto;
+  line-height: 35px;
+}
+
+#restart {
+  font-size: 16px;
+  border: none;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+#restart:hover, #restart:active, #restart:focus {
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+}
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background: #8E5905;
+    height: 5px;
+    width: 150;
+    border-radius: 3px;
+    outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #F6C476;
+    border: 1px solid #FFFFFF; 
+    border-radius: 15px;
+    height: 17px;
+    width: 17px;
+    cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb:hover, input[type='range']::-webkit-slider-thumb:active {
+  height: 20px;
+  width: 20px;
+}
+
+
+@-webkit-keyframes glow {
+  0%  {
+    box-shadow: -1px 1px 3px #ffc, 1px -1px 3px #fff;
+  }
+  20%  {
+    box-shadow: -1px 1px 5px #ffc, 1px -1px 5px #fff;
+  }
+  35%  {
+    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;
+  }
+  50%  {
+    box-shadow: -1px 1px 9px #ffc, 1px -1px 9px #fff;;
+  }
+  65%  {
+    box-shadow: -1px 1px 7px #ffc, 1px -1px 7px #fff;
+  }
+  80%  {
+    box-shadow: -1px 1px 5px #ffc, 1px -1px 5px #fff;
+  }
+  100%  {
+    box-shadow: -1px 1px 3px #ffc, 1px -1px 3px #fff;;
+  }
+}
+
+@-webkit-keyframes dangle {
+  0%  {
+   -webkit-transform: rotate(0deg)
+  }
+  20% {
+      -webkit-transform: rotate(-6deg) scaleY(1.05);
+  }
+
+  35% {
+      -webkit-transform: rotate(6deg) scaleY(1);
+  }
+
+  50% {
+      -webkit-transform: rotate(-6deg);
+  }
+
+  65% {
+      -webkit-transform: rotate(3deg);
+  }
+
+  80% {
+      -webkit-transform: rotate(-3deg);
+  }
+
+  100% {
+      -webkit-transform: rotate(0deg);
+  }
 }
 
 .prompt-card > .card {
@@ -78,50 +201,15 @@
   background-color: black;
   color: #FFFFFF;
   border-color: black;
-  animation-name: hatch;
-   -webkit-animation-name: hatch;
-   animation-duration: 2s;
-   -webkit-animation-duration: 2s;
-   animation-timing-function: ease-in-out;
-   -webkit-animation-timing-function: ease-in-out;
-   transform-origin: 50% 100%;
-   -ms-transform-origin: 50% 100%;
-   -webkit-transform-origin: 50% 100%;
-   visibility: visible !important;
+ -webkit-animation-name: popout;
+ -webkit-animation-duration: 2s;
+ -webkit-animation-timing-function: ease-in-out;
+ -webkit-transform-origin: 50% 100%;
+ visibility: visible !important;
   
 }
 
-@keyframes hatch {
-    0% {
-        transform: rotate(0deg) scaleY(0.6);
-    }
-
-    20% {
-        transform: rotate(-2deg) scaleY(1.05);
-    }
-
-    35% {
-        transform: rotate(2deg) scaleY(1);
-    }
-
-    50% {
-        transform: rotate(-2deg);
-    }
-
-    65% {
-        transform: rotate(1deg);
-    }
-
-    80% {
-        transform: rotate(-1deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-@-webkit-keyframes hatch {
+@-webkit-keyframes popout {
     0% {
         -webkit-transform: rotate(0deg) scaleY(0.6);
     }
@@ -151,14 +239,21 @@
     }
 }
 
-
 #submit-drawing-button {
   border-radius: 10px;
   background-color: #DB8C10;
   color: #FFFFFF;
-  margin-top: 15px;
+  margin: 15px 5px;
   width: 145px;
-  border: 2px solid #DB8C10;
+  font-size: 18px;
+  padding: 2px 10px;
+  border: none;
+  
+}
+
+#submit-drawing-button:hover {
+  background-color: #CC8516;
+  border: none;
 }
 
 #black {
@@ -215,7 +310,4 @@
   font-size: 25px;
   border-radius: 25px;
 }
-
-
-
 

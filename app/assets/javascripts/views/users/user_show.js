@@ -16,7 +16,7 @@ SketchMate.Views.ShowUser = Backbone.CompositeView.extend({
   },
   
   addWhiteCard: function(card){
-    var whiteCardShowView =  new SketchMate.Views.ShowWhiteCard({ model: card });  
+    var whiteCardShowView = new SketchMate.Views.ShowWhiteCard({ model: card });  
     this.addSubview(".user-cards", whiteCardShowView);
   },
   
