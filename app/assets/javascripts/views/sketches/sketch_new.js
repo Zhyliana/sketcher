@@ -102,8 +102,6 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     this.ctx.arc(x, y, this.brushSize/2, 0, 2 * Math.PI, false);
     this.ctx.fillStyle = this.color;
     this.ctx.fill();
-    this.ctx.lineWidth = 0;
-    this.ctx.stroke();
   },
   
   drawSquare: function(event){
@@ -113,10 +111,8 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     
     this.ctx.beginPath();
     this.ctx.rect(x, y, this.brushSize, this.brushSize);
-    this.ctx.fillStyle = this.ctx.strokeStyle = this.color;
+    this.ctx.fillStyle = this.color;
     this.ctx.fill();
-    this.ctx.lineWidth = 0;
-    this.ctx.stroke();
   },
   
   drawFreeline: function(event){
@@ -144,15 +140,15 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     
     var view = this;
     var newSketch = new SketchMate.Models.Sketch();
-    
+    debugger
     newSketch.save({
-      image: canvas,
+      // image: canvas,
     },{
       success: function(){
         SketchMate.sketches.add(newSketch);
         var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;
-
-        Backbone.history.navigate("#/sketch/" + nextSketchID, { trigger: true })
+        SketchMate.Routers.AppRouter.sketchShow(nextSketchID);
+        // Backbone.history.navigate("#/sketch/" + nextSketchID, { trigger: true })
       }
     });    
   }
