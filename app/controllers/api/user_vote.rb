@@ -4,10 +4,11 @@ module Api
       @user_vote =  UserVote.record_vote(current_user.id, white_card_id, value)
       
       @user_vote.user = current_user
-
       if @user_vote.save
+        fail
         render json: { sucess: "saved" }
       else 
+        fail
         render json: { errors: "not saved" }
       end
     end

@@ -130,13 +130,11 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     var view = this;
     var canvas = $("#my-canvas")[0].toDataURL();
     var newSketch = new SketchMate.Models.Sketch();
-      
-    newSketch.set({
+    
+    newSketch.save({
       image: canvas,
       votes: 0
-    });
-    
-    newSketch.save({},{
+    },{
       success: function(){
         SketchMate.sketches.add(newSketch);
         var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;

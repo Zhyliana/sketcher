@@ -29,11 +29,15 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   upvote: function(event){
-    var currVotes = this.model.get("votes")
+    var upvote = new SketchMate.Models.UserVote()
     
-    this.model.save({
-      votes: currVotes + 1
+    upvote.save({
+      user_id: currentUserID,
+      white_card_id: this.model.escape("id"),
+      vote_value: +1
     })
+    
+        debugger
   },
   
   downvote: function(event){
