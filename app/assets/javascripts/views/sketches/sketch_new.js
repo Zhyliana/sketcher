@@ -9,9 +9,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     "mouseup #my-canvas" : "stopDrawing",
     "click .paint" : "pickColor",
     "click .brush" : "pickBrush",
-    "click #circle-stamp" : "makeCircleStamp",
-    "click #square-stamp" : "makeSquareStamp",
-    "click #free-line" : "makeFreeLine",
+    "click .stamp" : "changeStamp",
     "change #brush-slider" : "pickBrushSlider",
     "click #restart"  : "restartSketch",
     "click #submit-drawing-button" : "submit"
@@ -70,24 +68,14 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     if (this.stamp === "circleStamp"){
       this.drawCircle(event);
     } else if (this.stamp === "squareStamp"){
-      alert("begin drawing square")
       this.drawSquare(event);
     } else {
       this.ctx.beginPath();
     }
   },  
   
-  makeCircleStamp: function(){
-    this.stamp = "circleStamp";
-  },
-  
-  makeSquareStamp: function(){
-        alert("circleStamp")
-    this.stamp = "sqaureStamp";
-  },
-  
-  makeFreeLine: function(){
-    this.stamp = "freeLine";
+  changeStamp: function(event){
+    this.stamp = event.target.id
   },
   
   pickColor: function(event){
@@ -111,7 +99,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     var y = event.pageY - this.canvasOffset.top;
     
     this.ctx.beginPath();
-    this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI, false);
+    this.ctx.arc(x, y, this.brushSize/2, 0, 2 * Math.PI, false);
     this.ctx.fillStyle = this.color;
     this.ctx.fill();
     this.ctx.lineWidth = 0;
@@ -119,11 +107,12 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   },
   
   drawSquare: function(event){
-    var x = event.pageX - this.canvasOffset.left;
+    var mid = this.brushSize / 2;
+    var x = event.pageX - this.canvasOffset.left - mid;
     var y = event.pageY - this.canvasOffset.top;
     
     this.ctx.beginPath();
-    this.ctx.rect(x, y, this.brushSize, this.brushSize);
+    this.ctx.rect(x-(this.brushSize/2), y-(this.brushSize/2), this.brushSize, this.brushSize);
     this.ctx.fillStyle = this.ctx.strokeStyle = this.color;
     this.ctx.fill();
     this.ctx.lineWidth = 0;
