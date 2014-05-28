@@ -14,7 +14,6 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   initialize: function(options){
-    // this.sketch = options.sketch;
     this.listenTo(this.model, "sync add remove change:votes", this.render);
   },
   

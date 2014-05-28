@@ -4,19 +4,24 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   collection: SketchMate.Collections.Sketches,
 
   events: {
+    "mousedown #my-canvas" : "beginDrawing",
+    "mousemove #my-canvas" : "drawFreeline",
+    "mouseup #my-canvas" : "stopDrawing",
     "click .paint" : "pickColor",
     "click .brush" : "pickBrush",
+    "click #circle-stamp" : "makeCircleStamp",
+    "click #square-stamp" : "makeSquareStamp",
+    "click #free-line" : "makeFreeLine",
     "change #brush-slider" : "pickBrushSlider",
     "click #restart"  : "restartSketch",
-    "mousedown #my-canvas" : "beginDrawing",
-    "mousemove #my-canvas" : "draw",
-    "mouseup #my-canvas" : "stopDrawing",
-    "click #submit-drawing-button" : "submit",
+    "click #submit-drawing-button" : "submit"
   },
   
   initialize: function(){
-   this.brushSize = 10;
-   // this.listenTo(this, 'inDOM', this.createSketch);
+    this.brushSize = 10;
+    this.stamp = "freeLine";
+    this.color = "black";
+
     this.selectPromptCard()
   },
   
@@ -48,79 +53,111 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     this.addSubview(".prompt-card", promptCardShowView) 
   },
   
-  drawable: function (event) {
+  setUpCanvas: function (event) {
     if (!this["hasBeenDone"]) {
       this.hasBeenDone = true
       this.canvas = document.getElementById("my-canvas");
       this.ctx = this.canvas.getContext("2d");
-      this.ctx.strokeStyle = "black"; 
-      this.ctx.lineJoin = 'round';
-      this.ctx.lineCap = 'round'; 
+      this.ctx.lineJoin = this.ctx.lineCap ='round';
       this.canvasOffset = $("#my-canvas").offset();
     }
   },
   
-  pickColor: function(event){
-    var color = event.target.id; 
-         
-    this.ctx.strokeStyle = color;
-    this.ctx.moveTo(event.pageX - this.canvasOffset.left, event.pageY - this.canvasOffset.top);
+  beginDrawing: function(event){
+    this.setUpCanvas();
+    this.drawing = true;
+    
+    if (this.stamp === "circleStamp"){
+      this.drawCircle(event);
+    } else if (this.stamp === "squareStamp"){
+      alert("begin drawing square")
+      this.drawSquare(event);
+    } else {
+      this.ctx.beginPath();
+    }
+  },  
+  
+  makeCircleStamp: function(){
+    this.stamp = "circleStamp";
   },
   
+  makeSquareStamp: function(){
+        alert("circleStamp")
+    this.stamp = "sqaureStamp";
+  },
   
+  makeFreeLine: function(){
+    this.stamp = "freeLine";
+  },
   
-  
-  
-  
-  
-  
-  
-  
-  
+  pickColor: function(event){
+    this.color = event.target.id;
+  },
   
   pickBrush: function(event){
     this.brushSize = JSON.parse(event.target.getAttribute("data-size-id"));
-    this.ctx.lineWidth = width;
   },
   
   pickBrushSlider: function(event){
     event.preventDefault();
+    
     this.brushSize = JSON.parse($(event.currentTarget)[0].value);
     $("#current-brush-size").text(this.brushSize);
     $("#brush-slider").val(this.brushSize);
   },
-   
-  beginDrawing: function(event){
-    this.drawable();
-    this.drawing = true;
+  
+  drawCircle: function(event){
+    var x = event.pageX - this.canvasOffset.left;
+    var y = event.pageY - this.canvasOffset.top;
+    
     this.ctx.beginPath();
+    this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI, false);
+    this.ctx.fillStyle = this.color;
+    this.ctx.fill();
+    this.ctx.lineWidth = 0;
+    this.ctx.stroke();
   },
   
-  draw: function(event){
-    if (this.drawing === true) {
+  drawSquare: function(event){
+    var x = event.pageX - this.canvasOffset.left;
+    var y = event.pageY - this.canvasOffset.top;
+    
+    this.ctx.beginPath();
+    this.ctx.rect(x, y, this.brushSize, this.brushSize);
+    this.ctx.fillStyle = this.ctx.strokeStyle = this.color;
+    this.ctx.fill();
+    this.ctx.lineWidth = 0;
+    this.ctx.stroke();
+  },
+  
+  drawFreeline: function(event){
+    if (this.drawing === true && this.stamp === "freeLine"){
+      var x = event.pageX - this.canvasOffset.left;
+      var y = event.pageY - this.canvasOffset.top;
+      
+      this.ctx.strokeStyle = this.color; 
       this.ctx.lineWidth = this.brushSize;
-      this.ctx.lineTo(event.pageX - this.canvasOffset.left, event.pageY - this.canvasOffset.top);
+      this.ctx.lineTo(x, y);
       this.ctx.stroke();
     }
+  },
+  
+  stopDrawing: function(){
+    this.drawing = false;
   },
   
   restartSketch: function(){    
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
   },
 
-  stopDrawing: function(){
-    this.drawing = false;
-  },
-
   submit: function(event){ 
     event.preventDefault()
+    
     var view = this;
-    // var canvas = $("#my-canvas")[0].toDataURL();
     var newSketch = new SketchMate.Models.Sketch();
     
     newSketch.save({
       image: canvas,
-      votes: 0
     },{
       success: function(){
         SketchMate.sketches.add(newSketch);
