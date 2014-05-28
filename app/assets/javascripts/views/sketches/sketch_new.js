@@ -12,7 +12,6 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     "mousemove #my-canvas" : "draw",
     "mouseup #my-canvas" : "stopDrawing",
     "click #submit-drawing-button" : "submit",
-    "click #picker" : "showColorGradient",
   },
   
   initialize: function(){
@@ -60,7 +59,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
       this.ctx.lineJoin = 'round';
       this.ctx.lineCap = 'round'; 
       this.canvasOffset = $("#my-canvas").offset();
-      debugger
+
     }
   },
   
@@ -78,11 +77,13 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   
   showColorGradient: function(event){
     event.preventDefault();
-    $('#picker').colpick({
-    	layout:'hex',
-    	submit:0,
-      color: this.ctx.strokeStyle,
-    });
+    
+    // $('#picker').colpick({
+  //     layout:'hex',
+  //     submit:0,
+  //     color: this.ctx.strokeStyle,
+    // });
+
 
   },
   

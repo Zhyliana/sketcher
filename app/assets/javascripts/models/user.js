@@ -20,20 +20,20 @@ SketchMate.Models.User = Backbone.Model.extend({
       });
     }
     
-    return this._userSketches;
+  return this._userSketches;
   },
 
-    parse: function(jsonResp){
+  parse: function(jsonResp){
     if (jsonResp.sketches){
       this.userSketches().set(jsonResp.sketches, { parse: true });
       delete jsonResp.sketches;
     }
-    
+  
     if (jsonResp.white_cards){
       this.userWhiteCards().set(jsonResp.white_cards, { parse: true });
       delete jsonResp.white_cards;
     }
-    
+  
     return jsonResp
   },
 })
