@@ -20,9 +20,9 @@ class UserVote < ActiveRecord::Base
   def self.record_vote(current_user_id, white_card_id, value)
     user_vote = self.new(user_id: current_user_id, white_card_id: white_card_id, vote_value: value)
       
-    if  user_vote.save!
+    if user_vote.save!
       card = WhiteCard.find(white_card_id)
-      card.votes += value
+      card.votes += values
       card.save!
     end
   end

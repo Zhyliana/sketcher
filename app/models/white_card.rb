@@ -24,6 +24,6 @@ class WhiteCard < ActiveRecord::Base
   belongs_to :user
   
   def votes
-    WhiteCard.joins(:user_votes).sum("vote_value")
+    WhiteCard.joins(:user_votes).where(id: self.id).sum("vote_value")
   end
 end
