@@ -24,10 +24,11 @@ module Api
     
     def destroy
       @user_vote =  UserVote.find(params[:id])
+      
       if @user_vote.destroy
         render json: { sucess: "destroyed" }
       else 
-        render json: { errors: "not saved" }, status: 422
+        render json: { errors: "not destroyed" }, status: 422
       end
     end
 

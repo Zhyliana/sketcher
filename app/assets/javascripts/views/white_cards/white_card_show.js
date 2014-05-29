@@ -14,7 +14,7 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   },
   
   initialize: function(options){
-    this.listenTo(this.model, "sync add remove change:votes", this.render);
+    this.listenTo(this.model, "sync add remove change:total_votes change:user_votes change:userVotes", this.render);
   },
   
   render: function(){
@@ -23,46 +23,50 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
     });
 
     this.$el.html(renderedContent);
+    
+    if(this.model.userVotes.user_id === currentUserID){
+      if(this.model.userVotes.vote_value === 1){
+                debugger
+        // this.$el.(".card-votes").text(currVote - 1)
+      }
+    }
   
     return this;
   },
   
   upvote: function(event){
-    // this.model.userVotes.forEach(function(userVote){ 
-    //   if( userVote.user_id === currentUserID){
-    //     // userVote.save({vote_value: 0}, {})
-    //     alert(userVote.vote_value + this.model.totalVotes)
-    //   }
-    // })
+    var view = this;
     var whiteCard = this.model;
-    var thumbs = $(event.target);
-    var newVote  = true
-    debugger
+    var thumb = $(event.target);
+    var currVote = JSON.parse(thumb.siblings(".card-votes").text())
 
     if(whiteCard.userVotes.user_id === currentUserID){
-      newVote = false
-
       var updatedVote = new SketchMate.Models.UserVote(whiteCard.userVotes)
-
+      // debugger
       updatedVote.destroy({
         success: function(){
-          delete userVote
-          $(".upvote").css("color", "black")
+          whiteCard.userVotes = {}
+          view.render()
+          thumb.css("color", "black")
+          thumb.siblings(".card-votes").text(currVote - 1)
+          thumb.siblings(".card-votes").css("color", "black")
         }
       })
-    }  
-      
-    if(newVote){
-      debugger
-      var upvote = new SketchMate.Models.UserVote({
+    } else {      
+      var newVoteModel = new SketchMate.Models.UserVote({
         user_id: currentUserID,
         white_card_id: this.model.escape("id"),
         vote_value: + 1,
       });
   
-      upvote.save({},{
+      newVoteModel.save({},{
         success: function(){
-          $(".upvote").css("color", "rgb(136, 146, 252)")
+          // debugger
+          whiteCard.userVotes = newVoteModel.toJSON()
+          view.render()
+          thumb.siblings(".card-votes").text(currVote + 1)
+          thumb.siblings(".card-votes").css("color", "rgb(233, 134, 89)")
+          thumb.css("color", "rgb(233, 134, 89)")
         }
       })
     }

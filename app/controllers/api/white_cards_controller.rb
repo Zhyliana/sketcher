@@ -13,7 +13,6 @@ module Api
     def show
       @white_card = WhiteCard.find(params[:id])
       
-      # @current_user_vote = @white_card.user_votes.where(user_id: current_user.id)
       
       if @white_card
         render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
@@ -46,14 +45,16 @@ module Api
     def update
       @white_card = WhiteCard.find_by(id: params[:id])
       
+      @current_user_vote = @white_card.user_votes.where(user_id: current_user.id)
+      
       if @white_card.update_attributes(white_card_params)
-        render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
+        render partial: "api/white_cards/white_card", locals: { white_card: @white_card, current_user_id: @current_user_vote }
       else
         @white_cards = WhiteCard.all
         render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
       end
     end
-  
+    
     def create
       @white_card =  WhiteCard.new(white_card_params)
       
@@ -65,6 +66,7 @@ module Api
         render json: { errors: "not saved" }
       end
     end
+    
 
     private
     def white_card_params
