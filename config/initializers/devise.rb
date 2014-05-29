@@ -1,20 +1,10 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-<<<<<<< HEAD
-  config.authentication_keys = [ :email ]
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.scoped_views = true
-  # The secret key used by Devise. Devise uses this key to generate
-  # random tokens. Changing this key will render invalid all existing
-  # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'a2370e3c74b83ce8ad7230713433ab1634c933151892e10178c3c84935bd210dbfce6404a4f6e7ce3810009a692327c4f89d86fc51c116d1fe2d491fb62dd54c'
-=======
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'cb7c1a0bbf9bc19cfde164f4894326b057e262a6383c66e4a9fa38b6e2868e449423e28e1d9d2a39cf7e74c8b265201eaee7fa647cf374ee43f8acec8e2841e9'
->>>>>>> safe-email
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -107,11 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-<<<<<<< HEAD
-  # config.pepper = '75ceaa55d7062f5c92a99d5e905b64043846ff4bd076841a9bc4f18b800c0e77dfe36876ae80e88ce9e5be9f203de3793f5e5bfadaf7d676f50d8191251060ea'
-=======
   # config.pepper = 'e3df1cde18161a5a02bc5051dbc6ac4ec031a0b52905634599a7d1c00f4f6cdf8074d6645909c5ddbce8b39aedc003d74b03bc44c1dde7766ff85127287560ab'
->>>>>>> safe-email
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
