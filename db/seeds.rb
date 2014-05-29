@@ -1,8 +1,4 @@
-User.create!([
-  {email: "andrew@guest.com", encrypted_password: "$2a$10$oIGzAW/EbXQNYA5zzD62IugEYx1fS4bup5hKdUhT59JAdtZyfy0Fu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-05-26 01:04:17", last_sign_in_at: "2014-05-26 01:04:17", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
-  {email: "demo@gmail.com", encrypted_password: "$2a$10$tjIaJrgIvcGUU/3sS1D/w.aLYSIM8lBfpJb2W6.rC1wwjYcBDRGn2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-05-25 18:35:09", last_sign_in_at: "2014-05-25 18:35:09", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
-  {email: "yahooo@guest.com", encrypted_password: "$2a$10$WBKppsZ..LiKEqTQHRZabe.xLfij7PNDAoDL.Ce11Ooeg9lDiGbvi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-05-28 21:05:08", last_sign_in_at: "2014-05-28 21:05:08", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
-])
+
 CardSketchAssignment.create!([
   {sketch_id: 1, white_card_id: 2, user_id: 1},
   {sketch_id: 1, white_card_id: 5, user_id: 1},
