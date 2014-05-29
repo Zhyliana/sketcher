@@ -15,7 +15,7 @@ module Api
     def update
       @user_vote =  UserVote.find(params[:id])
       
-      if @user_vote.update_attributes
+      if @user_vote.update_attributes(user_vote_params)
         render json: { sucess: "saved" }
       else 
         render json: { errors: "not saved" }, status: 422

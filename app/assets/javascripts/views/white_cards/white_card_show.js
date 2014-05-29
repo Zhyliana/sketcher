@@ -3,7 +3,11 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   className: "card panel panel-default",
   // collection: SketchMate.Collections.WhiteCards({ white_}),
   userVotesColl: function(){
-    var userVotes = new 
+    var userVotesColl = new SketchMate.Collections.UserVotes({
+      whiteCard: this.model
+    })
+    alert("userVotes COll")
+    return userVotesColl
   },
   
   attributes: function(){
@@ -42,15 +46,8 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
     whiteCard.userVotes.forEach(function(userVote){ 
       if(userVote.user_id === currentUserID){
         alert("found")
-        
-        debugger
-        var updatedVote = new SketchMate.Models.UserVote({
-           user_id: currentUserID,
-           white_card_id: whiteCard.escape("id"),
-           vote_value: 0,
-           whiteCard: whiteCard
-        })
-        
+        var updatedVote = new SketchMate.Models.UserVote(userVote)
+
         updatedVote.save({vote_value: 0},{
           success: function(){
             alert("updatedVote Saved")
