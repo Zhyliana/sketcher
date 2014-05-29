@@ -10,59 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-<<<<<<< HEAD
- */
-/*@import "bootstrap";
-=======
  *= require_tree .
  *= require_self
 *= require jquery.ui.all
  */
 
 @import "bootstrap";
-<<<<<<< HEAD
->>>>>>> safe-email2
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-@import url("http://fonts.googleapis.com/css?family=Lobster");
-=======
-/*@import url(http://fonts.googleapis.com/css?family=Lobster);
->>>>>>> safe-email
-=======
-/*@import url(http://fonts.googleapis.com/css?family=Lobster);*/
->>>>>>> fcce62a45134c218fcbf709cf270261744513159
-=======
 
 @import url(http://fonts.googleapis.com/css?family=Lobster);
->>>>>>> 12cd9a8f704f7dbab38daeaf4fd634fd4940e023
 
 /*@font-face {
   font-family: 'glyphicon';
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
 }*/
-<<<<<<< HEAD
-/*
-.btn {
-  background-color: #DB8C10;
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 10px;
-  border-radius: 10px;
-}
-
-.btn:hover {
-  background-color: #C8800D;
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 10px;
-}
-
-.form-control {
-  border-radius: 10px;
-}
-=======
->>>>>>> safe-email
 
 * {
   font-family: 'PT Sans', sans-serif;
@@ -110,9 +70,6 @@ h1, h2, h4, label, #username-stats, .navbar-brand, .navbar-brand:hover {
   border: none;
   margin: 7px 15px;
   padding: 5px 10px;
-<<<<<<< HEAD
-}*/
-=======
 }
 
 /* Nav Sign In */
@@ -158,9 +115,6 @@ h1, h2, h4, label, #username-stats, .navbar-brand, .navbar-brand:hover {
 #new-card-btn:hover {
   border-radius: 3px 0px 0px 3px
 }
-<<<<<<< HEAD
->>>>>>> safe-email2
-=======
 
 #new-card-btn {
   margin-right: -5px;
@@ -303,17 +257,8 @@ label {
   margin-top: 0px;
   padding-top: 0px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
->>>>>>> fcce62a45134c218fcbf709cf270261744513159
-=======
->>>>>>> 5b1070c52b6069adaa237787854306a4ca5cde1d
-=======
 
 
 .glyphicon-plus.closed {
   -webkit-transform: rotate(45deg);
 }
->>>>>>> 12cd9a8f704f7dbab38daeaf4fd634fd4940e023
