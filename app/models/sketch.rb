@@ -23,7 +23,7 @@ class Sketch < ActiveRecord::Base
 
   has_attached_file :image, :styles => {
     :show => "600x600>",
-    :thumbnail => "150x150#>"
+    :thumbnail => "150x150"
   }
   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ 
