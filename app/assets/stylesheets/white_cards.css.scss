@@ -48,6 +48,14 @@
   
 }
 
+.upvoted {
+  color: rgb(233, 134, 89);
+}
+
+.downvoted {
+  color: rgb(136, 146, 252);
+}
+
 .downvote {
   -webkit-transform: rotate(-180deg);
 }

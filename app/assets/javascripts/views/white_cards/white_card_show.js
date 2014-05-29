@@ -25,9 +25,13 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
     this.$el.html(renderedContent);
     
     if(this.model.userVotes.user_id === currentUserID){
-      if(this.model.userVotes.vote_value === 1){
-                debugger
-        // this.$el.(".card-votes").text(currVote - 1)
+      var userVote = this.model.userVotes.vote_value
+      if(userVote === 1){
+        this.$el.find(".card-votes").toggleClass("upvoted")
+        this.$el.find(".upvote").toggleClass("upvoted")
+      } else if (userVote === -1) {
+        this.$el.find(".card-votes").toggleClass("downvoted")
+        this.$el.find(".downvote").toggleClass("upvoted")
       }
     }
   
@@ -39,17 +43,19 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
     var whiteCard = this.model;
     var thumb = $(event.target);
     var currVote = JSON.parse(thumb.siblings(".card-votes").text())
+    var $totalVotes = thumb.parent().find(".card-votes")
 
     if(whiteCard.userVotes.user_id === currentUserID){
       var updatedVote = new SketchMate.Models.UserVote(whiteCard.userVotes)
       // debugger
       updatedVote.destroy({
         success: function(){
+          $totalVotes.toggleClass("upvoted")
+          thumb.parent().find(".upvote").toggleClass("upvoted")
+          thumb.parent().find(".card-votes").text(currVote - 1)
           whiteCard.userVotes = {}
-          view.render()
-          thumb.css("color", "black")
-          thumb.siblings(".card-votes").text(currVote - 1)
-          thumb.siblings(".card-votes").css("color", "black")
+          // debugger
+          // view.render()
         }
       })
     } else {      
@@ -61,12 +67,11 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
   
       newVoteModel.save({},{
         success: function(){
-          // debugger
+          $totalVotes.toggleClass("upvoted")
+          thumb.parent().find(".upvote").toggleClass("upvoted")
+          thumb.parent().find(".card-votes").text(currVote + 1)
           whiteCard.userVotes = newVoteModel.toJSON()
-          view.render()
-          thumb.siblings(".card-votes").text(currVote + 1)
-          thumb.siblings(".card-votes").css("color", "rgb(233, 134, 89)")
-          thumb.css("color", "rgb(233, 134, 89)")
+          // view.render()
         }
       })
     }
