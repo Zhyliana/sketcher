@@ -11,14 +11,8 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync add remove", this.render);
     this.listenTo(this.model.whiteCards(), "sync add", this.addWhiteCard);
   
-    this.addPlayableCards()
-    this.model.whiteCards().each(this.addWhiteCard.bind(this));
-    $( "#canvas" ).sortable({
-      receive: function( event, ui ) {
-        $(ui.item).addClass("selected")
-        $( "#submit-new-sketch-card-assoc-btn" ).trigger( "click" );
-      }
-    });   
+    this.addPlayableCards();
+    this.model.whiteCards().each(this.addWhiteCard.bind(this));  
   },
   
   addWhiteCard: function(card){    
