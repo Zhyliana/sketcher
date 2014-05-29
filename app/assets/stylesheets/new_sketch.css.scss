@@ -43,16 +43,6 @@
   display: block;
 }
 
-.playable-cards {
-  clear: both;
-}
-
-.playable-cards .selected {
-  background-color: black;
-  color: white;
-  border-color: black;
-}
-
 .paint {
   height: 30px;
   width: 30px;
@@ -208,7 +198,7 @@ input[type='range']::-webkit-slider-thumb:hover, input[type='range']::-webkit-sl
  visibility: visible !important;  
 }
 
-.prompt-card  .card-body{
+.prompt-card .card-body{
   font-weight: 650;
 }
 

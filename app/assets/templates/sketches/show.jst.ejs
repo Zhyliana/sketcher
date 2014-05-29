@@ -1,45 +1,91 @@
 <div class="scrollable">
   <div class="played-cards">
   </div>
+  
+  <script>
+  // $(function() {
+  //     // run the currently selected effect
+  //     function runEffect() {
+  //    //    // get effect type from
+  //    //    var selectedEffect = $( "#effectTypes" ).val();
+  //    //  
+  //    //    // most effect types need no options passed by default
+  //    //    var options = {};
+  //    //    // some effects have required parameters
+  //    //    if ( selectedEffect === "scale" ) {
+  //    //      options = { percent: 0 };
+  //    //    } else if ( selectedEffect === "transfer" ) {
+  //    //      options = { to: "#button", className: "ui-effects-transfer" };
+  //    //    } else if ( selectedEffect === "size" ) {
+  //    //      options = { to: { width: 200, height: 60 } };
+  //    //    }
+  //    //  
+  //       // run the effect
+  //       $( ".scrollable" ).effect( "slide", options, 500, callback );
+  //     };
+  //  
+  //     // callback function to bring a hidden box back
+  //     // function callback() {
+  //    //         setTimeout(function() {
+  //    //           $( "#effect" ).removeAttr( "style" ).hide().fadeIn();
+  //    //         }, 1000 );
+  //    //       };
+  //  
+  //     // set effect from select menu value
+  //     $( ".scrollable" ).click(function() {
+  //       runEffect();
+  //       return false;
+  //     });
+  //   });
+  </script>
 </div>
-<div class="play-area">
-<div class="show-canvas">
-  <img src="<%=sketch.escape("image")%>" id="canvas">
+
+<div class="show-canvas" id="canvas">
+  <img src="<%=sketch.escape("image")%>">
 </div>
 
 <div class="playable-cards">
-</div>
+
 </div>
 
-<div class="submit-new-sketch-card-assoc-btn btn">
+<div class="btn" id="submit-new-sketch-card-assoc-btn">
   <span class="glyphicon glyphicon-plus"></span>
 </div>
 <script>
   $(document).ready(function() {
-    // debugger
-    
     $(".playable-cards").sortable({
       items: ".card",
-      cursor: "grab",
-      containment: ".play-area",
       cursorAt: { left: 75, top: 120 }, 
       revert: true,
       scrollSensitivity: 7,
       tolerance: "intersect",
-      connectWith: "#canvas", 
+      connectWith: "#canvas",
       start: function( event, ui ){
         $(ui.item).siblings().removeClass("selected")
         $(ui.item).addClass("selected")
-        debugger
       },
     })
-    $( ".playable-cards .card" ).disableSelection();
-    // 
+    // $( ".playable-cards .card" ).disableSelection();
+  //   
     $( "#canvas" ).sortable({
       receive: function( event, ui ) {
-        var cardID = JSON.parse($(ui.item).attr("id"))
-        debugger
+        $(ui.item).addClass("selected")
+        $( "#submit-new-sketch-card-assoc-btn" ).trigger( "click" );
       }
     });
+    // $( ".card" ).draggable({
+ //       containment: "window",
+ //       handle: ".card"
+ //     });
+    // $( ".canvas" ).droppable({
+   //       drop: function( event, ui ) {
+   //         alert("droppable")
+   //         // $( this )
+   //         //   .addClass( "ui-state-highlight" )
+   //         //   .find( "p" )
+   //         //     .html( "Dropped!" );
+   //       }
+   //     });
+    
   });
 </script>

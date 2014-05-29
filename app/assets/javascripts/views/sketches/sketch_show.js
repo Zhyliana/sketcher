@@ -4,7 +4,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   events: {
     "click .playable-cards .card" : "selectCard",
     "click .playable-cards .selected" : "deSelectCard",
-    "click  .submit-new-sketch-card-assoc-btn" : "submitCardSketchAssoc"
+    "click  #submit-new-sketch-card-assoc-btn" : "submitCardSketchAssoc"
   },
   
   initialize: function(options){
@@ -13,7 +13,12 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   
     this.addPlayableCards()
     this.model.whiteCards().each(this.addWhiteCard.bind(this));
-    
+    $( "#canvas" ).sortable({
+      receive: function( event, ui ) {
+        $(ui.item).addClass("selected")
+        $( "#submit-new-sketch-card-assoc-btn" ).trigger( "click" );
+      }
+    });   
   },
   
   addWhiteCard: function(card){    
