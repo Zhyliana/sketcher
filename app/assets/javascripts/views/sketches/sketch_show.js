@@ -68,8 +68,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
       }
     });    
   },
-  
-  
+    
   render: function(){
     var renderedContent = this.template({
       sketch: this.model
@@ -77,6 +76,9 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     
     this.$el.html(renderedContent)
     this.attachSubviews();
+    
+    $( ".playable-cards .card" ).sortable();
+    $( ".playable-cards .card" ).disableSelection();
     
     return this
   },
