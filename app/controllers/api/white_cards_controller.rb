@@ -12,8 +12,11 @@ module Api
     
     def show
       @white_card = WhiteCard.find(params[:id])
+      
+      @current_user_vote = @white_card.user_votes.where(user_id: current_user.id)
+      
       if @white_card
-        render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
+        render partial: "api/white_cards/white_card", locals: { white_card: @white_card, current_user_vote: @current_user_vote }
       else
         @white_cards = WhiteCard.all
         render partial: "api/white_cards/white_card", locals: { white_card: @white_card }
