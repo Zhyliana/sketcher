@@ -6,6 +6,7 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   events: {
     "mousedown #my-canvas" : "beginDrawing",
     "mousemove #my-canvas" : "drawFreeline",
+    "mouseleave #my-canvas" : "stopDrawing",
     "mouseup #my-canvas" : "stopDrawing",
     "click .paint" : "pickColor",
     "click .brush" : "pickBrush",
