@@ -1,0 +1,1 @@
+json.extract! user_vote, :id, :user_id, :white_card_id, :vote_value
