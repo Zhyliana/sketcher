@@ -11,35 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140521212944) do
-=======
-ActiveRecord::Schema.define(version: 20140522045006) do
->>>>>>> safe-email
-=======
-ActiveRecord::Schema.define(version: 20140523163612) do
->>>>>>> safe-email
-=======
-ActiveRecord::Schema.define(version: 20140523183139) do
->>>>>>> safe-email
-=======
-ActiveRecord::Schema.define(version: 20140524042233) do
->>>>>>> 7f43ae95a641a1915d95dab5d09245a583d23e0d
-=======
-ActiveRecord::Schema.define(version: 20140525015813) do
->>>>>>> safe-email2
-=======
-ActiveRecord::Schema.define(version: 20140528002959) do
->>>>>>> 5b1070c52b6069adaa237787854306a4ca5cde1d
-=======
 ActiveRecord::Schema.define(version: 20140527220306) do
->>>>>>> 12cd9a8f704f7dbab38daeaf4fd634fd4940e023
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,11 +51,6 @@ ActiveRecord::Schema.define(version: 20140527220306) do
   add_index "user_votes", ["white_card_id", "user_id"], name: "index_user_votes_on_white_card_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
-<<<<<<< HEAD
-    t.datetime "created_at"
-    t.datetime "updated_at"
-=======
->>>>>>> safe-email
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -94,11 +61,8 @@ ActiveRecord::Schema.define(version: 20140527220306) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-<<<<<<< HEAD
-=======
     t.datetime "created_at"
     t.datetime "updated_at"
->>>>>>> safe-email
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
