@@ -29,15 +29,15 @@ module Api
         played_card_ids << card.id
       end
       
-      top_cards =  WhiteCard.order(votes: :desc).limit(100)
-      available_cards =  top_cards.where.not(id: played_card_ids)
+      available_cards = WhiteCard.all.sort_by{|card| card.total_votes && !played_card_ids.include?(card) }[1...100].reverse!
+
       @white_cards = available_cards.shuffle[0,5]
 
       render :index
     end
 
     def top
-      @white_cards =  WhiteCard.order(votes: :desc).limit(100)
+      @white_cards = WhiteCard.all.sort_by{|card| card.total_votes }[1...100].reverse!
       render :index
     end
 
@@ -70,7 +70,7 @@ module Api
 
     private
     def white_card_params
-      params.require(:white_card).permit(:body, :votes, :sketches)
+      params.require(:white_card).permit(:body, :total_votes)
     end
   end
 end

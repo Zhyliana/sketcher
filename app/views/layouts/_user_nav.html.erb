@@ -14,6 +14,10 @@
         $( "#user-profile" ).toggleClass("closed", 0, "swing" );
       });
       
+      // $( "#link-to-profile" ).click(function(event) {
+      //   Backbone.history.navigate("#/profile/" + currentUserID, { trigger: true })
+      // })
+      
       $(document).click(function() {
         if($('#user-profile').hasClass('closed')) {
           $( ".closed" ).removeClass("closed", 0, "swing" );
@@ -23,7 +27,7 @@
     </script>
   </a>
   <ul class="dropdown-menu">
-    <li><a href="#/users/<%= current_user.id %>">Profile</li>
+    <li id="link-to-profile"><a href="#/profile/<%= current_user.id %>">Profile</li>
     <li class="divider"></li>
     <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
   </ul>
