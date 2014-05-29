@@ -1,7 +1,5 @@
 json.extract! white_card, :id, :body, :user_id, :total_votes
 
-
-
 unless current_user.nil?
   json.user_votes do
     current_user_vote = white_card.user_votes.select do |user_vote|

@@ -223,7 +223,7 @@ label {
   
 }
 
-.btn.new-user {
+.btn.new-user, .btn.new-user:hover, .btn.new-user:focus, .btn.new-user:active {
   font-size: 1.2em;
   line-height: 30px;
   margin-left: 5%;
@@ -232,8 +232,9 @@ label {
   background-color: rgb(228, 152, 148);
   float: left;
   font-weight: bold;
+  color: none;
+  border: none;
 }
-
 
 .btn.new-user:hover{
   color: #FFFFFF;

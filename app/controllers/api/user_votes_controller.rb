@@ -4,10 +4,8 @@ module Api
       @user_vote =  UserVote.new(user_vote_params)
     
       if @user_vote.save
-
         render json: { sucess: "saved" }
       else 
-
         render json: { errors: "not saved" }, status: 422
       end
     end
