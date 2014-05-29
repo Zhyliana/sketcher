@@ -20,6 +20,7 @@
  */
 
 @import "bootstrap";
+<<<<<<< HEAD
 >>>>>>> safe-email2
 
 <<<<<<< HEAD
@@ -31,6 +32,10 @@
 =======
 /*@import url(http://fonts.googleapis.com/css?family=Lobster);*/
 >>>>>>> fcce62a45134c218fcbf709cf270261744513159
+=======
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+>>>>>>> 12cd9a8f704f7dbab38daeaf4fd634fd4940e023
 
 /*@font-face {
   font-family: 'glyphicon';
@@ -67,7 +72,7 @@ body {
   background-color: #0f8790;
 }
 
-h1, h2, h4, label, .navbar-text, .navbar-brand:hover {
+h1, h2, h4, label, #username-stats, .navbar-brand, .navbar-brand:hover {
   color: #FFFFFF;
 }
 
@@ -264,7 +269,7 @@ label {
   
 }
 
-.btn.new-user {
+.btn.new-user, .btn.new-user:hover, .btn.new-user:focus, .btn.new-user:active {
   font-size: 1.2em;
   line-height: 30px;
   margin-left: 5%;
@@ -273,8 +278,9 @@ label {
   background-color: rgb(228, 152, 148);
   float: left;
   font-weight: bold;
+  color: none;
+  border: none;
 }
-
 
 .btn.new-user:hover{
   color: #FFFFFF;
@@ -298,8 +304,16 @@ label {
   padding-top: 0px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 >>>>>>> fcce62a45134c218fcbf709cf270261744513159
 =======
 >>>>>>> 5b1070c52b6069adaa237787854306a4ca5cde1d
+=======
+
+
+.glyphicon-plus.closed {
+  -webkit-transform: rotate(45deg);
+}
+>>>>>>> 12cd9a8f704f7dbab38daeaf4fd634fd4940e023

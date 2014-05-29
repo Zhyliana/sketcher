@@ -35,5 +35,4 @@ SketchMate.Views.ShowUser = Backbone.CompositeView.extend({
   
     return this;
   },
-
 })

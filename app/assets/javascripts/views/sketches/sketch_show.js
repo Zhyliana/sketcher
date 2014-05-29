@@ -4,16 +4,15 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
   events: {
     "click .playable-cards .card" : "selectCard",
     "click .playable-cards .selected" : "deSelectCard",
-    "click  .submit-new-sketch-card-assoc-btn" : "submitCardSketchAssoc"
+    "click  #submit-new-sketch-card-assoc-btn" : "submitCardSketchAssoc"
   },
   
   initialize: function(options){
     this.listenTo(this.model, "sync add remove", this.render);
     this.listenTo(this.model.whiteCards(), "sync add", this.addWhiteCard);
   
-    this.addPlayableCards()
-    this.model.whiteCards().each(this.addWhiteCard.bind(this));
-    
+    this.addPlayableCards();
+    this.model.whiteCards().each(this.addWhiteCard.bind(this));  
   },
   
   addWhiteCard: function(card){    
@@ -68,8 +67,7 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
       }
     });    
   },
-  
-  
+    
   render: function(){
     var renderedContent = this.template({
       sketch: this.model
@@ -77,6 +75,9 @@ SketchMate.Views.ShowSketch = Backbone.CompositeView.extend({
     
     this.$el.html(renderedContent)
     this.attachSubviews();
+    
+    $( ".playable-cards .card" ).sortable();
+    $( ".playable-cards .card" ).disableSelection();
     
     return this
   },

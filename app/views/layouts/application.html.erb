@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar my-nav" role="navigation">
+  <nav class="navbar navbar-inverse my-nav" role="navigation">
     <div class="container-fluid ">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -19,51 +19,26 @@
           <%= render "layouts/nav_btns" %>
            <% if user_signed_in? %>
             <%= render "api/white_cards/new" %>
-          <% end %>
+           <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <%= render "layouts/user_nav" %>
           <% else %>
-            <%= render "layouts/sign_in_modal" %>            
-            <li><%= button_to "Sign Up", new_user_registration_url, 
-              class: "navbar-btn sessions-nav-btn", 
-              id: "sign-up-nav-btn",
-              method: :get %>
+            <%= render "layouts/sign_in_up_modal" %>           
           <% end %>
         </ul><!-- navbar-right -->
      </div><!-- navbar-collapse -->
   </div><!-- container-fluid-->
 </nav>
 
-<% if alert %>
-    <div class="alert alert-success col-xs-4 col-xs-offset-3s">
-      <%= alert %>
-    <button type="button" class="close" data-dismiss="alert">      
-      <span class="glyphicon glyphicon-remove"></span>    
-    </button>  
-  </div>
-<% end %> 
-
-<!-- <% if notice %>
-  <div class="alert alert-success col-xs-4 col-xs-offset-3s">
-    <%= notice %>
-    <button type="button" class="close" data-dismiss="alert">
-      <span class="glyphicon glyphicon-remove"></span>
-    </button>
-  </div>
-<% end %> -->
-
-<% if flash[:errors] %>
-  <div class="alert alert-danger">
-    <h3>Dammit. Get it together!</h3>
-    <ul>
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
+<% if notice %>
+ <% render "layouts/messages"%>
 <% end %>
+
+
+
+
 
 
 <%= yield %>

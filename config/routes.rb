@@ -33,16 +33,18 @@ Rails.application.routes.draw do
   
   root to: "static_pages#home"
   
+  # get "profile/:id", to: "users#show"
   resources :users, only: [:show, :index], defaults: { format: :json }
   namespace :api, defaults: { format: :json } do
     resources :sketches do 
        get "white_cards", to: "white_cards#index"
        get "playable_cards", to: "white_cards#playable"
     end
-    resources :white_cards
+    resources :white_cards do 
+      resources :user_votes
+    end
     resources :card_sketch_assignments 
     get "top_cards", to: "white_cards#top"
-    post "user_votes", to: "user_votes#create"
   end
 
 end

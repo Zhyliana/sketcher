@@ -1,0 +1,15 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-info alert-dismissable col-xs-2">
+    <button type="button" class="close" data-dismiss="alert">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <%= value %>
+  </div>
+<% end %>
+
+<div class="alert alert-success col-xs-4 col-xs-offset-3">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert">
+    <span class="glyphicon glyphicon-remove"></span>
+  </button>
+</div>

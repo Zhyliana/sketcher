@@ -4,16 +4,10 @@ gem 'ejs'
 gem 'serialize_json-rails', '~> 0.0.1'
 gem 'fabric-rails'
 gem 'devise'
-<<<<<<< HEAD
 gem 'omniauth'
-=======
 gem 'jquery-ui-rails'
-<<<<<<< HEAD
->>>>>>> safe-email2
-=======
+gem 'seed_dump'
 gem 'bootstrap-sass'
->>>>>>> fcce62a45134c218fcbf709cf270261744513159
-
 gem 'pg'
 gem 'pry-rails'
 

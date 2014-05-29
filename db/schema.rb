@@ -17,6 +17,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140521212944) do
 =======
 ActiveRecord::Schema.define(version: 20140522045006) do
@@ -36,29 +37,34 @@ ActiveRecord::Schema.define(version: 20140525015813) do
 =======
 ActiveRecord::Schema.define(version: 20140528002959) do
 >>>>>>> 5b1070c52b6069adaa237787854306a4ca5cde1d
+=======
+ActiveRecord::Schema.define(version: 20140527220306) do
+>>>>>>> 12cd9a8f704f7dbab38daeaf4fd634fd4940e023
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "card_sketch_assignments", force: true do |t|
-    t.integer  "sketch_id"
+    t.integer  "sketch_id",     null: false
+    t.integer  "white_card_id", null: false
+    t.integer  "user_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "white_card_id"
-    t.integer  "user_id"
   end
 
   add_index "card_sketch_assignments", ["sketch_id"], name: "index_card_sketch_assignments_on_sketch_id", using: :btree
+  add_index "card_sketch_assignments", ["user_id"], name: "index_card_sketch_assignments_on_user_id", using: :btree
+  add_index "card_sketch_assignments", ["white_card_id"], name: "index_card_sketch_assignments_on_white_card_id", using: :btree
 
   create_table "sketches", force: true do |t|
     t.integer  "user_id",            null: false
     t.text     "data_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "sketches", ["user_id"], name: "index_sketches_on_user_id", using: :btree
@@ -98,16 +104,13 @@ ActiveRecord::Schema.define(version: 20140528002959) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "uservotes", force: true do |t|
+  create_table "white_cards", force: true do |t|
+    t.string   "body",       null: false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "white_cards", force: true do |t|
-    t.string   "body",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
+  add_index "white_cards", ["user_id"], name: "index_white_cards_on_user_id", using: :btree
 
 end

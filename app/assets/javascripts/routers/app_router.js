@@ -4,10 +4,19 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
+    "/" : "home",
+    "profile/:id" : "userShow",
     "game" : "sketchNew",
-    "sketch/:id" : "sketchShow",
+    "game/:id" : "sketchShow",
     'white_cards/vote' : "cardsIndex",
-    "users/:id" : "userShow"
+  },
+  
+  home: function(){
+    var homeView = new SketchMate.Views.Home({
+      user_id: currentUserID
+    });
+    
+    this._swapView(homeView)
   },
   
   sketchShow: function(id){

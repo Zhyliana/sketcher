@@ -1,15 +1,33 @@
-<p class="navbar-text"><b><%= current_user.username %>&nbsp 
-  (&nbsp<%= current_user.card_karma %> : <%= current_user.sketch_karma %>&nbsp) </b></p>
-
 <li class="dropdown">
-  <a href="#" 
+  <a data-target="#"
+   href="#"
+   id="user-dropdown"
    class="dropdown-toggle" 
    data-toggle="dropdown">
-   <span class="glyphicon glyphicon-user"></span> 
-   <b class="caret glyphicon"></b>
+   <b id="username-stats"><%= current_user.username %>&nbsp 
+     (&nbsp<%= current_user.card_karma %> : <%= current_user.sketch_karma %>&nbsp)</b>
+     &nbsp
+   <b class="glyphicon glyphicon-plus" id="user-profile"></b>
+   <script>
+    $(function() {
+      $( "#user-dropdown" ).click(function(event) {
+        $( "#user-profile" ).toggleClass("closed", 0, "swing" );
+      });
+      
+      // $( "#link-to-profile" ).click(function(event) {
+      //   Backbone.history.navigate("#/profile/" + currentUserID, { trigger: true })
+      // })
+      
+      $(document).click(function() {
+        if($('#user-profile').hasClass('closed')) {
+          $( ".closed" ).removeClass("closed", 0, "swing" );
+        }
+      });
+    });
+    </script>
   </a>
   <ul class="dropdown-menu">
-    <li><a href="#/users/<%= current_user.id %>">Profile</li>
+    <li id="link-to-profile"><a href="#/profile/<%= current_user.id %>">Profile</li>
     <li class="divider"></li>
     <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
   </ul>

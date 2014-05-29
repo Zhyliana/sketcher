@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   def card_karma
     card_karma = 0
     white_cards.map do |card|
-      card_karma += card.votes
+      card_karma += card.total_votes
     end    
     card_karma
   end

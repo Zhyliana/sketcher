@@ -4,21 +4,23 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
   collection: SketchMate.Collections.Sketches,
 
   events: {
+    "mousedown #my-canvas" : "beginDrawing",
+    "mousemove #my-canvas" : "drawFreeline",
+    "mouseleave #my-canvas" : "stopDrawing",
+    "mouseup #my-canvas" : "stopDrawing",
     "click .paint" : "pickColor",
     "click .brush" : "pickBrush",
+    "click .stamp" : "changeStamp",
     "change #brush-slider" : "pickBrushSlider",
     "click #restart"  : "restartSketch",
-    "mousedown #my-canvas" : "beginDrawing",
-    "mousemove #my-canvas" : "draw",
-    "mouseup #my-canvas" : "stopDrawing",
-    "click #submit-drawing-button" : "submit",
-    "click #picker" : "showColorGradient",
+    "click #submit-drawing-button" : "submit"
   },
   
   initialize: function(){
-   this.colorPickerDisplay = false;
-   this.brushSize = 10;
-   // this.listenTo(this, 'inDOM', this.createSketch);
+    this.brushSize = 10;
+    this.stamp = "freeLine";
+    this.color = "black";
+
     this.selectPromptCard()
   },
   
@@ -50,96 +52,106 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     this.addSubview(".prompt-card", promptCardShowView) 
   },
   
-  drawable: function (event) {
+  setUpCanvas: function (event) {
     if (!this["hasBeenDone"]) {
       this.hasBeenDone = true
       this.canvas = document.getElementById("my-canvas");
       this.ctx = this.canvas.getContext("2d");
-      this.ctx.strokeStyle = "black"; 
-      this.ctx.lineWidth = this.brushSize;
-      this.ctx.lineJoin = 'round';
-      this.ctx.lineCap = 'round'; 
+      this.ctx.lineJoin = this.ctx.lineCap = "round";
       this.canvasOffset = $("#my-canvas").offset();
-      debugger
     }
   },
   
+  beginDrawing: function(event){
+    this.setUpCanvas();
+    this.drawing = true;
+    
+    if (this.stamp === "circleStamp"){
+      this.drawCircle(event);
+    } else if (this.stamp === "squareStamp"){
+      this.drawSquare(event);
+    } else {
+      this.ctx.beginPath();
+    }
+  },  
+  
+  changeStamp: function(event){
+    this.stamp = event.target.id
+  },
+  
   pickColor: function(event){
-    var color = event.target.id; 
-         
-    this.ctx.strokeStyle = color;
-    this.ctx.moveTo(event.pageX - this.canvasOffset.left, event.pageY - this.canvasOffset.top);
+    this.color = event.target.id;
   },
-  
-  
-  
-  
-  
-  
-  showColorGradient: function(event){
-    event.preventDefault();
-    $('#picker').colpick({
-    	layout:'hex',
-    	submit:0,
-      color: this.ctx.strokeStyle,
-    });
-
-  },
-  
-  
-  
-  
-  
-  
   
   pickBrush: function(event){
-    var width = JSON.parse(event.target.getAttribute("data-size-id"));
-    this.ctx.lineWidth = width;
+    this.brushSize = JSON.parse(event.target.getAttribute("data-size-id"));
   },
   
   pickBrushSlider: function(event){
     event.preventDefault();
-    this.brushSize = JSON.parse($(event.currentTarget)[0].value)
-    $("#current-brush-size").text(this.brushSize)
-    $("#brush-slider").val(this.brushSize)
-  },
-   
-  beginDrawing: function(event){
-    this.drawable();
-    this.drawing = true;
-    this.ctx.beginPath();
+    
+    this.brushSize = JSON.parse($(event.currentTarget)[0].value);
+    $("#current-brush-size").text(this.brushSize);
+    $("#brush-slider").val(this.brushSize);
   },
   
-  draw: function(event){
-    if (this.drawing === true) {
-      this.ctx.lineTo(event.pageX - this.canvasOffset.left, event.pageY - this.canvasOffset.top);
+  drawCircle: function(event){
+    var x = event.pageX - this.canvasOffset.left;
+    var y = event.pageY - this.canvasOffset.top;
+    
+    this.ctx.beginPath();
+    this.ctx.arc(x, y, this.brushSize/2, 0, 2 * Math.PI, false);
+    this.ctx.fillStyle = this.color;
+    this.ctx.fill();
+  },
+  
+  drawSquare: function(event){
+    var mid = this.brushSize / 2;
+    var x = event.pageX - (this.canvasOffset.left + mid);
+    var y = event.pageY - (this.canvasOffset.top + mid);
+    
+    this.ctx.beginPath();
+    this.ctx.rect(x, y, this.brushSize, this.brushSize);
+    this.ctx.fillStyle = this.color;
+    this.ctx.fill();
+  },
+  
+  drawFreeline: function(event){
+    if (this.drawing === true && this.stamp === "freeLine"){
+      var x = event.pageX - this.canvasOffset.left;
+      var y = event.pageY - this.canvasOffset.top;
+      
+      this.ctx.strokeStyle = this.color; 
+      this.ctx.lineWidth = this.brushSize;
+      this.ctx.lineTo(x, y);
       this.ctx.stroke();
     }
+  },
+  
+  stopDrawing: function(){
+    this.drawing = false;
   },
   
   restartSketch: function(){    
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
   },
 
-  stopDrawing: function(){
-    this.drawing = false;
-  },
-
   submit: function(event){ 
     event.preventDefault()
+    
     var view = this;
-    var canvas = $("#my-canvas")[0].toDataURL();
     var newSketch = new SketchMate.Models.Sketch();
+    var canvas = $("#my-canvas")[0].toDataURL();
     
     newSketch.save({
-      image: canvas,
-      votes: 0
+      user_id: currentUserID,
+      image: canvas
     },{
       success: function(){
         SketchMate.sketches.add(newSketch);
         var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;
-
-        Backbone.history.navigate("#/sketch/" + nextSketchID, { trigger: true })
+        // SketchMate.Routers.AppRouter.sketchShow(nextSketchID);
+        Backbone.history.navigate("#/game/" + nextSketchID, { trigger: true })
       }
     });    
   }
