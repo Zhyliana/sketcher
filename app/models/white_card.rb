@@ -11,7 +11,7 @@
 #
 
 class WhiteCard < ActiveRecord::Base
-  validates :user, :body, presence: true
+  validates :user_id, :body, presence: true
   validates :body, uniqueness: { case_sensitive: false }, length: { 
     in: 3..140,
     too_short: "You gotta write more than that. At least 3 charachters.",
