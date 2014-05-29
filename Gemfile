@@ -6,6 +6,7 @@ gem 'fabric-rails'
 gem 'devise'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
+gem 'seed_dump'
 
 gem 'pg'
 gem 'pry-rails'

@@ -33,7 +33,7 @@ class Sketch < ActiveRecord::Base
       SELECT 
         sketches.*
       FROM
-        sketches JOIN card_sketch_assignments ON card_sketch_assignments.sketch_id = sketches.id
+        sketches LEFT JOIN card_sketch_assignments ON card_sketch_assignments.sketch_id = sketches.id
       GROUP BY sketches.id
       HAVING COUNT(card_sketch_assignments.white_card_id) < 9
     SQL
