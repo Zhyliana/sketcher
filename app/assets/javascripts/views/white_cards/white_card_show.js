@@ -48,13 +48,13 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
     if(whiteCard.userVotes.user_id === currentUserID){
       var updatedVote = new SketchMate.Models.UserVote(whiteCard.userVotes)
       updatedVote.destroy({
-        success: function(){
-          $totalVotes.toggleClass("upvoted")
-          thumb.parent().find(".upvote").toggleClass("upvoted")
-          // thumb.parent().find(".card-votes").text(currVote - 1)
+        success: function(){ 
+          // thumb.parent().find(".card-votes").text(currVote - 1)   
           whiteCard.userVotes = {}
+          whiteCard.attributes.user_votes = {}
           whiteCard.save({user_votes: {}},{})
-          delete whiteCard.user_votes
+          // debugger
+          // delete whiteCard.userVotes
           whiteCard.fetch()
         }
       })
@@ -64,22 +64,24 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
         white_card_id: this.model.escape("id"),
         vote_value: + 1,
       });
-  
+      // debugger
       newVoteModel.save({},{
         success: function(){
-          $totalVotes.toggleClass("upvoted")
-          thumb.parent().find(".upvote").toggleClass("upvoted")
-          // thumb.parent().find(".card-votes").text(currVote + 1)
+          thumb.parent().find(".card-votes").text(currVote + 1)
           whiteCard.userVotes = newVoteModel.toJSON()
+          whiteCard.attributes.user_votes = newVoteModel.toJSON()
           whiteCard.save({user_votes: newVoteModel.toJSON()},{})
           whiteCard.fetch()
-          // whiteCard.user_votes.add(newVoteModel.toJSON())
+          // whiteCard.userVotes.add(newVoteModel.toJSON())
           // alert("newVoteModelSave" + thumb.parent().find(".card-votes").text())
         }
       })
     }
-   
-    this.render()
+    
+    $totalVotes.toggleClass("upvoted")
+    thumb.parent().find(".upvote").toggleClass("upvoted")
+    //    
+    // this.render()
   },
 
   
