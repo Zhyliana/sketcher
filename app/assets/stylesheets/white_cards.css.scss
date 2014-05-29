@@ -9,8 +9,6 @@
   margin: 20px;
   border-radius: 15px;
   position:relative;
-/*  border-collapse:collapse;*/
-/*  display : table;*/
 }
 
 .card-body {
@@ -31,17 +29,11 @@
   font-size: 16px;
   font-weight: 15px;
   font-family: Helvetica;  
-/*  position: absolute;
-  margin: 0px 10px;
-  display : table-cell;*/
 }
 
 .card-vote {
   font-size: 20px;
   font-weight: 20px;  
-/*  display : table-cell;*/
-/*  padding: 10px;*/
-/*    position: absolute;*/
 }
 
 .card-vote.upvote {
