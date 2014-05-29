@@ -15,3 +15,29 @@
   <span class="glyphicon glyphicon-plus"></span>
 </div>
 
+<script>
+$(document).ready(function() {
+  $(".playable-cards").sortable({
+    items: ".card",
+    cursorAt: { left: 75, top: 120 }, 
+    revert: true,
+    appendTo: "#canvas",
+    scrollSensitivity: 7,
+    tolerance: "intersect",
+    connectWith: "#canvas",
+    start: function( event, ui ){
+      $(ui.item).siblings().removeClass("selected")
+      $(ui.item).addClass("selected")
+    },
+  })
+  $( "#canvas" ).sortable({
+    appendTo: "#canvas",
+    receive: function( event, ui ) {
+      $(ui.item).addClass("selected")
+      $( "#submit-new-sketch-card-assoc-btn" ).trigger( "click" );
+    }
+  });
+})
+
+</script>
+
