@@ -42,33 +42,39 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
     //   }
     // })
     var whiteCard = this.model;
+    var thumbs = $(event.target);
     
+  
     whiteCard.userVotes.forEach(function(userVote){ 
       if(userVote.user_id === currentUserID){
-        alert("found")
+        newVote = false
+      
         var updatedVote = new SketchMate.Models.UserVote(userVote)
 
-        updatedVote.save({vote_value: 0},{
+        updatedVote.destroy({
           success: function(){
-            alert("updatedVote Saved")
+            $(".upvote").css("color", "black")
           }
         })
       }
+      
+      if(newVote){
+        var upvote = new SketchMate.Models.UserVote({
+          user_id: currentUserID,
+          white_card_id: this.model.escape("id"),
+          vote_value: + 1,
+        });
+        
+        upvote.save({},{
+          success: function(){
+            $(".upvote").css("color", "rgb(136, 146, 252)")
+          }
+        })
+      }
+      
     })
-    
-    
-    // var upvote = new SketchMate.Models.UserVote({
-    //   user_id: currentUserID,
-    //   white_card_id: this.model.escape("id"),
-    //   vote_value: + 1,
-    //   whiteCard: this.model
-    // });
-    // upvote.save({},{
-    //   success: function(){
-    //     alert("upvoted")
-    //   }
-    // })
   },
+
   
   downvote: function(event){
     var downvote = new SketchMate.Models.UserVote({
