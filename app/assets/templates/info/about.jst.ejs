@@ -1,4 +1,19 @@
-<div class="container" id="about">
+<div class="container col-xs-5 col-xs-offset-3" id="about">
+  <div class="fb-share-button" data-href="https://sketchmate.io" data-type="button"></div>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  
+
+  
+  
+  
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sketchmate.io" data-text="I just spent 2 hours on this game" data-count="none" data-hashtags="SketchMate">Tweet</a>
   <h2> What is this? </h2>
   <p> It's like Cards Against Humanity or Apples to Apples, but with a sketch in between. Sketch the black card you're given, or describe a sketch with a white card. Once 8 cards have been submitted for a sketch, the sketcher gets to pick their favorite. The player who submitted that card is declared the winner.</p>
   <br>
@@ -11,22 +26,29 @@
   <br>
   <h4> Sketch Karma </h4>
   <p> Play a lot. When the sketcher chooses your card, you get TEN awesome points.     
-    <br>
-  If you're the sketcher, one of the eight cards is randomly generated. A mole! Pick the mole card and YOU get TEN awesome points.</p>
+    <br><br>
+    If you're the sketcher, one of the eight cards is randomly generated. A mole! Pick the mole card and YOU get TEN awesome points.</p>
   
-  <h2> Why </h2>
+  <h2> <i class="fa fa-users"></i>&nbspWho? </h2>
   <p>
-    Zhyliana originally built the game for App Academy, a 12-week intensive developer-training program in San Francisco, CA. 
-        <br>
+    Zhyliana originally built the game for  <a href="https://appacademy.io" class="link">App Academy</a>, a 12-week intensive developer-training program in San Francisco, CA. 
+        <br><br>
     Zhyliana wanted to create a game for her final project. She sought out to make a more competitive version of Cards Against Humanity. Something she could play sporadically while still maintaining the social aspect of the original game. This idea became the basis of SketchMate's gameplay.
-        <br>
+        <br><br>
     With only 9 weeks of professional training, she managed to build the original version of SketchMate in only one week. Improvements have been coming ever since. 
   </p>
   <br>
-  <h2>How?</h2>
-  Doodle or Die is 100% Javascript in the browser and on the server. We use MongoDB, host on Joyent and Amazon S3 and love Node.JS and its community.
+  <h2> <i class="fa fa-info-circle"></i>&nbspHow?</h2>
   <p>SketchMate is built on Rails, and 100% of the gameplay is in Backbone.
-    <br>
+  <br><br>
     Images are hosted on Amazon S3. User authorization was built using Devise, but this is scheduled to be replaces with SketchMate's own authorization, which won't require players to provide their email.
   </p>
+  
+  <a href="https://github.com/Zhyliana/sketcher" class="btn"><i class="fa fa-github"></i> Checkout our Source Code</a>
+  <br><br>
+  <h2> <i class="fa fa-envelope"></i> &nbspContact</h2>
+  <p>We're always trying to make this even more awesome.</p>
+  <a href="mailto:zhyliana@gmail.com" class="btn"> Email Us</a>  
 </div>
+
+

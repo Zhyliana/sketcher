@@ -1,4 +1,3 @@
-
 CardSketchAssignment.create!([
   {sketch_id: 1, white_card_id: 2, user_id: 1},
   {sketch_id: 1, white_card_id: 5, user_id: 1},
@@ -13,14 +12,16 @@ CardSketchAssignment.create!([
   {sketch_id: 4, white_card_id: 6, user_id: 1},
   {sketch_id: 3, white_card_id: 3, user_id: 1},
 ])
+
 Sketch.create!([
-  {user_id: 1, data_url: nil, image_file_name: "data", image_content_type: "image/png", image_file_size: 10845, image_updated_at: "2014-05-29 20:18:44"},
-  {user_id: 1, data_url: nil, image_file_name: "data", image_content_type: "image/png", image_file_size: 13562, image_updated_at: "2014-05-29 20:19:33"},
+  {user_id: 1, data_url: nil, image_file_name: "data", image_content_type: "image/png", image_file_size: 10845, image_updated_at: "2014-05-29 20: 18:44"},
+  {user_id: 1, data_url: nil, image_file_name: "data", image_content_type: "image/png", image_file_size: 13562, image_updated_at: "2014-05-29 20: 19:33"},
   {user_id: 1, data_url: nil, image_file_name: "data", image_content_type: "image/png", image_file_size: 10746, image_updated_at: "2014-05-29 20:22:34"},
   {user_id: 1, data_url: nil, image_file_name: "data", image_content_type: "image/png", image_file_size: 14543, image_updated_at: "2014-05-29 20:23:56"}
 ])
+
 UserVote.create!([
-  {user_id: 2, white_card_id: 2, vote_value: 1},
+  {user_id: , white_card_id: 2, vote_value: 1},
   {user_id: 1, white_card_id: 17, vote_value: 1},
   {user_id: 1, white_card_id: 7, vote_value: 1},
   {user_id: 1, white_card_id: 1, vote_value: 1},
@@ -39,6 +40,7 @@ UserVote.create!([
   {user_id: 1, white_card_id: 10, vote_value: 1},
   {user_id: 1, white_card_id: 14, vote_value: 1}
 ])
+
 WhiteCard.create!([
   {body: "Altar boys.", user_id: 1},
   {body: "I can't stop eating my own hands.", user_id: 1},
@@ -64,6 +66,6 @@ WhiteCard.create!([
   {body: "Why was Barney canceled? ", user_id: 1},
   {body: "Got backboned.", user_id: 1},
   {body: "Buttoley butthole", user_id: 1},
-  {body: "Loosing my shit appettite. ", user_id: 1},
-  {body: "MMM.... donuts", user_id: 1}
+  {body: "Loosing my shit appettite.", user_id: 1},
+  {body: "MMM.... donuts", user_id: 1},
 ])

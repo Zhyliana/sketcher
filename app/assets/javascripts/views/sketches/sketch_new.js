@@ -150,7 +150,8 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
       success: function(){
         SketchMate.sketches.add(newSketch);
 
-        var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;
+        // var nextSketchID = Math.floor(SketchMate.sketches.length * Math.random()) + 1;
+        var nextSketchID = SketchMate.sketches.sample().id;
         Backbone.history.navigate("#/game/" + nextSketchID, { trigger: true })
       }
     });    

@@ -15,6 +15,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 gem 'figaro'
 gem 'font-awesome-sass'
+gem 'mail_form'
 
 gem 'rails_12factor', group: :production
 
