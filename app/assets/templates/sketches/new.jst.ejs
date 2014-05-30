@@ -1,10 +1,6 @@
 <div class="prompt-card">
 </div>
 
-<button id="circleStamp" class="stamp">Circle Stamp</button>
-<button id="squareStamp" class="stamp">Square Stamp</button>
-<button id="freeLine" class="stamp">Free Line</button>
-<button id="white" class="paint">Eraser</button>
 
 <canvas id="my-canvas" width="500" height="500">
   <script>
@@ -14,6 +10,13 @@
     </script> 
 </canvas>
 <div class="tools">
+  <div class="stamps">
+    <button id="circleStamp" class="stamp"><i class="fa fa-circle"></i></button>
+    <button id="squareStamp" class="stamp"><i class="fa fa-square"></i></button>
+    <button id="freeLine" class="stamp"><i class="fa fa-stumbleupon"></i></button>
+    <button id="white" class="paint"><i class="fa fa-eraser"></i></button>
+  </div>
+  
   
   <div id="pallette-area">
     <button id="black" class="paint">
@@ -51,14 +54,42 @@
     </div>
   </div>
   
-  <button class="btn" id="submit-drawing-button">
-    Submit
-  </button>
-  
-  <button id="restart" class="btn glyphicon glyphicon-remove-circle">
-  </button>
+  <div class="decide">
+    <button class="btn" id="submit-drawing-button">
+      Submit
+    </button>
+    <button  id="restart" 
+             class="btn glyphicon glyphicon-fire" 
+             data-toggle="modal" 
+             data-target=".confirm-reset">
+    </button>
+  </div>
+</div>
+<div id="dialog" style="display: none;">
+  Are you sure about this?
 </div>
 
+
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+
+<!-- Small modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+<div class="modal confirm-reset" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      Abandon your masterpiece?
+    </div>
+  </div>
+</div>
 
 
 

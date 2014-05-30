@@ -132,8 +132,31 @@ SketchMate.Views.NewSketch = Backbone.CompositeView.extend({
     this.drawing = false;
   },
   
-  restartSketch: function(){    
+  clearCanvas: function(){
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+  },
+  
+  restartSketch: function(){  
+    var view = this;
+    $("#dialog").dialog({
+      dialogClass: "stamp",
+      show: { effect: "puff", duration: 1000 },
+      hide: { effect: "puff", duration: 1000 },
+      modal: true,
+      open: function (e, ui) {
+          $(this).parent().find(".ui-dialog-buttonpane .ui-button")
+              .addClass("alert-danger");},
+      buttons: {
+        "Burn It!" : function(event) {
+          debugger
+          view.clearCanvas()
+          $(this).dialog("close");
+        },
+        "I'll keep it.": function() {
+          $(this).dialog("close");
+        }
+      }
+    });
   },
 
   submit: function(event){ 

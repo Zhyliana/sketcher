@@ -43,16 +43,31 @@
   display: block;
 }
 
-.paint {
+.paint, .stamp {
   height: 30px;
   width: 30px;
   border: 2px solid #FFFFFF;
   border-radius: 5px;
 }
 
-.brush, .paint {
+.brush, .paint, .stamp, #restart {
   margin: 3px;
   float: left;
+}
+
+.stamps {
+  padding-bottom: 40px;
+  padding-left: 4px;
+}
+
+.stamp, #white, #restart {
+  color: #FFFFFF;
+  background-color: #DB8C10;
+  border: none;
+}
+
+.fa-stumbleupon {
+  -webkit-transform: rotate(45deg);
 }
 
 .brush {
@@ -96,18 +111,6 @@
   line-height: 35px;
 }
 
-#restart {
-  font-size: 16px;
-  border: none;
-  margin-left: 5px;
-  padding: 10px;
-}
-
-#restart:hover, #restart:active, #restart:focus {
-  color: #FFFFFF;
-  border: none;
-  outline: none;
-}
 
 input[type='range'] {
     -webkit-appearance: none !important;
@@ -198,7 +201,7 @@ input[type='range']::-webkit-slider-thumb:hover, input[type='range']::-webkit-sl
  visibility: visible !important;  
 }
 
-.prompt-card .card-body{
+.prompt-card .card-body {
   font-weight: 650;
 }
 
@@ -237,17 +240,51 @@ input[type='range']::-webkit-slider-thumb:hover, input[type='range']::-webkit-sl
   background-color: #DB8C10;
   color: #FFFFFF;
   margin: 15px 5px;
-  width: 145px;
+  padding: 5px 5px;
+  width: 105px;
   font-size: 18px;
-  padding: 2px 10px;
-  border: none;
-  
+  border: none;  
 }
 
 #submit-drawing-button:hover {
   background-color: #CC8516;
   border: none;
 }
+
+#restart {
+  font-size: 16px;
+  border: none;
+  width: 30px;
+  height: 33px;
+  float: right;
+  margin-top: 15px;
+  padding: 5px;
+}
+
+#restart:hover, #restart:active, #restart:focus {
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  background-color: #FA610F;
+  animation-name: shake;
+  -webkit-animation-name: shake;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  visibility: visible !important;
+}
+
+@-webkit-keyframes shake {
+  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  
+  10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+}
+
 
 #black {
   background-color: black;

@@ -9,8 +9,8 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
    
   
   events: {
-    "click div.upvote" : "upvote",
-    "click div.downvote" : "downvote",
+    "click i.upvote" : "upvote",
+    "click i.downvote" : "downvote",
   },
   
   initialize: function(options){

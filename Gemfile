@@ -14,6 +14,7 @@ gem 'pry-rails'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'font-awesome-sass'
 
 gem 'rails_12factor', group: :production
 
