@@ -9,8 +9,8 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
    
   
   events: {
-    "click i.upvote" : "upvote",
-    "click i.downvote" : "downvote",
+    "click .card-vote.upvote" : "upvote",
+    "click .card-vote.downvote" : "downvote",
   },
   
   initialize: function(options){
@@ -31,7 +31,7 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
         this.$el.find(".upvote").toggleClass("upvoted")
       } else if (userVote === -1) {
         this.$el.find(".card-votes").toggleClass("downvoted")
-        this.$el.find(".downvote").toggleClass("upvoted")
+        this.$el.find(".downvote").toggleClass("downvoted")
       }
     }
   
@@ -49,11 +49,10 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
       var updatedVote = new SketchMate.Models.UserVote(whiteCard.userVotes)
       updatedVote.destroy({
         success: function(){ 
-          // thumb.parent().find(".card-votes").text(currVote - 1)   
+          thumb.parent().find(".card-votes").text(currVote - 1)   
           whiteCard.userVotes = {}
           whiteCard.attributes.user_votes = {}
           whiteCard.save({user_votes: {}},{})
-          // debugger
           // delete whiteCard.userVotes
           whiteCard.fetch()
         }
@@ -64,7 +63,6 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
         white_card_id: this.model.escape("id"),
         vote_value: + 1,
       });
-      // debugger
       newVoteModel.save({},{
         success: function(){
           thumb.parent().find(".card-votes").text(currVote + 1)
@@ -86,26 +84,49 @@ SketchMate.Views.ShowWhiteCard = Backbone.View.extend({
 
   
   downvote: function(event){
-    var downvote = new SketchMate.Models.UserVote({
-      whiteCard: this.model
-    });
-    var thumbsDown = $(event.target);
-    var votes = $(event.target).parent().parent().children(".card-votes")
+    var view = this;
+    var whiteCard = this.model;
+    var thumb = $(event.target);
+    var currVote = JSON.parse(thumb.siblings(".card-votes").text())
+    var $totalVotes = thumb.parent().find(".card-votes")
+  
+    if(whiteCard.userVotes.user_id === currentUserID){
+      var updatedVote = new SketchMate.Models.UserVote(whiteCard.userVotes)
+      updatedVote.destroy({
+        success: function(){ 
+          thumb.parent().find(".card-votes").text(currVote + 1)   
+          whiteCard.userVotes = {}
+          whiteCard.attributes.user_votes = {}
+          whiteCard.save({user_votes: {}},{})
+          // debugger
+          // delete whiteCard.userVotes
+          // whiteCard.fetch()
+        }
+      })
+    } else {      
+      var newVoteModel = new SketchMate.Models.UserVote({
+        user_id: currentUserID,
+        white_card_id: this.model.escape("id"),
+        vote_value: - 1,
+      });
+      newVoteModel.save({},{
+        success: function(){
+          thumb.parent().find(".card-votes").text(currVote - 1)
+          whiteCard.userVotes = newVoteModel.toJSON()
+          whiteCard.attributes.user_votes = newVoteModel.toJSON()
+          whiteCard.save({user_votes: newVoteModel.toJSON()},{})
+          // whiteCard.fetch()
+          $totalVotes.toggleClass("downvoted")
+          // whiteCard.userVotes.add(newVoteModel.toJSON())
+          // alert("newVoteModelSave" + thumb.parent().find(".card-votes").text())
+        }
+      })
+    }
     
-    downvote.save({
-      user_id: currentUserID,
-      white_card_id: this.model.escape("id"),
-      vote_value: - 1
-    },{
-      success: function(){
-        votes.siblings().children().css("color", "black")
-        thumbsDown.parent().removeClass( "downvote" )
-        thumbsDown.css("color", "rgb(136, 146, 252)")
-        votes.css("color", "rgb(136, 146, 252)")
-        var vote = JSON.parse(votes.text());
-        votes.text(vote - 1)
-      }
-    })
+    $totalVotes.toggleClass("downvoted")
+    thumb.parent().find(".downvote").toggleClass("downvoted")
+    //    
+    // this.render()
   },
   
 })
