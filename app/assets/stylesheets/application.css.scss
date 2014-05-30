@@ -42,7 +42,14 @@ body {
   background-color: #0f8790;
 }
 
-h1, h2, h4, label, #username-stats, .navbar-brand, .navbar-brand:hover {
+h1, h2, label, li, a,  #username-stats, .navbar-brand, .navbar-brand:hover {
+  color: #FFFFFF;
+}
+
+.my-nav {
+  background-image:url('nav_background.png');
+  border-radius: 0px;
+  margin-bottom: 0px;
   color: #FFFFFF;
 }
 
