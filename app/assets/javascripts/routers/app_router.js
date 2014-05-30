@@ -4,20 +4,24 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
-    "/" : "home",
     "profile/:id" : "userShow",
     "game" : "sketchNew",
     "game/:id" : "sketchShow",
     'white_cards/vote' : "cardsIndex",
   },
   
-  home: function(){
-    var homeView = new SketchMate.Views.Home({
-      user_id: currentUserID
-    });
-    
-    this._swapView(homeView)
-  },
+  // home: function(){
+  //   if (currentUserID){
+  //     var user = SketchMate.users.getOrFetch(id);
+  //   } else {
+  //     var user = "guest"
+  //   }
+  //   var homeView = new SketchMate.Views.Home({
+  //     model: user
+  //   });
+  // 
+  //   this._swapView(homeView)
+  // },
   
   sketchShow: function(id){
     var sketch = SketchMate.sketches.getOrFetch(id);

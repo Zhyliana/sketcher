@@ -19,6 +19,7 @@
 //= require serialize_json
 //= require fabric
 //= require bootstrap
+//= shepherd.min.js
 //= require sketch_mate
 //= require_tree ../templates
 //= require_tree ./models

@@ -33,6 +33,7 @@ window.SketchMate = {
   }
 };
 
+
 Backbone.CompositeView = Backbone.View.extend({
   subviews: function (selector) {
     this._subviews = this._subviews || {};
