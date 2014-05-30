@@ -21,4 +21,4 @@ SketchMate.Collections.Sketches = Backbone.Collection.extend({
   },
 })
 
-// window.SketchMate.sketches = new SketchMate.Collections.Sketches();
+window.SketchMate.sketches = new SketchMate.Collections.Sketches();
