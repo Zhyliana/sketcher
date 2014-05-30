@@ -52,8 +52,8 @@ a#logo-thumb.navbar-brand{
   margin-left: -10px;
 }
 
-a#logo-text.navbar-brand{
-  
+.navbar-inverse li:hover{
+  background-color: rgba(70, 70, 70, 0.9);
 }
 
 .navbar-header {
@@ -313,4 +313,17 @@ label {
 }
 #user_remember_me {
   margin: 5px 5px;
+}
+
+.twitter-share-button, .fb-share-button{
+  float: right;
+  margin: 15px;
+}
+
+.twitter-share-button {
+  margin-right: 0px;
+}
+
+#about p, #about h4 {
+  color: #FFFFFF;
 }

@@ -8,6 +8,7 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
     "game" : "sketchNew",
     "game/:id" : "sketchShow",
     'white_cards/vote' : "cardsIndex",
+    "about" : "about"
   },
   
   // home: function(){
@@ -68,6 +69,11 @@ SketchMate.Routers.AppRouter = Backbone.Router.extend({
     
     allWhiteCards.fetch()
     this._swapView(allWhiteCardsView)
+  },
+  
+  about: function(){
+   var aboutView = new SketchMate.Views.About()
+   this._swapView(aboutView)
   },
   
   _swapView: function(view) {
