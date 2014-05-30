@@ -14,10 +14,6 @@
         $( "#user-profile" ).toggleClass("closed", 0, "swing" );
       });
       
-      // $( "#link-to-profile" ).click(function(event) {
-      //   Backbone.history.navigate("#/profile/" + currentUserID, { trigger: true })
-      // })
-      
       $(document).click(function() {
         if($('#user-profile').hasClass('closed')) {
           $( ".closed" ).removeClass("closed", 0, "swing" );
