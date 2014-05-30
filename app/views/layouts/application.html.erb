@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= favicon_link_tag%>
   <title>SketchMate</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,7 +12,8 @@
     <div class="container-fluid ">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">SketchMate</a>
+        <a class="navbar-brand" href="#" id="logo-thumb"><%= image_tag "logo-thumb.png"%></a>
+        <a class="navbar-brand" href="#" id="logo-text">SketchMate</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-collapse">

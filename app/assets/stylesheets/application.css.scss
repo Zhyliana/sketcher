@@ -27,8 +27,8 @@
          url('/assets/fonts/fontawesome-webfont.svg#webfont') format('svg');
 }
 */
-/*@import url(http://fonts.googleapis.com/css?family=Lobster);
-*/
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
 /*@font-face {
   font-family: 'glyphicon';
   src: url(vendor/assets/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(vendor/assets/glyphicons-halflings-regular.woff) format("woff"), url(vendor/assets/glyphicons-halflings-regular.ttf) format("truetype"), url(vendor/assets/glyphicons-halflings-regular.svg#Icomoon) format("svg");
@@ -42,8 +42,22 @@ body {
   background-color: #0f8790;
 }
 
-h1, h2, label, li, a, #username-stats, .navbar-brand, .navbar-brand:hover {
+h1, h2, label, li, a, #username-stats, .navbar-inverse .navbar-brand, .navbar-brand:hover {
   color: #FFFFFF;
+}
+
+a#logo-thumb.navbar-brand{
+  margin-top: -7px;
+  height: 34px;
+  margin-left: -10px;
+}
+
+a#logo-text.navbar-brand{
+  
+}
+
+.navbar-header {
+  width: 180px;
 }
 
 #new_user > .form-group {
@@ -66,6 +80,7 @@ h1, h2, label, li, a, #username-stats, .navbar-brand, .navbar-brand:hover {
 .btn:hover {
   background-color: #BA7B19;
   border: none;
+  color: #FFFFFF;
 }
 
 .my-nav {
@@ -291,4 +306,11 @@ label {
   margin: 5px;
   margin-top: 7px;
   border: none;
+}
+
+#sign-in-page .form-group, #sign-up-page .form-group, #sign-in-page h4, #sign-up-page h4 {
+  color: #FFFFFF;
+}
+#user_remember_me {
+  margin: 5px 5px;
 }
